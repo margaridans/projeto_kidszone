@@ -23,6 +23,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginTop="80dp"
+            android:background="@color/btn_normal"
             android:text=""
             android:textAllCaps="false" />
 
@@ -33,6 +34,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginTop="10dp"
+            android:background="@color/btn_normal"
             android:text=""
             android:textAllCaps="false" />
 
@@ -43,6 +45,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginTop="10dp"
+            android:background="@color/btn_normal"
             android:text=""
             android:textAllCaps="false" />
 
@@ -53,6 +56,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginTop="10dp"
+            android:background="@color/btn_normal"
             android:text=""
             android:textAllCaps="false" />
 
@@ -60,9 +64,15 @@
         <TextView
             android:id="@+id/pontuacao"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="118dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Pontos: 0" />
+
+        <Button
+            android:id="@+id/terminar_treino"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Acabar Treino" />
     </LinearLayout>
 </LinearLayout>
