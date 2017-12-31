@@ -5,6 +5,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 
 public class Dicas{
 
@@ -78,6 +80,23 @@ public class Dicas{
             }
 
             return dica;
+        } catch (SQLException ex) {
+            db.close();
+            return null;
+        }
+    }
+
+    public static ArrayList<Dicas> getDicas(SQLiteDatabase db, ArrayList<Dicas> dicasList) {
+        try {
+            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE, null);
+
+            if (c != null && c.moveToFirst()) {
+                do {
+                    dicasList.add(new Dicas(c.getInt(0), c.getString(1)));
+                } while (c.moveToNext());
+            }
+
+            return dicasList;
         } catch (SQLException ex) {
             db.close();
             return null;
