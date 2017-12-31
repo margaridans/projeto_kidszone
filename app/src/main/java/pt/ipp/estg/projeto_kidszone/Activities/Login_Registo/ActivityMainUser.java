@@ -1,8 +1,8 @@
-package pt.ipp.estg.projeto_kidszone.Activities;
+package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
-import android.app.Activity;
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -10,12 +10,13 @@ import pt.ipp.estg.projeto_kidszone.R;
  * Created by margarida on 30/12/2017.
  */
 
-public class MainActivityUser extends Activity{
+public class ActivityMainUser extends AppCompatActivity{
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_user);
 
     }
+
 }
