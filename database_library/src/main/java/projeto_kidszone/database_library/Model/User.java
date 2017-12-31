@@ -2,7 +2,11 @@ package projeto_kidszone.database_library.Model;
 
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 
@@ -51,4 +55,38 @@ public class User {
         this.password = password;
     }
 
+
+    public static User getUsersByUsername(SQLiteDatabase db, String username) {
+        try {
+            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE + "WHERE " + USERNAME + "=" + username + ";", null);
+            User user = null;
+
+            //se o cursor não estiver vazio e se estiver na primeira linha
+            if (c != null && c.moveToFirst()) {
+                user = new User(c.getInt(0), c.getString(1), c.getString(2));
+            }
+            return user;
+
+        } catch (SQLException ex) {
+            db.close();
+            return null;
+        }
+    }
+
+    public static ArrayList<User> getUsers(SQLiteDatabase db, ArrayList<User> usersList) {
+        try {
+            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE, null);
+
+            if (c != null && c.moveToFirst()) {
+                do {
+                    usersList.add(new User(c.getInt(0), c.getString(1), c.getString(2)));
+                } while (c.moveToNext());
+            }
+
+            return usersList;
+        } catch (SQLException ex) {
+            db.close();
+            return null;
+        }
+    }
 }
