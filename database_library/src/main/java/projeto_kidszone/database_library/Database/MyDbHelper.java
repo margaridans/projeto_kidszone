@@ -1,6 +1,8 @@
 package projeto_kidszone.database_library.Database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -28,7 +30,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + Dificuldade.NAME_TABLE + "(" + Dificuldade.ID_DIFIC + " INTEGER PRIMARY KEY, " + Dificuldade.NOME_DIFIC + " VARCHAR(20) NOT NULL, " + Dificuldade.PONTUACAO_PERG + " INTEGER NOT NULL );");
         db.execSQL("CREATE TABLE " + Pergunta.NAME_TABLE + "(" + Pergunta.ID_PERG + " INTEGER PRIMARY KEY, " + Pergunta.NOME_PERG + " VARCHAR(70) NOT NULL, " + Pergunta.ID_CAT + " INTEGER NOT NULL, " + Pergunta.ID_DIFIC + " INTEGER NOT NULL, " + Pergunta.RESP1 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP2 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP3 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP4 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP_CERTA + " VARCHAR(25) NOT NULL);");
         db.execSQL("CREATE TABLE " + Pontuacao.NAME_TABLE + "(" + Pontuacao.ID_PONT + " INTEGER PRIMARY KEY, " + Pontuacao.PONTUACAO + " INTEGER NOT NULL, " + Pontuacao.USER + " VARCHAR(25) NOT NULL );");
-        db.execSQL("CREATE TABLE " + User.NAME_TABLE + "(" + User.ID_USER + " INTEGER PRIMARY KEY, " + User.USERNAME + " VARCHAR(20) NOT NULL, " + User.PASS + " VARCHAR(15) NOT NULL );");
+        db.execSQL("CREATE TABLE " + User.NAME_TABLE + "(" + User.ID_USER + " INTEGER PRIMARY KEY AUTOINCREMENT, " + User.USERNAME + " VARCHAR(20) NOT NULL, " + User.PASS + " VARCHAR(15) NOT NULL );");
 
         criarPergunta(db);
     }
@@ -86,6 +88,24 @@ public class MyDbHelper extends SQLiteOpenHelper {
         pergunta7.addPergunta(db);
         pergunta8.addPergunta(db);
         pergunta9.addPergunta(db);
+
+    }
+
+    public long criarUtilizador(String username, String password){
+        SQLiteDatabase db=getWritableDatabase();
+        ContentValues cv= new ContentValues();
+        cv.put("username",username);
+        cv.put("password",password);
+        long result=db.insert("tblUser",null,cv);
+        return result;
+    }
+
+    public String validarUtilizador(String username, String password){
+       SQLiteDatabase db=getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM tblUser WHERE username='?' AND password='?'",new String[]{username,password});
+        if(c.getCount()>0){
+            return "OK";
+        }return "ERRO";
 
     }
 

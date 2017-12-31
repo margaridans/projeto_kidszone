@@ -1,6 +1,11 @@
 package projeto_kidszone.database_library.Model;
 
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import projeto_kidszone.database_library.Database.MyDbHelper;
+
 public class User {
     public static String NAME_TABLE = "tblUser", ID_USER = "id_user", USERNAME = "username", PASS = "password";
     private int id_user;
@@ -16,6 +21,10 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User() {
+
     }
 
     public int getId_user() {
@@ -41,4 +50,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
