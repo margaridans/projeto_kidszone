@@ -85,7 +85,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void verificaResposta(String resposta) {
+    private void verificaResposta(String resposta){
         if (jogo.respostaCerta(resposta)) {
             if(pergunta.getId_dificuldade()==1) {
                 pontuacao += 2;
@@ -105,7 +105,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private void setPerguntaToView() {
+    private void setPerguntaToView()  {
 
         pergunta = jogo.getNextPergunta();
 

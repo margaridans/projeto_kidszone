@@ -44,10 +44,7 @@ public class Perguntas_Jogo {
     * porque esta contem as posições que já sairam*/
 
 
-    public Pergunta getNextPergunta() throws Throwable {
-        if(perguntasJogo.size()==perguntasJogadas.size()) {
-            finalize();
-        }
+    public Pergunta getNextPergunta()  {
 
         int randomNum = positionPergunta(perguntasJogo.size());
         perguntasJogadas.add(randomNum);
