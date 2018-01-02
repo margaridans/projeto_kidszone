@@ -4,8 +4,10 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import projeto_kidszone.database_library.Database.MyDbHelper;
+
 public class Dificuldade {
-    public static String NAME_TABLE = "tblDificuldade", ID_DIFIC = "id_dificuldade", NOME_DIFIC = "dificuldade_name", PONTUACAO_PERG="pontuacao_perg" ;
+    public static String NAME_TABLE = "tblDificuldade", ID_DIFIC = "id_dificuldade", NOME_DIFIC = "dificuldade_name", PONTUACAO_PERG = "pontuacao_perg";
     private int id_dificuldade;
     private String dificuldade_name;
     private int pontuacao_perg;
@@ -51,7 +53,7 @@ public class Dificuldade {
 
     public boolean addDificuldade(SQLiteDatabase db) {
         try {
-            db.execSQL("INSERT INTO " + NAME_TABLE + "(" + ID_DIFIC + ", "+NOME_DIFIC+", "+PONTUACAO_PERG+")VALUES ('" + id_dificuldade + "','" + dificuldade_name + "','" + pontuacao_perg + "');");
+            db.execSQL("INSERT INTO " + NAME_TABLE + "(" + ID_DIFIC + ", " + NOME_DIFIC + ", " + PONTUACAO_PERG + ")VALUES ('" + id_dificuldade + "','" + dificuldade_name + "','" + pontuacao_perg + "');");
             return true;
         } catch (SQLException ex) {
             db.close();
@@ -71,7 +73,7 @@ public class Dificuldade {
 
     public boolean updateDificuldade(SQLiteDatabase db) {
         try {
-            db.execSQL("UPDATE " + NAME_TABLE + "SET " + ID_DIFIC + " = '" + id_dificuldade +", " + NOME_DIFIC + " = " + dificuldade_name + "' WHERE " + ID_DIFIC + "=" + id_dificuldade + ";");
+            db.execSQL("UPDATE " + NAME_TABLE + "SET " + ID_DIFIC + " = '" + id_dificuldade + ", " + NOME_DIFIC + " = " + dificuldade_name + "' WHERE " + ID_DIFIC + "=" + id_dificuldade + ";");
             return true;
         } catch (SQLException ex) {
             db.close();
@@ -79,7 +81,7 @@ public class Dificuldade {
         }
     }
 
-    public static Dificuldade getDificuldadeById(SQLiteDatabase db, int id_dificuldade) {
+    public Dificuldade getDificuldadeById(SQLiteDatabase db, int id_dificuldade) {
         try {
             Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE + "WHERE " + ID_DIFIC + "=" + id_dificuldade + ";", null);
             Dificuldade dificuldade = null;
@@ -96,5 +98,4 @@ public class Dificuldade {
             return null;
         }
     }
-
 }

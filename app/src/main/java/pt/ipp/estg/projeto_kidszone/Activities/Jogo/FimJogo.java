@@ -18,16 +18,6 @@ private TextView textView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fim_jogo);
 
-        Intent intent=getIntent();
 
-        status= intent.getStringExtra("status");
-
-        if(status.equals("Perdeu")) {
-            imageView.setImageResource(R.drawable.sad);
-            textView.setText(R.string.msg_perder);
-        } else if(status.equals("Ganhou")) {
-            imageView.setImageResource(R.drawable.happy);
-            textView.setText(R.string.msg_ganhou);
-        }
     }
 }

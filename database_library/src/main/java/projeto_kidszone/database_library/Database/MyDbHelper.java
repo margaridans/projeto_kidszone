@@ -76,7 +76,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
         Pergunta pergunta6 = new Pergunta(6, "Qual a palavra que está mal escrita?", 2, 3, "mexer", "chícara", "enxergar", "caprichar", "chícara");
         Pergunta pergunta7 = new Pergunta(7, "Qual destas expressões corresponde ao número mais pequeno?", 3, 1, "2/5", "5/10", "3/2", "1/7", "1/7");
         Pergunta pergunta8 = new Pergunta(8, "Qual dos números completa a seguinte sequência: 2 3 6 18 ", 3, 2, "22", "32", "64", "108", "108");
-        Pergunta pergunta9 = new Pergunta(9, "Qual é 6b-10+2b=06", 3, 3, "41", "02", "06", "10", "02");
+        Pergunta pergunta9 = new Pergunta(9, "Qual é o valor de b:  6b-10+2b=06", 3, 3, "41", "02", "06", "10", "02");
 
         //Add pergunta à bd
         pergunta1.addPergunta(db);
@@ -100,18 +100,19 @@ public class MyDbHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public boolean checkIFExistis(String login){
+    public boolean checkIFExistis(String username) {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("select * from " + User.NAME_TABLE + " where " + User.USERNAME + " = ? ", new String[]{login});
+        Cursor cursor = db.rawQuery("SELECT * FROM tblUser WHERE username=? ", new String[]{username});
 
-        if(cursor.getCount() <= 0){
+        if (cursor.getCount() <= 0) {
             cursor.close();
             return false;
-        }
+        } else {
 
             return true;
         }
+    }
 
 
     public String validarUtilizador(String username, String password) {

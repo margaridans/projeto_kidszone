@@ -20,10 +20,10 @@ import pt.ipp.estg.projeto_kidszone.R;
 
 public class JogoTreino extends AppCompatActivity implements View.OnClickListener {
     private Perguntas_Jogo jogo;
-    private int pontuacao = 0;
+    private int pontuacao = 0, pontuacao_ind=0;
     private Dificuldade dificuldade;
     private TextView txtPergunta;
-    private TextView txtPontuacao;
+    private TextView txtPontuacao, txtPontuacao_ind;
     private Button btn, btn1, btn2, btn3, btn4, btnTerminar;
     private Pergunta pergunta;
     private int id_lista = 0;
@@ -60,41 +60,47 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verificaResposta(btn1.getText().toString(), dificuldade, btn1);
+                verificaResposta(btn1.getText().toString());
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verificaResposta(btn2.getText().toString(), dificuldade, btn2);
+                verificaResposta(btn2.getText().toString());
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verificaResposta(btn3.getText().toString(), dificuldade, btn3);
+                verificaResposta(btn3.getText().toString());
             }
         });
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                verificaResposta(btn4.getText().toString(), dificuldade, btn4);
+                verificaResposta(btn4.getText().toString());
             }
         });
 
 
     }
 
-    private void verificaResposta(String resposta, Dificuldade dificuldade, Button btn) {
+    private void verificaResposta(String resposta) {
         if (jogo.respostaCerta(resposta)) {
-            //Toast.makeText(this, "Ganhou", Toast.LENGTH_LONG).show();
-            pontuacao += pergunta.getId_dificuldade();
+            if(pergunta.getId_dificuldade()==1) {
+                pontuacao += 2;
+            }
+            if(pergunta.getId_dificuldade()==2) {
+                pontuacao += 5;
+            }
+            if(pergunta.getId_dificuldade()==3) {
+                pontuacao += 8;
+            }
+
             txtPontuacao.setText("Pontos: " + pontuacao);
-            btn.setBackgroundResource(R.drawable.selector_button_certa);
             setPerguntaToView();
 
         } else {
-            btn.setBackgroundResource(R.drawable.selector_button_errada);
             setPerguntaToView();
         }
     }
@@ -109,9 +115,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btn3.setText(pergunta.getResposta3());
         btn4.setText(pergunta.getResposta4());
 
-        if(jogo.getNextPergunta()==null) {
-            Toast.makeText(JogoTreino.this, "Acabou as perguntas", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override

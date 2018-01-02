@@ -1,9 +1,6 @@
 package pt.ipp.estg.projeto_kidszone.Model;
 
 import android.content.Context;
-import android.content.Intent;
-import android.widget.Toast;
-
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,11 +8,7 @@ import java.util.Random;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pergunta;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogo;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoTreino;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
-import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
-import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Registo;
+
 
 
 public class Perguntas_Jogo {
@@ -34,8 +27,6 @@ public class Perguntas_Jogo {
         /*Vai buscar as perguntas a serem mostradas*/
         Pergunta.getPerguntas(dbHelper.getReadableDatabase(), perguntasJogo);
 
-        perguntasJogadas = new LinkedList<>();
-
         this.posicaoUltimaPergunta = -1;
     }
 
@@ -43,7 +34,8 @@ public class Perguntas_Jogo {
         if(posicaoUltimaPergunta > -1) {
             return perguntasJogo.get(posicaoUltimaPergunta).getResposta_certa().equals(resposta);
         }
-        return false;}
+        return false;
+    }
 
     /*Método que calcula qual a próxima pergunta a ser mostrada ao utilizador
     * A pergunta é gerada conforme a sua posição na lista ligada(LinkedList) onde
@@ -52,17 +44,18 @@ public class Perguntas_Jogo {
     * porque esta contem as posições que já sairam*/
 
 
-    public Pergunta getNextPergunta() {
-        if (perguntasJogo.size() == perguntasJogadas.size()) {
-
-            return null;
+    public Pergunta getNextPergunta() throws Throwable {
+        if(perguntasJogo.size()==perguntasJogadas.size()) {
+            finalize();
         }
 
         int randomNum = positionPergunta(perguntasJogo.size());
         perguntasJogadas.add(randomNum);
         posicaoUltimaPergunta = randomNum;
 
+
         return perguntasJogo.get(randomNum);
+
     }
 
     /*Este método vai gerar a posição da pergunta, vai gerar um número random, de 0(inclusive)
