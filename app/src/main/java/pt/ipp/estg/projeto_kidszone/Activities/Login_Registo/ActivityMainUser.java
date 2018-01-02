@@ -50,6 +50,13 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
         TextView btn_Registar = (TextView) findViewById(R.id.btnRegistar);
 
+        Intent intentEntrar = getIntent();
+        String username = intentEntrar.getStringExtra("username");
+
+        Toast.makeText(this, "Bem vindo " + username, Toast.LENGTH_SHORT).show();
+
+        TextView txtUsername = (TextView) findViewById(R.id.txtNameUser);
+        txtUsername.setText(username);
     }
 
     @Override

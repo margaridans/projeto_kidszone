@@ -2,6 +2,7 @@ package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.User;
-import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
 
@@ -23,6 +23,7 @@ public class Registo extends AppCompatActivity {
     Login login;
 
     MyDbHelper db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +54,22 @@ public class Registo extends AppCompatActivity {
                     Toast.makeText(Registo.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
                 } else {
                     long res = db.criarUtilizador(username, password);
-                    if (res > 0) {
-                        Toast.makeText(Registo.this, "Registo efetuado com sucesso", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Registo.this, Login.class);
-                        startActivity(intent);
-                        finish();
+
+                    if (db.checkIFExistis(editTextUserName.getText().toString())==true) {
+                        if (res > 0) {
+                            Toast.makeText(Registo.this, "Registo efetuado com sucesso", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Registo.this, Login.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(Registo.this, "Ocorreu um erro. Não foi possível registar.", Toast.LENGTH_SHORT).show();
+
+                        }
                     } else {
-                        Toast.makeText(Registo.this, "Utilizador já se encontra registado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registo.this, "Não é possível registar esse usuário, pois ele já existe", Toast.LENGTH_SHORT).show();
+
                     }
                 }
+
             }
         });
     }

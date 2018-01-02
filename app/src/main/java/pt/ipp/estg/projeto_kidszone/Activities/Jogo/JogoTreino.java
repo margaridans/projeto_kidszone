@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -107,6 +108,10 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btn2.setText(pergunta.getResposta2());
         btn3.setText(pergunta.getResposta3());
         btn4.setText(pergunta.getResposta4());
+
+        if(jogo.getNextPergunta()==null) {
+            Toast.makeText(JogoTreino.this, "Acabou as perguntas", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

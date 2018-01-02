@@ -100,6 +100,20 @@ public class MyDbHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    public boolean checkIFExistis(String login){
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from " + User.NAME_TABLE + " where " + User.USERNAME + " = ? ", new String[]{login});
+
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+
+            return true;
+        }
+
+
     public String validarUtilizador(String username, String password) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM tblUser WHERE username=? AND password=?", new String[]{username,password});

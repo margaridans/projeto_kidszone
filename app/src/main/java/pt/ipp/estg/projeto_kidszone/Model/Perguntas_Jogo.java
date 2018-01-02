@@ -1,6 +1,9 @@
 package pt.ipp.estg.projeto_kidszone.Model;
 
 import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,6 +11,11 @@ import java.util.Random;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pergunta;
+import pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogo;
+import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoTreino;
+import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
+import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
+import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Registo;
 
 
 public class Perguntas_Jogo {
@@ -46,6 +54,7 @@ public class Perguntas_Jogo {
 
     public Pergunta getNextPergunta() {
         if (perguntasJogo.size() == perguntasJogadas.size()) {
+
             return null;
         }
 
