@@ -55,7 +55,7 @@ public class Registo extends AppCompatActivity {
                 } else {
                     long res = db.criarUtilizador(username, password);
 
-                    if (db.checkIFExistis(editTextUserName.getText().toString())==true) {
+                    if (!db.checkIFExistis(editTextUserName.getText().toString())) {
                         if (res > 0) {
                             Toast.makeText(Registo.this, "Registo efetuado com sucesso", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Registo.this, Login.class);

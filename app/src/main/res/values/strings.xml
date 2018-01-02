@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">KidsZone</string>
+    <string name="facebook_app_id">577944415879569</string>
+    <string name="cancel_login">Login cancelado</string>
+    <string name="error_login">Ocorreu um erro</string>
     <string name="msg_perder">Perdeu</string>
     <string name="msg_ganhou">Ganhou</string>
     <string name="login">Login</string>
@@ -18,5 +21,6 @@
     <string name="perguntaRegisto">Ainda não tens a tua conta?</string>
     <string name="btnRegistar">Regista-te aqui!</string>
     <string name="text_dicas">Dicas</string>
-
+    <item name="error_login" type="id">Ocorreu um erro</item>
+    <item name="cancel_login" type="id">Login cancelado</item>
 </resources>

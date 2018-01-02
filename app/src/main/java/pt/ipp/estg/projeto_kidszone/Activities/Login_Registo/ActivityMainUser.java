@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
+
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
@@ -57,6 +60,23 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
         TextView txtUsername = (TextView) findViewById(R.id.txtNameUser);
         txtUsername.setText(username);
+
+        //Login com Facebook
+        if(AccessToken.getCurrentAccessToken()==null){
+            goLoginScreen();
+        }
+    }
+
+    //Login com Facebook
+    private void goLoginScreen() {
+        Intent intent=new Intent(this,Login.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    public void logout(View view) {
+        LoginManager.getInstance().logOut();
+        goLoginScreen();
     }
 
     @Override
