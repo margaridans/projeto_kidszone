@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
+import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
 
@@ -48,6 +49,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                     if (res.equals("OK")) {
                         Toast.makeText(Login.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
+                        Intent intentEntrar = new Intent(Login.this, ActivityMainUser.class);
+                        startActivity(intentEntrar);
                     } else {
                         Toast.makeText(Login.this, "Username não registado", Toast.LENGTH_SHORT).show();
                     }
@@ -66,5 +69,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             Intent intentEntrar = new Intent(this, ActivityMainUser.class);
             startActivity(intentEntrar);
         }
-        }
     }
+
+
+}

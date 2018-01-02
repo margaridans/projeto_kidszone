@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Bernardino\AndroidStudioProjects\projeto_kidszone\app\app.iml" filepath="C:\Users\Bernardino\AndroidStudioProjects\projeto_kidszone\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/database_library/database_library.iml" filepath="$PROJECT_DIR$/database_library/database_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/projeto_kidszone.iml" filepath="$PROJECT_DIR$/.idea/projeto_kidszone.iml" />
+      <module fileurl="file://C:\Users\Bernardino\AndroidStudioProjects\projeto_kidszone\database_library\database_library.iml" filepath="C:\Users\Bernardino\AndroidStudioProjects\projeto_kidszone\database_library\database_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projeto_kidszone.iml" filepath="$PROJECT_DIR$/projeto_kidszone.iml" />
+      <module fileurl="file://C:\Users\Bernardino\AndroidStudioProjects\projeto_kidszone\.idea\projeto_kidszone.iml" filepath="C:\Users\Bernardino\AndroidStudioProjects\projeto_kidszone\.idea\projeto_kidszone.iml" />
     </modules>
   </component>
 </project>

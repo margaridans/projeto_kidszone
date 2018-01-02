@@ -22,6 +22,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
         myDb = new MyDbHelper(this);
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
