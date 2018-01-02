@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "106584825988",
+    "firebase_url": "https://projetokidszone.firebaseio.com",
+    "project_id": "projetokidszone",
+    "storage_bucket": "projetokidszone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106584825988:android:ac7bbe728529b9d7",
+        "android_client_info": {
+          "package_name": "pt.ipp.estg.projeto_kidszone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106584825988-clil8fq6dbff4e22tkf3587ivbagnolh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pt.ipp.estg.projeto_kidszone",
+            "certificate_hash": "84de1915c339295c00d38ed85bfec299453e3a21"
+          }
+        },
+        {
+          "client_id": "106584825988-6a9ij7di11l98fcoca6elftvka65k20i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO7OasBkM-XQ3NcvrSVrcRQlLiVLdkjJw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106584825988-6a9ij7di11l98fcoca6elftvka65k20i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
