@@ -49,7 +49,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                     if (res.equals("OK")) {
                         Intent intentEntrar = new Intent(Login.this, ActivityMainUser.class);
-                        intentEntrar.putExtra("username", et_username.getText().toString());
                         startActivity(intentEntrar);
                     } else {
                         Toast.makeText(Login.this, "Username não registado", Toast.LENGTH_SHORT).show();

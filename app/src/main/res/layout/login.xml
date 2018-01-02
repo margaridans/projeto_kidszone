@@ -60,7 +60,7 @@
         android:layout_marginBottom="15dp"
         android:text="OU" />
 
-    <LoginButton
+    <Button
         android:id="@+id/btnEntrarFacebook"
         android:layout_width="260dp"
         android:layout_height="45dp"
