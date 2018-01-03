@@ -1,8 +1,11 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +21,7 @@ import pt.ipp.estg.projeto_kidszone.R;
 
 
 public class JogoTreino extends AppCompatActivity implements View.OnClickListener {
+
     private Perguntas_Jogo jogo;
     private int pontuacao = 0;
     private Dificuldade dificuldade;
@@ -100,6 +104,8 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             setPerguntaToView();
 
         } else {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(300);
             setPerguntaToView();
         }
     }
