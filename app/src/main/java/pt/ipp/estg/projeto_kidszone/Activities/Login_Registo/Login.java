@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -142,4 +143,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             startActivity(intentEntrar);
         }
     }
+
+
+
+    /*
+    public class AcessLoginTask extends AsyncTask<String,Void,Void>{
+
+        @Override
+        protected Void doInBackground(String... voids) {
+            return null;
+        }
+    }*/
+
+
 }
