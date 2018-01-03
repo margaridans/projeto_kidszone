@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,17 +54,14 @@ public class Registo extends AppCompatActivity {
                 } else if (!password.equals(confirmPassword)) {
                     Toast.makeText(Registo.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
                 } else {
-                    long res = db.criarUtilizador(username, password);
+                    Boolean res = db.criarUtilizador(username, password);
 
-                    if (!db.checkIFExistis(editTextUserName.getText().toString())) {
-                        if (res > 0) {
+                        if (res == true) {
                             Toast.makeText(Registo.this, "Registo efetuado com sucesso", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Registo.this, Login.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(Registo.this, "Ocorreu um erro. Não foi possível registar.", Toast.LENGTH_SHORT).show();
 
-                        }
+                            startActivity(intent);
+
                     } else {
                         Toast.makeText(Registo.this, "Não é possível registar esse usuário, pois ele já existe", Toast.LENGTH_SHORT).show();
 

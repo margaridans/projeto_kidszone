@@ -42,9 +42,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        //Login com Facebook
-        callbackManager = CallbackManager.Factory.create();
-
         db = new MyDbHelper(this);
 
         et_username = (EditText) findViewById(R.id.editTextUser);
@@ -70,6 +67,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     if (res.equals("OK")) {
                         Intent intentEntrar = new Intent(Login.this, ActivityMainUser.class);
                         intentEntrar.putExtra("username", username);
+                        intentEntrar.putExtra("login","normal");
                         startActivity(intentEntrar);
                     } else {
                         Toast.makeText(Login.this, "Username não registado", Toast.LENGTH_SHORT).show();
@@ -96,7 +94,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
         //Login com Facebook
+        callbackManager = CallbackManager.Factory.create();
+
         loginButton = (LoginButton) findViewById(R.id.loginButton);
+        loginButton.setReadPermissions("email");
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {

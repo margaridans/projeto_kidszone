@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,7 +33,8 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
-
+        Toast.makeText(this,"Fui Criada",Toast.LENGTH_LONG).show();
+        Log.d(this.toString(),"Fui Criada");
         ArrayList<Pergunta> listaPerguntas = new ArrayList<>();
         jogo = new Perguntas_Jogo(this, -1);
 
@@ -108,13 +110,18 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
     private void setPerguntaToView()  {
 
         pergunta = jogo.getNextPergunta();
+        if(pergunta != null) {
+            txtPergunta.setText(pergunta.getPergunta_name());
+            btn1.setText(pergunta.getResposta1());
+            btn2.setText(pergunta.getResposta2());
+            btn3.setText(pergunta.getResposta3());
+            btn4.setText(pergunta.getResposta4());
+        }else{
+            Toast.makeText(this,"Acabou",Toast.LENGTH_LONG).show();
+            Intent it = new Intent(this,FimJogo.class);
+            startActivity(it);
 
-        txtPergunta.setText(pergunta.getPergunta_name());
-        btn1.setText(pergunta.getResposta1());
-        btn2.setText(pergunta.getResposta2());
-        btn3.setText(pergunta.getResposta3());
-        btn4.setText(pergunta.getResposta4());
-
+        }
     }
 
     @Override
@@ -122,7 +129,16 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         if (v.getId() == R.id.terminar_treino) {
             Intent intentTerminar = new Intent(this, MenuJogo.class);
             startActivity(intentTerminar);
+            finish();
+
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(this.toString(),"Fui Resumida");
+        Toast.makeText(this,"Voltei atrás",Toast.LENGTH_LONG).show();
     }
 }
 

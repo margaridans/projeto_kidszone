@@ -2,6 +2,7 @@ package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -36,7 +37,7 @@ public class DicasActivity extends AppCompatActivity {
     private Dicas_Jogo sugestao;
     private Dicas dica;
     private TextView txtDica;
-    private int id_lista=0;
+    private int id_lista = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class DicasActivity extends AppCompatActivity {
         ArrayList<Dicas> listaDicas = new ArrayList<>();
         sugestao = new Dicas_Jogo(this, -1);
 
-        txtDica=(TextView) findViewById(R.id.txt_dica);
+        txtDica = (TextView) findViewById(R.id.txt_dica);
 
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sm.registerListener(sensorListener, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -55,18 +56,22 @@ public class DicasActivity extends AppCompatActivity {
         acelLast = SensorManager.GRAVITY_EARTH;
         shake = 0.00f;
 
-        MyDbHelper dbHelper=new MyDbHelper(this);
-        SQLiteDatabase db=dbHelper.getWritableDatabase();
+        MyDbHelper dbHelper = new MyDbHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        Dicas.getDicas(db,listaDicas);
-        dica=listaDicas.get(id_lista);
+        Dicas.getDicas(db, listaDicas);
+        dica = listaDicas.get(id_lista);
 
     }
 
     private void setDicaToView() {
-        dica=sugestao.getNextDica();
-
-        txtDica.setText(dica.getDica_name());
+        dica = sugestao.getNextDica();
+        if (dica != null) {
+            txtDica.setText(dica.getDica_name());
+        } else {
+            Intent it = new Intent(this, FimDica.class);
+            startActivity(it);
+        }
     }
 
     private final SensorEventListener sensorListener = new SensorEventListener() {

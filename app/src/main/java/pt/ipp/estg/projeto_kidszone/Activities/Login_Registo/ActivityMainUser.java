@@ -62,7 +62,12 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         txtUsername.setText(username);
 
         //Login com Facebook
-        if(AccessToken.getCurrentAccessToken()==null){
+        Intent login = getIntent();
+        String loginS = null;
+        if(login.getStringExtra("login")!=null){
+            loginS = login.getStringExtra("login").toString();
+        }
+        if(AccessToken.getCurrentAccessToken()==null && loginS==null){
             goLoginScreen();
         }
     }

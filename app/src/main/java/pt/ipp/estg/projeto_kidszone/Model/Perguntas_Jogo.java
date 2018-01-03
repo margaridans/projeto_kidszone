@@ -10,7 +10,6 @@ import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pergunta;
 
 
-
 public class Perguntas_Jogo {
     private Context context;
     private ArrayList<Pergunta> perguntasJogo;
@@ -31,7 +30,7 @@ public class Perguntas_Jogo {
     }
 
     public boolean respostaCerta(String resposta) {
-        if(posicaoUltimaPergunta > -1) {
+        if (posicaoUltimaPergunta > -1) {
             return perguntasJogo.get(posicaoUltimaPergunta).getResposta_certa().equals(resposta);
         }
         return false;
@@ -44,8 +43,10 @@ public class Perguntas_Jogo {
     * porque esta contem as posições que já sairam*/
 
 
-    public Pergunta getNextPergunta()  {
-
+    public Pergunta getNextPergunta() {
+        if (perguntasJogo.size() == perguntasJogadas.size()) {
+            return null;
+        }
         int randomNum = positionPergunta(perguntasJogo.size());
         perguntasJogadas.add(randomNum);
         posicaoUltimaPergunta = randomNum;
@@ -59,7 +60,7 @@ public class Perguntas_Jogo {
     * até ao número recebido - tamMaximo - (exclusive) e vai retornar esse número gerado*/
     public int positionPergunta(int tamMaximo) {
         Random random = new Random();
-        int randomNum=-1;
+        int randomNum = -1;
 
         do {
             /*randomNum vai ficar com um pseudorandom, ou seja, um valor entre 0 e o tamMax
