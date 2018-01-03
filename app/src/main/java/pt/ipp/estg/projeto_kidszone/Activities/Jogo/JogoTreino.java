@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,10 +19,10 @@ import pt.ipp.estg.projeto_kidszone.R;
 
 public class JogoTreino extends AppCompatActivity implements View.OnClickListener {
     private Perguntas_Jogo jogo;
-    private int pontuacao = 0, pontuacao_ind=0;
+    private int pontuacao = 0;
     private Dificuldade dificuldade;
     private TextView txtPergunta;
-    private TextView txtPontuacao, txtPontuacao_ind;
+    private TextView txtPontuacao;
     private Button btn, btn1, btn2, btn3, btn4, btnTerminar;
     private Pergunta pergunta;
     private int id_lista = 0;
@@ -33,8 +31,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo);
-        Toast.makeText(this,"Fui Criada",Toast.LENGTH_LONG).show();
-        Log.d(this.toString(),"Fui Criada");
         ArrayList<Pergunta> listaPerguntas = new ArrayList<>();
         jogo = new Perguntas_Jogo(this, -1);
 
@@ -100,6 +96,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             }
 
             txtPontuacao.setText("Pontos: " + pontuacao);
+
             setPerguntaToView();
 
         } else {
@@ -117,9 +114,10 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             btn3.setText(pergunta.getResposta3());
             btn4.setText(pergunta.getResposta4());
         }else{
-            Toast.makeText(this,"Acabou",Toast.LENGTH_LONG).show();
-            Intent it = new Intent(this,FimJogo.class);
-            startActivity(it);
+
+            Intent intentFimJogo = new Intent(this,FimJogoTreino.class);
+            intentFimJogo.putExtra("pontuacao", pontuacao);
+            startActivity(intentFimJogo);
 
         }
     }
@@ -134,11 +132,5 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(this.toString(),"Fui Resumida");
-        Toast.makeText(this,"Voltei atrás",Toast.LENGTH_LONG).show();
-    }
 }
 

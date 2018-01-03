@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/activity_fim_jogo"
-    tools:context="pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogo">
+    tools:context="pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogoTreino">
 
 
     <TextView

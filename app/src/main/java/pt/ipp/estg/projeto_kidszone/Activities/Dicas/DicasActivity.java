@@ -1,4 +1,4 @@
-package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
+package pt.ipp.estg.projeto_kidszone.Activities.Dicas;
 
 
 import android.content.Context;
@@ -11,9 +11,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 

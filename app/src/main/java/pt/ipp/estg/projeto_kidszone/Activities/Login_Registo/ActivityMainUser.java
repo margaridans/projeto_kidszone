@@ -14,7 +14,7 @@ import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.DicasActivity;
+import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;

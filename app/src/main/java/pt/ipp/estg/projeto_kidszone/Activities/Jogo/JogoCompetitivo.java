@@ -27,22 +27,9 @@ public class JogoCompetitivo extends AppCompatActivity implements View.OnClickLi
 
     }
 
+
     @Override
     public void onClick(View v) {
-        if(v.getId()== R.id.btnCatgIngles) {
-           Intent intentDifIngl = new Intent (this, JogoCompetitivoDif.class);
-           startActivity(intentDifIngl);
 
-        }
-
-        if(v.getId()== R.id.btnCatgMat) {
-            Intent intentDifMat = new Intent (this, JogoCompetitivoDif.class);
-            startActivity(intentDifMat);
-        }
-
-        if(v.getId()== R.id.btnCatgPt) {
-            Intent intentDifPt = new Intent (this, JogoCompetitivoDif.class);
-            startActivity(intentDifPt);
-        }
     }
 }
