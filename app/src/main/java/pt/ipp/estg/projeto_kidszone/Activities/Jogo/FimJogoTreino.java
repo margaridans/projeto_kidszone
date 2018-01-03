@@ -10,7 +10,7 @@ import android.widget.Toast;
 import pt.ipp.estg.projeto_kidszone.R;
 
 public class FimJogoTreino extends AppCompatActivity {
-
+    TextView txtPontuacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +18,14 @@ public class FimJogoTreino extends AppCompatActivity {
         setContentView(R.layout.activity_fim_jogo);
 
         Intent intentFimJogo = getIntent();
-        Integer pontuacao = intentFimJogo.getIntExtra("pontuacao", 0 );
+        Integer pontuacao = intentFimJogo.getIntExtra("pontuacao", 0);
 
-        Toast.makeText(this, "Bem vindo " + pontuacao, Toast.LENGTH_SHORT).show();
+        txtPontuacao = (TextView) findViewById(R.id.txtPontuacao);
+
+        //<20 ainda n esta preparado para competir -> que tal umn novo jogo treino
+        //>20
+
+        txtPontuacao.setText("A sua pontuacao é de: " + pontuacao);
 
 
     }
