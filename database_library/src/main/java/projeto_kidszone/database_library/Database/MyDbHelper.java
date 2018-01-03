@@ -91,19 +91,23 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     }
 
-    public long criarUtilizador(String username, String password) {
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put("username", username);
-        cv.put("password", password);
-        long result = db.insert("tblUser", null, cv);
-        return result;
+    public boolean criarUtilizador(String username, String password) {
+        if (checkIFExistis(username) == false) {
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put("username", username);
+            cv.put("password", password);
+            long result = db.insert("tblUser", null, cv);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean checkIFExistis(String username) {
         SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM tblUser WHERE username=? ", new String[]{username});
+        Cursor cursor = db.rawQuery("SELECT * FROM tblUser WHERE username= ? ", new String[]{username});
 
         if (cursor.getCount() <= 0) {
             cursor.close();
@@ -117,8 +121,8 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     public String validarUtilizador(String username, String password) {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM tblUser WHERE username=? AND password=?", new String[]{username,password});
-        if(c.getCount()>0){
+        Cursor c = db.rawQuery("SELECT * FROM tblUser WHERE username=? AND password=?", new String[]{username, password});
+        if (c.getCount() > 0) {
             return "OK";
         }
         return "ERRO";
