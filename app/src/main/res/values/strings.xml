@@ -23,4 +23,11 @@
     <string name="text_dicas">Dicas</string>
     <item name="error_login" type="id">Ocorreu um erro</item>
     <item name="cancel_login" type="id">Login cancelado</item>
+    <string name="btnCatgIngles" type="id">Inglês</string>
+    <string name="btnCatgPt" type="id">Português</string>
+    <string name="btnCatgMat" type="id">Matemática</string>
+    <string name="btnFacil" type="id">Fácil</string>
+    <string name="btnMedio" type="id">Médio</string>
+    <string name="btnDificil" type="id">Dificil</string>
+
 </resources>

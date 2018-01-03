@@ -20,7 +20,7 @@ import pt.ipp.estg.projeto_kidszone.R;
 
 public class JogoTreino extends AppCompatActivity implements View.OnClickListener {
     private Perguntas_Jogo jogo;
-    private int pontuacao = 0, pontuacao_ind=0;
+    private int pontuacao = 0, pontuacao_ind = 0;
     private Dificuldade dificuldade;
     private TextView txtPergunta;
     private TextView txtPontuacao, txtPontuacao_ind;
@@ -85,15 +85,15 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void verificaResposta(String resposta){
+    private void verificaResposta(String resposta) {
         if (jogo.respostaCerta(resposta)) {
-            if(pergunta.getId_dificuldade()==1) {
+            if (pergunta.getId_dificuldade() == 1) {
                 pontuacao += 2;
             }
-            if(pergunta.getId_dificuldade()==2) {
+            if (pergunta.getId_dificuldade() == 2) {
                 pontuacao += 5;
             }
-            if(pergunta.getId_dificuldade()==3) {
+            if (pergunta.getId_dificuldade() == 3) {
                 pontuacao += 8;
             }
 
@@ -105,15 +105,20 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private void setPerguntaToView()  {
-
+    private void setPerguntaToView() {
         pergunta = jogo.getNextPergunta();
 
+        if (jogo.getNextPergunta() == null) {
+            Toast.makeText(this, "Acabou", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(this, MenuJogo.class);
+            startActivity(intent);
+        }
         txtPergunta.setText(pergunta.getPergunta_name());
         btn1.setText(pergunta.getResposta1());
         btn2.setText(pergunta.getResposta2());
         btn3.setText(pergunta.getResposta3());
         btn4.setText(pergunta.getResposta4());
+
 
     }
 
