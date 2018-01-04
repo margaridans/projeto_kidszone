@@ -19,10 +19,10 @@ import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
-public class FimJogoTreino extends AppCompatActivity implements View.OnClickListener{
+public class FimJogoTreino extends AppCompatActivity implements View.OnClickListener {
     TextView txtPontuacao;
-    TextView lyMostrarTreinoTxt, lyMostrarCompTxt;
-    Button lyMostrarTreinoBtn,lyMostrarCompBtn;
+    TextView mostrarTreinoTxt, mostrarCompTxt;
+    Button mostrarTreinoBtn, mostrarCompBtn, btnPrincipal;
 
 
     @Override
@@ -34,23 +34,32 @@ public class FimJogoTreino extends AppCompatActivity implements View.OnClickList
         Integer pontuacao = intentFimJogo.getIntExtra("pontuacao", 0);
 
         txtPontuacao = (TextView) findViewById(R.id.txtPontuacao);
-        lyMostrarTreinoBtn = (Button) findViewById(R.id.lyMostrarTreinoBtn);
-        lyMostrarTreinoTxt = (TextView) findViewById(R.id.lyMostrarTreinoTxt);
-        lyMostrarCompBtn = (Button) findViewById(R.id.lyMostrarCompBtn);
-        lyMostrarCompTxt = (TextView) findViewById(R.id.lyMostrarCompTxt);
+
+        mostrarTreinoBtn = (Button) findViewById(R.id.mostrarTreinoBtn);
+        mostrarTreinoBtn.setOnClickListener(this);
+
+        mostrarTreinoTxt = (TextView) findViewById(R.id.mostrarTreinoTxt);
+
+        mostrarCompBtn = (Button) findViewById(R.id.mostrarCompBtn);
+        mostrarCompBtn.setOnClickListener(this);
+
+        btnPrincipal = (Button) findViewById(R.id.button_menuPrincipal);
+        btnPrincipal.setOnClickListener(this);
+
+        mostrarCompTxt = (TextView) findViewById(R.id.mostrarCompTxt);
 
         txtPontuacao.setText("A sua pontuacao é de: " + pontuacao);
 
         if (pontuacao <= 20) {
-            lyMostrarTreinoTxt.setVisibility(View.VISIBLE);
-            lyMostrarTreinoBtn.setVisibility(View.VISIBLE);
-            lyMostrarCompTxt.setVisibility(View.GONE);
-            lyMostrarCompBtn.setVisibility(View.GONE);
+            mostrarTreinoTxt.setVisibility(View.VISIBLE);
+            mostrarTreinoBtn.setVisibility(View.VISIBLE);
+            mostrarCompTxt.setVisibility(View.GONE);
+            mostrarCompBtn.setVisibility(View.GONE);
         } else {
-            lyMostrarCompTxt.setVisibility(View.VISIBLE);
-            lyMostrarCompBtn.setVisibility(View.VISIBLE);
-            lyMostrarTreinoTxt.setVisibility(View.GONE);
-            lyMostrarTreinoBtn.setVisibility(View.GONE);
+            mostrarCompTxt.setVisibility(View.VISIBLE);
+            mostrarCompBtn.setVisibility(View.VISIBLE);
+            mostrarTreinoTxt.setVisibility(View.GONE);
+            mostrarTreinoBtn.setVisibility(View.GONE);
 
         }
     }
@@ -58,17 +67,18 @@ public class FimJogoTreino extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        if(v.getId()==R.id.button_menuPrincipal) {
+        if (v.getId() == R.id.button_menuPrincipal) {
+            Intent entrar = new Intent(this, MainActivity.class);
+            startActivity(entrar);
 
-            /*SharedPreferences st = getSharedPreferences("login",MODE_PRIVATE);
-            if(!st.contains("username")) {*/
-                Intent entrarSemLogin = new Intent(this, MainActivity.class);
-                startActivity(entrarSemLogin);
-            }else{
-                Intent entrarComLogin = new Intent(this, ActivityMainUser.class);
-                startActivity(entrarComLogin);
-            }
+        } else if (v.getId() == R.id.mostrarTreinoBtn) {
+            Intent entrarJogoTreino = new Intent(this, JogoTreino.class);
+            startActivity(entrarJogoTreino);
+        } else if (v.getId() == R.id.mostrarCompBtn) {
+            Intent entrarJogoComp = new Intent(this, JogoCompetitivo.class);
+            startActivity(entrarJogoComp);
         }
 
     }
+}
 

@@ -16,13 +16,13 @@
 
 
         <TextView
-            android:id="@+id/lyMostrarTreinoTxt"
+            android:id="@+id/mostrarTreinoTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ainda não está preparado para jogar competitivo. Que tal mais um jogo treino?" />
 
         <Button
-            android:id="@+id/lyMostrarTreinoBtn"
+            android:id="@+id/mostrarTreinoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -32,13 +32,13 @@
 
 
     <TextView
-        android:id="@+id/lyMostrarCompTxt"
+        android:id="@+id/mostrarCompTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Boa! Já se encontra preparada para o jogo competitivo! Bora" />
 
     <Button
-        android:id="@+id/lyMostrarCompBtn"
+        android:id="@+id/mostrarCompBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -51,6 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Menu Principal" />
+        android:text="@string/menuPrincipal"/>
 
 </LinearLayout>
