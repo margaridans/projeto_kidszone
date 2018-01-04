@@ -2,6 +2,7 @@ package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,6 +35,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.main_activity_user);
 
 
+
+
         Button btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(this);
 
@@ -60,6 +63,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
         TextView txtUsername = (TextView) findViewById(R.id.txtNameUser);
         txtUsername.setText(username);
+
+
 
         //Login com Facebook
         Intent login = getIntent();
@@ -89,6 +94,10 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         if (v.getId() == R.id.btnLogout) {
             Toast.makeText(this, "Terminou a sua sessão", Toast.LENGTH_LONG).show();
             Intent intentLogout = new Intent(this, MainActivity.class);
+            SharedPreferences st = getSharedPreferences("login",MODE_PRIVATE);
+            SharedPreferences.Editor ed = st.edit();
+            ed.remove("username");
+            ed.apply();
             startActivity(intentLogout);
         } else if (v.getId() == R.id.btnDicas) {
             Intent intentDicas = new Intent(this, DicasActivity.class);

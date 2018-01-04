@@ -1,12 +1,15 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -21,6 +24,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.share.Share;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -66,19 +70,28 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     String res = db.validarUtilizador(username, password);
 
                     if (res.equals("OK")) {
+                     /*   SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
+                        SharedPreferences.Editor ed = sp.edit();
+                        ed.putString("username",username);*/
+
+
                         Intent intentEntrar = new Intent(Login.this, ActivityMainUser.class);
                         intentEntrar.putExtra("username", username);
-                        intentEntrar.putExtra("login","normal");
+                        intentEntrar.putExtra("login", "normal");
                         startActivity(intentEntrar);
                     } else {
                         Toast.makeText(Login.this, "Username não registado", Toast.LENGTH_SHORT).show();
                     }
                 }
+
+
             }
         });
 
 
-        try {
+        try
+
+        {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "pt.ipp.estg.projeto_kidszone",
                     PackageManager.GET_SIGNATURES);
@@ -87,9 +100,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 md.update(signature.toByteArray());
                 Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (
+                PackageManager.NameNotFoundException e)
 
-        } catch (NoSuchAlgorithmException e) {
+        {
+
+        } catch (
+                NoSuchAlgorithmException e)
+
+        {
 
         }
 
@@ -97,10 +116,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         //Login com Facebook
         callbackManager = CallbackManager.Factory.create();
 
-        loginButton = (LoginButton) findViewById(R.id.loginButton);
+        loginButton = (LoginButton)
+
+                findViewById(R.id.loginButton);
         loginButton.setReadPermissions("email");
 
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
+
+        {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 goMainScreen();
@@ -109,21 +132,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @SuppressLint("ResourceType")
             @Override
             public void onCancel() {
-                Toast.makeText(getApplicationContext(),"Login cancelado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Login cancelado", Toast.LENGTH_SHORT).show();
             }
 
             @SuppressLint("ResourceType")
             @Override
             public void onError(FacebookException error) {
-                Toast.makeText(getApplicationContext(),R.id.error_login, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.id.error_login, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
+
     //Login com Facebook
     private void goMainScreen() {
-        Intent intent=new Intent(this, ActivityMainUser.class);
+        Intent intent = new Intent(this, ActivityMainUser.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
@@ -145,17 +169,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             startActivity(intentEntrar);
         }
     }
-
-
-
-    /*
-    public class AcessLoginTask extends AsyncTask<String,Void,Void>{
-
-        @Override
-        protected Void doInBackground(String... voids) {
-            return null;
-        }
-    }*/
 
 
 }

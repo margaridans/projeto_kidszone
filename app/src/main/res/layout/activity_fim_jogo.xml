@@ -12,36 +12,38 @@
         android:id="@+id/txtPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="" />
+
+
+        <TextView
+            android:id="@+id/lyMostrarTreinoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ainda não está preparado para jogar competitivo. Que tal mais um jogo treino?" />
+
+        <Button
+            android:id="@+id/lyMostrarTreinoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/btnNovoTreino" />
+
 
 
     <TextView
-        android:id="@+id/txtNovoTreino"
+        android:id="@+id/lyMostrarCompTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="Boa! Já se encontra preparada para o jogo competitivo! Bora" />
 
     <Button
-        android:id="@+id/btnNovoTreino"
+        android:id="@+id/lyMostrarCompBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="25dp"
-        android:text="@string/btnNovoTreino"/>
-
-    <TextView
-        android:id="@+id/txtCompetitivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""/>
-
-    <Button
-        android:id="@+id/btnCompetitivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnCompetitivo"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"/>
+        android:text="@string/btnCompetitivo" />
 
 
     <Button
@@ -50,4 +52,5 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Menu Principal" />
+
 </LinearLayout>
