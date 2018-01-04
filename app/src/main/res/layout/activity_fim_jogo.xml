@@ -14,12 +14,35 @@
         android:layout_height="wrap_content"
         android:text=""/>
 
-    <Button
-        android:id="@+id/button_novoTreino"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/txtNovoTreino"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Novo Treino" />
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnNovoTreino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:text="@string/btnNovoTreino"/>
+
+    <TextView
+        android:id="@+id/txtCompetitivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnCompetitivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCompetitivo"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"/>
+
 
     <Button
         android:id="@+id/button_menuPrincipal"

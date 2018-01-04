@@ -29,5 +29,8 @@
     <string name="btnFacil" type="id">Fácil</string>
     <string name="btnMedio" type="id">Médio</string>
     <string name="btnDificil" type="id">Dificil</string>
+    <string name="btnNovoTreino" type="id">Novo treino</string>
+    <string name="btnCompetitivo" type="id">Jogar Competitivo</string>
+
 
 </resources>
