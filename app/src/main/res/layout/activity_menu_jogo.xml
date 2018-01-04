@@ -9,14 +9,16 @@
 
 <Button
     android:id="@+id/treino"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="200dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
     android:text="@string/jogoTreino" />
 
 <Button
     android:id="@+id/competitivo"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="200dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
     android:text="@string/jogoComp" />
 
 </LinearLayout>

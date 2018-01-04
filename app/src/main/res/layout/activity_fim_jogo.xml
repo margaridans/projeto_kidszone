@@ -4,6 +4,7 @@
     android:id="@+id/activity_fim_jogo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context="pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogoTreino">
 
@@ -12,45 +13,65 @@
         android:id="@+id/txtPontuacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
         android:text="" />
 
+    <ImageView
+        android:id="@+id/imgSad"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sad"
+        android:layout_marginBottom="10dp"/>
 
-        <TextView
-            android:id="@+id/mostrarTreinoTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ainda não está preparado para jogar competitivo. Que tal mais um jogo treino?" />
+    <ImageView
+        android:id="@+id/imgHappy"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/happy"
+        android:layout_marginBottom="10dp"/>
 
-        <Button
-            android:id="@+id/mostrarTreinoBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/btnNovoTreino" />
 
+    <TextView
+        android:id="@+id/mostrarTreinoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Ainda não estás preparado para jogar competitivo.
+        Que tal mais um jogo treino?" />
+
+    <Button
+        android:id="@+id/mostrarTreinoBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="@string/btnNovoTreino" />
 
 
     <TextView
         android:id="@+id/mostrarCompTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boa! Já se encontra preparada para o jogo competitivo! Bora" />
+        android:layout_gravity="center"
+        android:text="Boa! E agora que tal começares a competir?" />
 
     <Button
         android:id="@+id/mostrarCompBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
+        android:layout_gravity="center"
         android:text="@string/btnCompetitivo" />
-
 
     <Button
         android:id="@+id/button_menuPrincipal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="@string/menuPrincipal"/>
+        android:text="@string/menuPrincipal" />
 
 </LinearLayout>

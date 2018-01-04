@@ -23,6 +23,7 @@ public class FimJogoTreino extends AppCompatActivity implements View.OnClickList
     TextView txtPontuacao;
     TextView mostrarTreinoTxt, mostrarCompTxt;
     Button mostrarTreinoBtn, mostrarCompBtn, btnPrincipal;
+    ImageView imgViewSad, imgViewHappy;
 
 
     @Override
@@ -48,18 +49,31 @@ public class FimJogoTreino extends AppCompatActivity implements View.OnClickList
 
         mostrarCompTxt = (TextView) findViewById(R.id.mostrarCompTxt);
 
+        imgViewSad = (ImageView) findViewById(R.id.imgSad);
+        imgViewHappy = (ImageView) findViewById(R.id.imgHappy);
+
         txtPontuacao.setText("A sua pontuacao é de: " + pontuacao);
 
         if (pontuacao <= 20) {
             mostrarTreinoTxt.setVisibility(View.VISIBLE);
+            imgViewSad.setVisibility(View.VISIBLE);
             mostrarTreinoBtn.setVisibility(View.VISIBLE);
+
             mostrarCompTxt.setVisibility(View.GONE);
+            imgViewHappy.setVisibility(View.GONE);
             mostrarCompBtn.setVisibility(View.GONE);
+
+
         } else {
             mostrarCompTxt.setVisibility(View.VISIBLE);
+            imgViewHappy.setVisibility(View.VISIBLE);
             mostrarCompBtn.setVisibility(View.VISIBLE);
+
+
             mostrarTreinoTxt.setVisibility(View.GONE);
+            imgViewSad.setVisibility(View.GONE);
             mostrarTreinoBtn.setVisibility(View.GONE);
+
 
         }
     }

@@ -31,7 +31,7 @@
     <string name="btnDificil" type="id">Dificil</string>
     <string name="btnNovoTreino" type="id">Novo treino</string>
     <string name="btnCompetitivo" type="id">Jogar Competitivo</string>
-    <string name="menuPrincipal" type="id">MenuPrincipal</string>
+    <string name="menuPrincipal" type="id">Menu Principal</string>
 
 
 </resources>
