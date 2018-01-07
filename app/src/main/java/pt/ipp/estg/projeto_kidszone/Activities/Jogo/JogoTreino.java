@@ -1,21 +1,25 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Dificuldade;
 import projeto_kidszone.database_library.Model.Pergunta;
+import pt.ipp.estg.projeto_kidszone.Fragments.Jogo;
+import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -47,7 +51,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btnTerminar = (Button) findViewById(R.id.terminar_treino);
 
 
-
         MyDbHelper dbHelper = new MyDbHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -56,7 +59,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
 
         Button terminarTreino = (Button) findViewById(R.id.terminar_treino);
         terminarTreino.setOnClickListener((View.OnClickListener) this);
-
 
 
         setPerguntaToView();
@@ -89,15 +91,15 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void verificaResposta(String resposta){
+    private void verificaResposta(String resposta) {
         if (jogo.respostaCerta(resposta)) {
-            if(pergunta.getId_dificuldade()==1) {
+            if (pergunta.getId_dificuldade() == 1) {
                 pontuacao += 2;
             }
-            if(pergunta.getId_dificuldade()==2) {
+            if (pergunta.getId_dificuldade() == 2) {
                 pontuacao += 5;
             }
-            if(pergunta.getId_dificuldade()==3) {
+            if (pergunta.getId_dificuldade() == 3) {
                 pontuacao += 8;
             }
 
@@ -112,30 +114,52 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private void setPerguntaToView()  {
+    private void setPerguntaToView() {
 
         pergunta = jogo.getNextPergunta();
-        if(pergunta != null) {
+        if (pergunta != null) {
             txtPergunta.setText(pergunta.getPergunta_name());
             btn1.setText(pergunta.getResposta1());
             btn2.setText(pergunta.getResposta2());
             btn3.setText(pergunta.getResposta3());
             btn4.setText(pergunta.getResposta4());
-        }else{
+        } else {
 
-            Intent intentFimJogo = new Intent(this,FimJogoTreino.class);
+            Intent intentFimJogo = new Intent(this, FimJogoTreino.class);
             intentFimJogo.putExtra("pontuacao", pontuacao);
             startActivity(intentFimJogo);
 
         }
     }
 
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.terminar_treino) {
-            Intent intentTerminar = new Intent(this, MenuJogo.class);
-            startActivity(intentTerminar);
-            finish();
+            onPause();
+            AlertDialog.Builder alertaSair = new AlertDialog.Builder(JogoTreino.this);
+            alertaSair.setTitle("Aviso");
+            alertaSair.setMessage("Tens a certeza que queres sair?");
+            alertaSair.setCancelable(false);
+            alertaSair.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                   onResume();
+                }
+            });
+            alertaSair.setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Intent intentTerminar = new Intent(JogoTreino.this, MenuJogo.class);
+                    startActivity(intentTerminar);
+                    finish();
+                }
+            });
+            AlertDialog alertDialogo = alertaSair.create();
+            alertDialogo.show();
+
+
 
         }
 
