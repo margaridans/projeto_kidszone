@@ -27,7 +27,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
     private Dificuldade dificuldade;
     private TextView txtPergunta;
     private TextView txtPontuacao;
-    private Button btn, btn1, btn2, btn3, btn4, btnTerminar;
+    private Button btn, btn1, btn2, btn3, btn4, btnTerminar, btnVoltar;
     private Pergunta pergunta;
     private int id_lista = 0;
 
@@ -47,6 +47,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btnTerminar = (Button) findViewById(R.id.terminar_treino);
 
 
+
         MyDbHelper dbHelper = new MyDbHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -55,6 +56,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
 
         Button terminarTreino = (Button) findViewById(R.id.terminar_treino);
         terminarTreino.setOnClickListener((View.OnClickListener) this);
+
 
 
         setPerguntaToView();
@@ -136,6 +138,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             finish();
 
         }
+
     }
 
 
