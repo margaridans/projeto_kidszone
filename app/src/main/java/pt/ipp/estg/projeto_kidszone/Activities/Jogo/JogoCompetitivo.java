@@ -8,28 +8,7 @@ import android.widget.Button;
 
 import pt.ipp.estg.projeto_kidszone.R;
 
-public class JogoCompetitivo extends AppCompatActivity implements View.OnClickListener{
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jogo_competitivo);
-
-        Button btnCategIngles = (Button) findViewById(R.id.btnCatgIngles);
-        btnCategIngles.setOnClickListener(this);
-
-        Button btnCategPt = (Button) findViewById(R.id.btnCatgPt);
-        btnCategPt.setOnClickListener(this);
-
-        Button btnCategMat = (Button) findViewById(R.id.btnCatgMat);
-        btnCategMat.setOnClickListener(this);
+public class JogoCompetitivo {
 
 
-    }
-
-
-    @Override
-    public void onClick(View v) {
-
-    }
 }

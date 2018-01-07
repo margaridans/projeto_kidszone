@@ -6,29 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context="pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoCompetitivo">
-
-
-    <Button
-        android:id="@+id/btnCatgIngles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnCatgIngles"
-        android:layout_marginStart="15dp"/>
-
-    <Button
-        android:id="@+id/btnCatgMat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnCatgMat"
-        android:layout_marginStart="10dp"/>
-
-    <Button
-        android:id="@+id/btnCatgPt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnCatgPt"
-        android:layout_marginStart="5dp"/>
+    tools:context="pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoCompetitivo"
+    android:orientation="horizontal">
 
 
 </LinearLayout>

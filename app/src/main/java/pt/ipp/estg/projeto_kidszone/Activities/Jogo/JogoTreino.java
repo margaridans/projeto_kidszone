@@ -6,20 +6,18 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Dificuldade;
 import projeto_kidszone.database_library.Model.Pergunta;
-import pt.ipp.estg.projeto_kidszone.Fragments.Jogo;
-import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -49,7 +47,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btn4 = (Button) findViewById(R.id.resposta4);
         txtPontuacao = (TextView) findViewById(R.id.pontuacao);
         btnTerminar = (Button) findViewById(R.id.terminar_treino);
-
 
         MyDbHelper dbHelper = new MyDbHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -90,6 +87,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
 
 
     }
+
 
     private void verificaResposta(String resposta) {
         if (jogo.respostaCerta(resposta)) {

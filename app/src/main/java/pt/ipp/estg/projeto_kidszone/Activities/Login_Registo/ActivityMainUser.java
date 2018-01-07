@@ -35,8 +35,6 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.main_activity_user);
 
 
-
-
         Button btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(this);
 
