@@ -1,25 +1,26 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pt.ipp.estg.projeto_kidszone.Fragments.JogoCompDificFragment">
+    tools:context="pt.ipp.estg.projeto_kidszone.Fragments.JogoCompetitivoFragment">
+
 
 
     <Button
-        android:id="@+id/btnFacil"
+        android:id="@+id/btnMat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnFacil"
+        android:text="@string/btnCatgMat"
         android:layout_gravity="center"/>
     <Button
-        android:id="@+id/btnMedio"
+        android:id="@+id/btnIngl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnMedio"
+        android:text="@string/btnCatgIngles"
         android:layout_marginTop="55dp"
         android:layout_gravity="center"/>
     <Button
-        android:id="@+id/btnDificil"
+        android:id="@+id/btnPt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnCatgPt"
@@ -27,4 +28,6 @@
         android:layout_gravity="center"/>
 
 
-</FrameLayout>
+</LinearLayout>
+
+
