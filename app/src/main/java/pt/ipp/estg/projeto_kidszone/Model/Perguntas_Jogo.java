@@ -16,6 +16,7 @@ public class Perguntas_Jogo {
     private LinkedList<Integer> perguntasJogadas;
     private MyDbHelper dbHelper;
     private int posicaoUltimaPergunta;
+    private Pergunta perguntaCatg;
 
     public Perguntas_Jogo(Context context, int opcao) {
         this.context = context;
@@ -55,6 +56,8 @@ public class Perguntas_Jogo {
         return perguntasJogo.get(randomNum);
 
     }
+
+
 
     /*Este método vai gerar a posição da pergunta, vai gerar um número random, de 0(inclusive)
     * até ao número recebido - tamMaximo - (exclusive) e vai retornar esse número gerado*/

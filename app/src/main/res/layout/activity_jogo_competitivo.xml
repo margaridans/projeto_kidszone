@@ -9,14 +9,11 @@
     tools:context="pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoCompetitivo"
     android:orientation="horizontal">
 
-    <fragment
-    android:id="@+id/fragmentComp"
-    android:name="pt.ipp.estg.projeto_kidszone.Fragments.JogoCompetitivoFragment"
+    <FrameLayout
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="TAG"/>
-
-
 
 
 </LinearLayout>

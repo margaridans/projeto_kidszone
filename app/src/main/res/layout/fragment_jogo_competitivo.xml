@@ -5,12 +5,12 @@
     tools:context="pt.ipp.estg.projeto_kidszone.Fragments.JogoCompetitivoFragment">
 
 
-
     <Button
         android:id="@+id/btnMat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnCatgMat"
+        android:clickable="true"
         android:layout_gravity="center"/>
     <Button
         android:id="@+id/btnIngl"
@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btnCatgIngles"
         android:layout_marginTop="55dp"
+        android:clickable="true"
         android:layout_gravity="center"/>
     <Button
         android:id="@+id/btnPt"
@@ -25,8 +26,8 @@
         android:layout_height="wrap_content"
         android:text="@string/btnCatgPt"
         android:layout_marginTop="95dp"
+        android:clickable="true"
         android:layout_gravity="center"/>
-
 
 </LinearLayout>
 
