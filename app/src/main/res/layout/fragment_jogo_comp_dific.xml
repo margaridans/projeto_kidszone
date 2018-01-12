@@ -5,26 +5,10 @@
     tools:context="pt.ipp.estg.projeto_kidszone.Fragments.JogoCompDificFragment">
 
 
-    <Button
-        android:id="@+id/btnFacil"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnFacil"
-        android:layout_gravity="center"/>
-    <Button
-        android:id="@+id/btnMedio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnMedio"
-        android:layout_marginTop="55dp"
-        android:layout_gravity="center"/>
-    <Button
-        android:id="@+id/btnDificil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnDificil"
-        android:layout_marginTop="95dp"
-        android:layout_gravity="center"/>
+        android:text="teste"/>
 
 
 </FrameLayout>

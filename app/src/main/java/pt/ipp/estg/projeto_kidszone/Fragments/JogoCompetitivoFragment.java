@@ -2,21 +2,12 @@ package pt.ipp.estg.projeto_kidszone.Fragments;
 
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
-
-import projeto_kidszone.database_library.Model.Categoria;
-import projeto_kidszone.database_library.Model.Dificuldade;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoCompetitivo;
 import pt.ipp.estg.projeto_kidszone.R;
 
 public class JogoCompetitivoFragment extends Fragment  {
@@ -35,6 +26,7 @@ public class JogoCompetitivoFragment extends Fragment  {
             @Override
             public void onClick(View v) {
                    mListener.fragmentsComunication("Inglês");
+
             }
         });
 
@@ -55,7 +47,7 @@ public class JogoCompetitivoFragment extends Fragment  {
         return view;
     }
     public interface fragmentsComunication {
-        void fragmentsComunication(String id_catg);
+        void fragmentsComunication(String nome_catg);
     }
 
     private fragmentsComunication mListener;
@@ -65,8 +57,7 @@ public class JogoCompetitivoFragment extends Fragment  {
         try {
             mListener = (fragmentsComunication) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " deve implementar fragmentsComunication");
+            throw new ClassCastException(activity.toString() + " deve implementar fragmentsComunication");
         }
     }
 

@@ -1,17 +1,18 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
 import pt.ipp.estg.projeto_kidszone.Fragments.JogoCompDificFragment;
 import pt.ipp.estg.projeto_kidszone.Fragments.JogoCompetitivoFragment;
 import pt.ipp.estg.projeto_kidszone.R;
 
 public class JogoCompetitivo extends AppCompatActivity implements JogoCompetitivoFragment.fragmentsComunication {
-
 
 
     @Override
@@ -25,10 +26,9 @@ public class JogoCompetitivo extends AppCompatActivity implements JogoCompetitiv
 
     }
 
-    String catg_i="Inglês";
     @Override
     public void fragmentsComunication(String categoria) {
-        
+
         JogoCompDificFragment segundoFragment = new JogoCompDificFragment();
 
 
@@ -37,7 +37,6 @@ public class JogoCompetitivo extends AppCompatActivity implements JogoCompetitiv
         transacao.commit();
 
     }
-
 
 
 }
