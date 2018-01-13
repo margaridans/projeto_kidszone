@@ -32,7 +32,7 @@ public class JogoCompetitivo extends AppCompatActivity implements JogoCompCatego
         transacao.replace(R.id.fragment_container, segundoFragment);
 
         transacao.commit();
-        //segundoFragment.receberCategoria(categoria);
+        segundoFragment.receberCategoria("Inglês");
 
 
     }

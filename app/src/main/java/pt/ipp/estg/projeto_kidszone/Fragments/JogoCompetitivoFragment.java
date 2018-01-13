@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -21,5 +22,12 @@ public class JogoCompetitivoFragment extends Fragment {
 
         return view;
 
+    }
+
+
+    public void receberCategoria(String categoria) {
+        if(categoria=="inglês") {
+            Toast.makeText(getActivity(), "ingles", Toast.LENGTH_SHORT).show();
+        }
     }
 }
