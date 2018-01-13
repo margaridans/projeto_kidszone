@@ -45,7 +45,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         btn3 = (Button) findViewById(R.id.resposta3);
         btn4 = (Button) findViewById(R.id.resposta4);
         txtPontuacao = (TextView) findViewById(R.id.pontuacao);
-        btnTerminar = (Button) findViewById(R.id.terminar_treino);
 
         MyDbHelper dbHelper = new MyDbHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

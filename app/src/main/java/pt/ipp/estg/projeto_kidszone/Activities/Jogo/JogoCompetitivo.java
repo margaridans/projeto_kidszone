@@ -12,7 +12,6 @@ import pt.ipp.estg.projeto_kidszone.R;
 
 public class JogoCompetitivo extends AppCompatActivity implements JogoCompCategorias.fragmentsComunication {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,7 @@ public class JogoCompetitivo extends AppCompatActivity implements JogoCompCatego
         transacao.replace(R.id.fragment_container, segundoFragment);
 
         transacao.commit();
-        segundoFragment.receberCategoria("Inglês");
+        segundoFragment.receberCategoria(categoria);
 
 
     }

@@ -6,9 +6,88 @@
 
 
     <TextView
+        android:id="@+id/ctg_escolhida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="teste"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/txtPergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/resposta1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/btn_normal"
+            android:text=""
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/resposta2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/btn_normal"
+            android:text=""
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/resposta3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/btn_normal"
+            android:text=""
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/resposta4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/btn_normal"
+            android:text=""
+            android:textAllCaps="false" />
+
+
+        <TextView
+            android:id="@+id/pontuacao"
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Pontos: 0" />
+
+        <Button
+            android:id="@+id/terminar_comp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/stop_treino" />
+
+    </LinearLayout>
 
 
 </FrameLayout>
