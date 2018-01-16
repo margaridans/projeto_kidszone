@@ -1,24 +1,17 @@
 package pt.ipp.estg.projeto_kidszone.Fragments;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pergunta;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogoCompetitivo;
-import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
 /**
@@ -29,10 +22,7 @@ public class JogoCompetitivoFragment extends Fragment {
     private String tipo;
     TextView txt1, txtPergunta, txtPontuacao;
     Button btn1, btn2, btn3, btn4, btnTerminar;
-    private Perguntas_Jogo jogo;
-    private Pergunta pergunta;
-    private int pontuacao = 0;
-
+    Pergunta pergunta;
 
 
 
@@ -55,11 +45,22 @@ public class JogoCompetitivoFragment extends Fragment {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         btnTerminar = view.findViewById(R.id.terminar_comp);
-        
+
+
+        if (tipo == "Inglês") {
+            txtPergunta.setText("Qual o plural de batata?");
+        }
+        if (tipo == "Matemática") {
+            txtPergunta.setText("Ainda em testes....");
+
+        }
+        if (tipo == "Português") {
+            txtPergunta.setText("Ainda em testes....");
+
+        }
+
         return view;
-
     }
-
 
 
     public void receberCategoria(String categoria) {
