@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pergunta;
+import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
 /**
@@ -23,6 +24,7 @@ public class JogoCompetitivoFragment extends Fragment {
     TextView txt1, txtPergunta, txtPontuacao;
     Button btn1, btn2, btn3, btn4, btnTerminar;
     Pergunta pergunta;
+
 
 
 
@@ -48,14 +50,15 @@ public class JogoCompetitivoFragment extends Fragment {
 
 
         if (tipo == "Inglês") {
-            txtPergunta.setText("Qual o plural de batata?");
+            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db,1));
+
         }
         if (tipo == "Matemática") {
-            txtPergunta.setText("Ainda em testes....");
+            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db,3));
 
         }
         if (tipo == "Português") {
-            txtPergunta.setText("Ainda em testes....");
+            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db,2));
 
         }
 
