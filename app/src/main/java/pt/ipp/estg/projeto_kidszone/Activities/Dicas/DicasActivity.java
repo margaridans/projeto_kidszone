@@ -80,7 +80,6 @@ public class DicasActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Regressa mais tarde para descobrires novas dicas", Toast.LENGTH_SHORT).show();
             Intent it_sairDicas= new Intent (this, MainActivity.class);
-            startActivity(it_sairDicas);
         }
     }
 

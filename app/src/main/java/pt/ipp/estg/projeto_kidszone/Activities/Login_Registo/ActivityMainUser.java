@@ -4,8 +4,10 @@ package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -93,8 +95,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
             Intent intentLogout = new Intent(this, MainActivity.class);
             startActivity(intentLogout);
-        }
-        else if (v.getId() == R.id.btnDicas) {
+        } else if (v.getId() == R.id.btnDicas) {
             Intent intentDicas = new Intent(this, DicasActivity.class);
             startActivity(intentDicas);
         } else if (v.getId() == R.id.btnJogar) {
@@ -103,6 +104,33 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         }
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_user, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.create_new:
+                return true;
+            case R.id.logout:
+              terminarSessao();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void terminarSessao() {
+        Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
+        Intent intentLogout = new Intent(this, MainActivity.class);
+        startActivity(intentLogout);
+    }
 
 }
 
