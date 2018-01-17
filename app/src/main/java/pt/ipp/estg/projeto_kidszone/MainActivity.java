@@ -14,6 +14,7 @@ import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
 
 
+
 public class MainActivity extends Activity implements View.OnClickListener {
 
     MyDbHelper myDb;
