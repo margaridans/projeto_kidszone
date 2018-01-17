@@ -48,14 +48,21 @@ public class MyDbHelper extends SQLiteOpenHelper {
         categoria_matematica.addCategoria(db);
 
         //Instnciar Dicas
-        Dicas dica1 = new Dicas(1, "Poupar água");
-        Dicas dica2 = new Dicas(2, "Não passar mais de 2h seguidas a jogar computador");
-        Dicas dica3 = new Dicas(3, "Reciclar");
+        Dicas dica1 = new Dicas(1, "Se tiveres lixo e o caixote do lixo não estiver perto de ti, não deites ao chão, guarda até encontrares um caixote");
+        Dicas dica2 = new Dicas(2, "Não passes mais de 2h seguidas a jogar computador");
+        Dicas dica3 = new Dicas(3, "Ajuda o meio ambiente, faz a tua reciclagem em casa");
+        Dicas dica4 = new Dicas(4, "Quanto à água poupa-a. Fecha a torneira quando lavares os dentes");
+        Dicas dica5 = new Dicas(5, "Nunca dês as tuas palavas-passes às outras pessoas");
+        Dicas dica6 = new Dicas(6, "Não te esqueças para um bom dia de escola, tens que ter uma boa noite de sono. Dorme, no mínimo, 8h");
+
 
         //Add dica à bd
         dica1.addDica(db);
         dica2.addDica(db);
         dica3.addDica(db);
+        dica4.addDica(db);
+        dica5.addDica(db);
+        dica6.addDica(db);
 
         //Instanciar Dificuldade
         Dificuldade facil = new Dificuldade(1, "fácil", 2);

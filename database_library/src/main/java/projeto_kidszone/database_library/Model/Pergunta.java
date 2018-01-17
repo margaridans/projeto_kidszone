@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Pergunta {
@@ -25,7 +26,7 @@ public class Pergunta {
         this.pergunta_name=pergunta_name;
     }
 
-    public Pergunta(String pergunta_name, int id_categoria, int id_dificuldade, String resposta1, String resposta2, String resposta3, String resposta4, String resposta_certa) {
+    public Pergunta( String resposta1, String resposta2, String resposta3, String resposta4, String resposta_certa) {
         this.pergunta_name = pergunta_name;
         this.id_categoria = id_categoria;
         this.id_dificuldade = id_dificuldade;
@@ -48,7 +49,7 @@ public class Pergunta {
         this.resposta_certa = resposta_certa;
     }
 
-   
+
 
     public int getId_pergunta() {
         return id_pergunta;
@@ -190,14 +191,16 @@ public class Pergunta {
         }
     }
 
-    public static Pergunta getRespostasByIdCatg(SQLiteDatabase db, int id_categoria) {
+    public static String getRespostasByIdCatg(SQLiteDatabase db, int id_categoria) {
+
         try {
+
             Cursor c = db.rawQuery("SELECT " + RESP1 + ", " + RESP2 + ", " + RESP3 + ", " + RESP4 + ", " + RESP_CERTA + " FROM " + NAME_TABLE + "WHERE " + ID_CAT + "=" + id_categoria + ";", null);
-            Pergunta pergunta = null;
+            String pergunta = null;
 
             //se o cursor não estiver vazio e se estiver na primeira linha
             if (c != null && c.moveToFirst()) {
-                pergunta = new Pergunta(c.getInt(0), c.getString(1), c.getInt(2), c.getInt(3), c.getString(4), c.getString(5), c.getString(6), c.getString(7), c.getString(8));
+                pergunta = c.getString(0);
             }
             return pergunta;
 

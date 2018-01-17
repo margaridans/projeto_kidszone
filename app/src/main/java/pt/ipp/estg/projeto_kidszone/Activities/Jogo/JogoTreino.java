@@ -28,7 +28,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
     private Dificuldade dificuldade;
     private TextView txtPergunta;
     private TextView txtPontuacao;
-    private Button btn, btn1, btn2, btn3, btn4, btnTerminar, btnVoltar;
+    private Button btn, btn1, btn2, btn3, btn4, btnTerminar;
     private Pergunta pergunta;
     private int id_lista = 0;
 

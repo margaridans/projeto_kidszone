@@ -60,6 +60,8 @@ public class DicasActivity extends AppCompatActivity {
         Dicas.getDicas(db, listaDicas);
         dica = listaDicas.get(id_lista);
 
+        setDicaToView();
+
     }
 
     private void setDicaToView() {

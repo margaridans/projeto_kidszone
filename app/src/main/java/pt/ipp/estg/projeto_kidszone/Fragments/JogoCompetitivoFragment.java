@@ -1,5 +1,6 @@
 package pt.ipp.estg.projeto_kidszone.Fragments;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pergunta;
+import pt.ipp.estg.projeto_kidszone.Activities.Jogo.FimJogoTreino;
 import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -23,9 +27,9 @@ public class JogoCompetitivoFragment extends Fragment {
     private String tipo;
     TextView txt1, txtPergunta, txtPontuacao;
     Button btn1, btn2, btn3, btn4, btnTerminar;
-    Pergunta pergunta;
-
-
+    private ArrayList<Pergunta> perguntasJogo;
+    private Pergunta pergunta;
+    private Perguntas_Jogo jogo;
 
 
     @Override
@@ -47,23 +51,39 @@ public class JogoCompetitivoFragment extends Fragment {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         btnTerminar = view.findViewById(R.id.terminar_comp);
+        perguntasJogo = new ArrayList<>();
 
 
         if (tipo == "Inglês") {
-            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db,1));
-
+            setPerguntaToView();
+            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db, 1));
         }
+
         if (tipo == "Matemática") {
-            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db,3));
+            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db, 3));
 
         }
         if (tipo == "Português") {
-            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db,2));
+            txtPergunta.setText(Pergunta.getPerguntaByIdCatg(db, 2));
 
         }
 
         return view;
     }
+
+
+    private void setPerguntaToView() {
+
+        pergunta = jogo.getNextPergunta();
+        if (pergunta != null) {
+            txtPergunta.setText(pergunta.getPergunta_name());
+            btn1.setText(pergunta.getResposta1());
+            btn2.setText(pergunta.getResposta2());
+            btn3.setText(pergunta.getResposta3());
+            btn4.setText(pergunta.getResposta4());
+        }
+    }
+
 
 
     public void receberCategoria(String categoria) {
