@@ -7,6 +7,14 @@
     android:gravity="center_vertical"
     android:orientation="vertical">
 
+<ProgressBar
+    android:id="@+id/progress_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="20dip"
+    android:minWidth="20dip"
+    style="@android:style/Widget.ProgressBar.Horizontal"/>
+
 <Button
     android:id="@+id/treino"
     android:layout_width="200dp"
