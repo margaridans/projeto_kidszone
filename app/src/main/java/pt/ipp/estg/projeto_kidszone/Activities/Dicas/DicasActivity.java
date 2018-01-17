@@ -2,7 +2,6 @@ package pt.ipp.estg.projeto_kidszone.Activities.Dicas;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -11,7 +10,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,7 @@ public class DicasActivity extends AppCompatActivity {
     private Dicas_Jogo sugestao;
     private Dicas dica;
     private TextView txtDica;
+    private ImageView imgViewAntes, imgViewDepois;
     private int id_lista = 0;
 
     @Override
@@ -57,10 +59,20 @@ public class DicasActivity extends AppCompatActivity {
         MyDbHelper dbHelper = new MyDbHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
+
         Dicas.getDicas(db, listaDicas);
         dica = listaDicas.get(id_lista);
 
         setDicaToView();
+
+/*
+        imgViewAntes = (ImageView) findViewById(R.id.btnAntesDica);
+        imgViewDepois = (ImageView) findViewById(R.id.btnDepoisDica);
+
+        imgViewAntes.setVisibility(imgViewAntes.VISIBLE);
+        imgViewDepois.setVisibility(imgViewAntes.GONE);
+        imgViewAntes.setVisibility(imgViewAntes.GONE);
+        imgViewDepois.setVisibility(imgViewAntes.VISIBLE);*/
 
     }
 
@@ -69,8 +81,7 @@ public class DicasActivity extends AppCompatActivity {
         if (dica != null) {
             txtDica.setText(dica.getDica_name());
         } else {
-            Intent it = new Intent(this, FimDica.class);
-            startActivity(it);
+            Toast.makeText(this, "acabou", Toast.LENGTH_SHORT).show();
         }
     }
 

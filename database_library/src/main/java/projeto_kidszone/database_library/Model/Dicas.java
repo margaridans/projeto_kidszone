@@ -41,7 +41,7 @@ public class Dicas{
 
     public boolean addDica(SQLiteDatabase db) {
         try {
-            db.execSQL("INSERT INTO " + NAME_TABLE + "(" + NOME_DICA + ")VALUES ('" + dica_name + "');");
+            db.execSQL("INSERT INTO " + NAME_TABLE + "(" + NOME_DICA + ") VALUES ('" + dica_name + "');");
             return true;
         } catch (SQLException ex) {
             db.close();
