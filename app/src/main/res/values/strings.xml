@@ -33,6 +33,7 @@
     <string name="btnCompetitivo" type="id">Jogar Competitivo</string>
     <string name="menuPrincipal" type="id">Menu Principal</string>
     <string name="title_activity_menu_user">MenuUser</string>
+    <string name="descricao_dicas">Para descobrires as dicas que temos para te mostrar o teu dispositivo tens que agitar</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

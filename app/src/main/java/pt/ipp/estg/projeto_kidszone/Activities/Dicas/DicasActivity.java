@@ -2,6 +2,7 @@ package pt.ipp.estg.projeto_kidszone.Activities.Dicas;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,6 +11,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Dicas;
+import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.Model.Dicas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -35,8 +38,8 @@ public class DicasActivity extends AppCompatActivity {
 
     private Dicas_Jogo sugestao;
     private Dicas dica;
-    private TextView txtDica;
-    private ImageView imgViewAntes, imgViewDepois;
+    private TextView txtDica, txt_descDica;
+    private ImageView imgIdea, imgFixeDica;
     private int id_lista = 0;
 
     @Override
@@ -48,6 +51,7 @@ public class DicasActivity extends AppCompatActivity {
         sugestao = new Dicas_Jogo(this, -1);
 
         txtDica = (TextView) findViewById(R.id.txt_dica);
+        imgFixeDica = (ImageView) findViewById(R.id.fixe_ideia);
 
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sm.registerListener(sensorListener, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -63,16 +67,8 @@ public class DicasActivity extends AppCompatActivity {
         Dicas.getDicas(db, listaDicas);
         dica = listaDicas.get(id_lista);
 
+        imgFixeDica.setVisibility(View.GONE);
 
-
-/*
-        imgViewAntes = (ImageView) findViewById(R.id.btnAntesDica);
-        imgViewDepois = (ImageView) findViewById(R.id.btnDepoisDica);
-
-        imgViewAntes.setVisibility(imgViewAntes.VISIBLE);
-        imgViewDepois.setVisibility(imgViewAntes.GONE);
-        imgViewAntes.setVisibility(imgViewAntes.GONE);
-        imgViewDepois.setVisibility(imgViewAntes.VISIBLE);*/
 
     }
 
@@ -80,8 +76,11 @@ public class DicasActivity extends AppCompatActivity {
         dica = sugestao.getNextDica();
         if (dica != null) {
             txtDica.setText(dica.getDica_name());
+            imgFixeDica.setVisibility(View.VISIBLE);
         } else {
-            Toast.makeText(this, "acabou", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Regressa mais tarde para descobrires novas dicas", Toast.LENGTH_SHORT).show();
+            Intent it_sairDicas= new Intent (this, MainActivity.class);
+            startActivity(it_sairDicas);
         }
     }
 
@@ -101,7 +100,16 @@ public class DicasActivity extends AppCompatActivity {
                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(500);
 
+                imgIdea = (ImageView) findViewById(R.id.lampada_ideia);
+                txt_descDica =(TextView)findViewById(R.id.desc_dica);
+
+                imgIdea.setVisibility(View.GONE);
+                txt_descDica.setVisibility(View.GONE);
+
+
                 setDicaToView();
+
+
             }
         }
 
