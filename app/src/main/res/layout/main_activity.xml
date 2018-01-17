@@ -19,20 +19,20 @@
         android:text="@string/descImagemLogo" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/btnJogar"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/game" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginStart="-68dp"
+            android:layout_marginLeft="-68dp"
             android:layout_marginTop="60dp"
             android:text="@string/jogar"
             android:textSize="20sp"
@@ -43,14 +43,14 @@
             android:id="@+id/btnDicas"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
             android:background="@drawable/tips"
             android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginStart="-68dp"
+            android:layout_marginLeft="-68dp"
             android:layout_marginTop="60dp"
             android:text="@string/dicas"
             android:textSize="20sp"
@@ -61,13 +61,13 @@
             android:id="@+id/btnLogin"
             android:layout_width="66dp"
             android:layout_height="63dp"
-            android:layout_marginStart="40dp"
-            android:background="@drawable/key" />
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/login" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginStart="-68dp"
+            android:layout_marginLeft="-68dp"
             android:layout_marginTop="60dp"
             android:text="@string/login"
             android:textSize="20sp"

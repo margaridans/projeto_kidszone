@@ -2,11 +2,10 @@ package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,18 +36,17 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_user);
 
-
-        Button btnLogout = (Button) findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         Button btnJogar = (Button) findViewById(R.id.btnJogar);
         btnJogar.setOnClickListener(this);
 
+        Button btnLogout = (Button) findViewById(R.id.btn_logout);
+        btnLogout.setOnClickListener(this);
+
         Button btnDicas = (Button) findViewById(R.id.btnDicas);
         btnDicas.setOnClickListener(this);
-
-        final TextView txtNameUser = (TextView) findViewById(R.id.txtNameUser);
-
 
         db = new MyDbHelper(this);
 
@@ -62,9 +60,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
         Toast.makeText(this, "Bem vindo " + username, Toast.LENGTH_SHORT).show();
 
-        TextView txtUsername = (TextView) findViewById(R.id.txtNameUser);
+        TextView txtUsername = (TextView) findViewById(R.id.nome_usuario);
         txtUsername.setText(username);
-
 
         //Login com Facebook
         Intent login = getIntent();
@@ -74,27 +71,6 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         }
         if (AccessToken.getCurrentAccessToken() == null && loginS == null) {
             goLoginScreen();
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.btnLogout:
-                Toast.makeText(this, "Terminou a sua sessão", Toast.LENGTH_LONG).show();
-                Intent intentLogout = new Intent(this, MainActivity.class);
-               /* SharedPreferences st = getSharedPreferences("login", MODE_PRIVATE);
-                SharedPreferences.Editor ed = st.edit();
-                ed.remove("username");
-                ed.apply();*/
-                startActivity(intentLogout);
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -113,7 +89,12 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnDicas) {
+        if (v.getId() == R.id.btn_logout) {
+            Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
+            Intent intentLogout = new Intent(this, MainActivity.class);
+            startActivity(intentLogout);
+        }
+        else if (v.getId() == R.id.btnDicas) {
             Intent intentDicas = new Intent(this, DicasActivity.class);
             startActivity(intentDicas);
         } else if (v.getId() == R.id.btnJogar) {
@@ -121,6 +102,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
             startActivity(intentJogar);
         }
     }
+
 
 }
 
