@@ -4,7 +4,6 @@ package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +18,7 @@ import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
+import pt.ipp.estg.projeto_kidszone.DefinicoesContaUser;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
@@ -130,7 +130,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
     public void alterarConta() {
         Toast.makeText(this, "definicoes", Toast.LENGTH_LONG).show();
-
+        Intent intentLogout = new Intent(this, DefinicoesContaUser.class);
+        startActivity(intentLogout);
 
     }
 

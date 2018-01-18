@@ -97,7 +97,7 @@ public class DicasActivity extends AppCompatActivity {
 
             if (shake > 12) {
                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(500);
+                vibrator.vibrate(250);
 
                 imgIdea = (ImageView) findViewById(R.id.lampada_ideia);
                 txt_descDica =(TextView)findViewById(R.id.desc_dica);

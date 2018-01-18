@@ -19,6 +19,7 @@
         android:background="@drawable/logo"
         android:text="@string/descImagemLogo" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
