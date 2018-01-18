@@ -37,8 +37,20 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
 
         db = new MyDbHelper(this);
 
+        TextView editTextUserName = (EditText) findViewById(R.id.editTextUserName);
+        TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
+
         TextView txtEliminarConta = findViewById(R.id.cancelarConta);
-        txtEliminarConta.setOnClickListener(this);
+
+
+        String password = editTextPassword.getText().toString();
+        String confirmPassword = editTextConfirmPassword.getText().toString();
+
+        if (password.equals("") || confirmPassword.equals("")) {
+            Toast.makeText(DefinicoesContaUser.this, "Password inválida", Toast.LENGTH_SHORT).show();
+        } else if (!password.equals(confirmPassword)) {
+            Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
 
     }
 
