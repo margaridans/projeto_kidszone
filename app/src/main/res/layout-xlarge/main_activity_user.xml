@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_activity"
+    xmlns="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:titleTextColor="#ffffff">
+
+        <TextView
+            android:id="@+id/nome_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp"
+            android:layout_marginLeft="550dp"
+            android:onClick="showPopup"/>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="580dp"
+        android:layout_height="589dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/logo"
+        android:text="@string/descImagemLogo" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="197dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnJogar"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/gamer" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/jogar"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btnDicas"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="75dp"
+            android:background="@drawable/ideias"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/dicas"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btnMapa"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="75dp"
+            android:background="@drawable/mapa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/mapa"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="25sp" />
+
+
+    </LinearLayout>
+</LinearLayout>

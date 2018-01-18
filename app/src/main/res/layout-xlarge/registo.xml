@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="550dp"
+        android:layout_height="550dp"
+        android:layout_gravity="center"
+        android:background="@drawable/logo"
+        android:text="@string/descImagemLogo" />
+
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:drawableLeft="@drawable/login_user"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:drawableLeft="@drawable/login_pass"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textSize="24sp" />
+
+
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:drawableLeft="@drawable/login_pass"
+        android:hint="@string/password_conf"
+        android:inputType="textPassword"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnCriarConta"
+        android:layout_width="276dp"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:text="Criar Registo"
+        android:textSize="18sp" />
+
+</LinearLayout>
