@@ -130,15 +130,16 @@ public class MyDbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean deleteUser(String username) {
+    public void deleteUser(String username) {
+        if (checkIFExistis(username) == true) {
 
-        SQLiteDatabase db = getWritableDatabase();
-        String where = "username = " + username;
-        db.delete("tblUser", where, null);
-        db.close();
+            SQLiteDatabase db = getWritableDatabase();
+            String where = "username = " + username;
+            String[] argumentos = {username};
 
-        return true;
-
+            db.delete("tblUser", where, argumentos);
+            db.close();
+        }
     }
 
     public boolean checkIFExistis(String username) {

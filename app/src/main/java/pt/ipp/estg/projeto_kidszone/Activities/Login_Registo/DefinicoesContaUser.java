@@ -42,12 +42,13 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
 
     }
 
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.cancelarConta) {
 
             SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-            final String nome = prefs.getString("username", "default");
+            String nome = prefs.getString("username", "default");
 
             onPause();
             AlertDialog.Builder alertaSair = new AlertDialog.Builder(DefinicoesContaUser.this);
@@ -63,16 +64,15 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
             alertaSair.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Boolean res = db.deleteUser(nome);
+                    SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+                    String nome = prefs.getString("username", "default");
+                    db.deleteUser(nome);
 
-                    if (res == true) {
+                    Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                    Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
+                    startActivity(intentCancelarConta);
+                    finish();
 
-
-                        Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
-                        Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
-                        startActivity(intentCancelarConta);
-                        finish();
-                    }
                 }
             });
             AlertDialog alertDialogo = alertaSair.create();
