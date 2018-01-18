@@ -2,6 +2,7 @@ package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
+import com.facebook.share.Share;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
@@ -43,8 +45,6 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Button btnJogar = (Button) findViewById(R.id.btnJogar);
         btnJogar.setOnClickListener(this);
 
-
-
         Button btnDicas = (Button) findViewById(R.id.btnDicas);
         btnDicas.setOnClickListener(this);
 
@@ -55,13 +55,14 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
         TextView btn_Registar = (TextView) findViewById(R.id.btnRegistar);
 
-        Intent intentEntrar = getIntent();
-        String username = intentEntrar.getStringExtra("username");
 
-        Toast.makeText(this, "Bem vindo " + username, Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs= getSharedPreferences("login", MODE_PRIVATE);
+        String nome= prefs.getString("username", "default");
+
+        Toast.makeText(this, "Bem vindo " + nome, Toast.LENGTH_SHORT).show();
 
         TextView txtUsername = (TextView) findViewById(R.id.nome_usuario);
-        txtUsername.setText(username);
+        txtUsername.setText(nome);
 
         //Login com Facebook
         Intent login = getIntent();
@@ -122,6 +123,12 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
     }
 
     public void terminarSessao() {
+        SharedPreferences.Editor edit = getSharedPreferences("login", MODE_PRIVATE).edit();
+
+        edit.remove("username");
+
+        edit.apply();
+
         Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
         Intent intentLogout = new Intent(this, MainActivity.class);
         startActivity(intentLogout);
@@ -129,9 +136,9 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
     }
 
     public void alterarConta() {
-        Toast.makeText(this, "definicoes", Toast.LENGTH_LONG).show();
         Intent intentConta = new Intent(this, DefinicoesContaUser.class);
         startActivity(intentConta);
+        finish();
 
     }
 

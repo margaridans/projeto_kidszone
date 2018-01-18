@@ -22,8 +22,6 @@
     <string name="perguntaRegisto">Ainda não tens a tua conta?</string>
     <string name="btnRegistar">Regista-te aqui!</string>
     <string name="text_dicas">Dicas</string>
-    <item name="error_login" type="id">Ocorreu um erro</item>
-    <item name="cancel_login" type="id">Login cancelado</item>
     <string name="btnCatgIngles" type="id">Inglês</string>
     <string name="btnCatgPt" type="id">Português</string>
     <string name="btnCatgMat" type="id">Matemática</string>
@@ -35,15 +33,15 @@
     <string name="menuPrincipal" type="id">Menu Principal</string>
     <string name="title_activity_menu_user">MenuUser</string>
     <string name="descricao_dicas">Para descobrires as dicas que temos para te mostrar o teu dispositivo tens que agitar</string>
-
-
+    <string name="btnAlterarPass">Alterar Password</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancelarConta">Eliminar conta </string>
 
+
+    <item name="error_login" type="id">Ocorreu um erro</item>
+    <item name="cancel_login" type="id">Login cancelado</item>
 
 </resources>

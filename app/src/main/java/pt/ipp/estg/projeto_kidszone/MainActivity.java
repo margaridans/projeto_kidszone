@@ -11,6 +11,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
@@ -40,6 +41,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         Button btnDicas =  findViewById(R.id.btnDicas);
         btnDicas.setOnClickListener(this);
+
+
     }
 
     @Override

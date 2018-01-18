@@ -30,6 +30,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
+import projeto_kidszone.database_library.Model.User;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -61,7 +62,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View v) {
                 String username = et_username.getText().toString();
                 String password = et_password.getText().toString();
-
+                User user = new User();
                 if (username.equals("")) {
                     Toast.makeText(Login.this, "Username inválido", Toast.LENGTH_SHORT).show();
                 } else if (password.equals("")) {
@@ -70,15 +71,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     String res = db.validarUtilizador(username, password);
 
                     if (res.equals("OK")) {
-                     /*   SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
-                        SharedPreferences.Editor ed = sp.edit();
-                        ed.putString("username",username);*/
+                        SharedPreferences.Editor editor = getSharedPreferences("login", MODE_PRIVATE).edit();
+                        editor.putString("username", username);
 
+                        editor.apply();
 
                         Intent intentEntrar = new Intent(Login.this, ActivityMainUser.class);
-                        intentEntrar.putExtra("username", username);
                         intentEntrar.putExtra("login", "normal");
                         startActivity(intentEntrar);
+
                     } else {
                         Toast.makeText(Login.this, "Username não registado", Toast.LENGTH_SHORT).show();
                     }
