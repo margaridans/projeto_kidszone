@@ -59,7 +59,6 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         SharedPreferences prefs= getSharedPreferences("login", MODE_PRIVATE);
         String nome= prefs.getString("username", "default");
 
-        Toast.makeText(this, "Bem vindo " + nome, Toast.LENGTH_SHORT).show();
 
         TextView txtUsername = (TextView) findViewById(R.id.nome_usuario);
         txtUsername.setText(nome);

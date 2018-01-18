@@ -76,6 +76,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                         editor.apply();
 
+                        SharedPreferences prefs= getSharedPreferences("login", MODE_PRIVATE);
+                        String nome= prefs.getString("username", "default");
+
+                        Toast.makeText(Login.this, "Bem vindo " + nome, Toast.LENGTH_SHORT).show();
                         Intent intentEntrar = new Intent(Login.this, ActivityMainUser.class);
                         intentEntrar.putExtra("login", "normal");
                         startActivity(intentEntrar);

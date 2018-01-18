@@ -43,6 +43,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnDicas.setOnClickListener(this);
 
 
+        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+        String nome = prefs.getString("username", "default");
+
+        if(nome!=null) {
+            Intent itLogin = new Intent(this, ActivityMainUser.class);
+            startActivity(itLogin);
+        }
+
+
     }
 
     @Override

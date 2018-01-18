@@ -90,14 +90,6 @@ public class User {
         }
     }
 
-    public static boolean deleteUser(SQLiteDatabase db, String username) {
-        try {
-            db.execSQL("DELETE FROM " + NAME_TABLE + "WHERE " + USERNAME + "=" + username + ";");
-            return true;
-        } catch (SQLException ex) {
-            db.close();
-            return false;
-        }
-    }
+
 
 }

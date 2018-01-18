@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
+import android.text.TextUtils;
 
 import projeto_kidszone.database_library.Model.Categoria;
 import projeto_kidszone.database_library.Model.Dicas;
@@ -111,6 +113,34 @@ public class MyDbHelper extends SQLiteOpenHelper {
         }
     }
 
+
+    public boolean editarUtilizador(String username, String password) {
+        if (checkIFExistis(username) == false) {
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put("username", username);
+            cv.put("password", password);
+
+            String where = "username = " + username;
+
+            long result = db.update("tblUser", cv, where, null);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean deleteUser(String username) {
+
+        SQLiteDatabase db = getWritableDatabase();
+        String where = "username = " + username;
+        db.delete("tblUser", where, null);
+        db.close();
+
+        return true;
+
+    }
+
     public boolean checkIFExistis(String username) {
         SQLiteDatabase db = getReadableDatabase();
 
@@ -140,7 +170,6 @@ public class MyDbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE tblcategoria");
         this.onCreate(db);
     }
-
 
 
 }

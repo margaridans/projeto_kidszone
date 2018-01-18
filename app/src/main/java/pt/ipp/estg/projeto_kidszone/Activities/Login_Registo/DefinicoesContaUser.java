@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.User;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoTreino;
@@ -25,54 +27,24 @@ import pt.ipp.estg.projeto_kidszone.R;
  */
 
 public class DefinicoesContaUser extends Activity implements View.OnClickListener {
-    TextView txtNomeUserEd, txtEliminarConta;
-    EditText edPass, edPassConf;
-    Button btnPass;
 
-    MyDbHelper myDb;
+    MyDbHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.definicao_conta_user);
 
+        db = new MyDbHelper(this);
 
-        MyDbHelper dbHelper = new MyDbHelper(this);
-        SQLiteDatabase myDb = dbHelper.getWritableDatabase();
-
-
-        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-        String nome = prefs.getString("username", "default");
-
-
-
-        txtNomeUserEd = findViewById(R.id.nomeUsuarioEdit);
-        txtNomeUserEd.setText(nome);
-
-        btnPass = findViewById(R.id.btnAlterarPass);
-        btnPass.setOnClickListener(this);
-
-        edPass = findViewById(R.id.editTextPasswordConta);
-        edPass.setVisibility(View.GONE);
-
-        edPassConf = findViewById(R.id.editTextConfirmPasswordConta);
-        edPassConf.setVisibility(View.GONE);
-
-        txtEliminarConta = findViewById(R.id.cancelarConta);
+        TextView txtEliminarConta = findViewById(R.id.cancelarConta);
         txtEliminarConta.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnAlterarPass) {
-            edPass = findViewById(R.id.editTextPasswordConta);
-            edPass.setVisibility(View.VISIBLE);
-
-            edPassConf = findViewById(R.id.editTextConfirmPasswordConta);
-            edPassConf.setVisibility(View.VISIBLE);
-
-        } else if (v.getId() == R.id.cancelarConta) {
+        if (v.getId() == R.id.cancelarConta) {
 
             SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
             final String nome = prefs.getString("username", "default");
@@ -80,7 +52,7 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
             onPause();
             AlertDialog.Builder alertaSair = new AlertDialog.Builder(DefinicoesContaUser.this);
             alertaSair.setTitle("Aviso");
-            alertaSair.setMessage(nome+ ", tens a certeza que queres eliminar a tua conta?");
+            alertaSair.setMessage(nome + ", tens a certeza que queres eliminar a tua conta?");
             alertaSair.setCancelable(false);
             alertaSair.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 @Override
@@ -91,16 +63,16 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
             alertaSair.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
+                    Boolean res = db.deleteUser(nome);
 
-                    MyDbHelper dbHelper = new MyDbHelper(DefinicoesContaUser.this);
+                    if (res == true) {
 
-                    SQLiteDatabase myDb = dbHelper.getWritableDatabase();
 
-                    User.deleteUser(myDb, nome);
-                    Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
-                    Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
-                    startActivity(intentCancelarConta);
-                    finish();
+                        Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                        Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
+                        startActivity(intentCancelarConta);
+                        finish();
+                    }
                 }
             });
             AlertDialog alertDialogo = alertaSair.create();
