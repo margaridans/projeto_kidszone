@@ -4,7 +4,6 @@
     android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
         <item android:id="@+id/def_conta"
             android:title="Definições Conta" />
         <item android:id="@+id/logout"
