@@ -73,6 +73,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     if (res.equals("OK")) {
                         SharedPreferences.Editor editor = getSharedPreferences("login", MODE_PRIVATE).edit();
                         editor.putString("username", username);
+                        editor.putString("password", password);
 
                         editor.apply();
 

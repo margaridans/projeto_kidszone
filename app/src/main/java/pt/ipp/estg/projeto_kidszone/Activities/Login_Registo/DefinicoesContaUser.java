@@ -38,41 +38,52 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         db = new MyDbHelper(this);
 
         TextView editTextUserName = (EditText) findViewById(R.id.editTextUserName);
-        TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
+        TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
         Button btnEditar = findViewById(R.id.btnEdiDados);
         btnEditar.setOnClickListener(this);
 
-        TextView btnCancelarConta =  findViewById(R.id.cancelarConta);
+        TextView btnCancelarConta = findViewById(R.id.cancelarConta);
         btnCancelarConta.setOnClickListener(this);
 
-        String password = editTextPassword.getText().toString();
-        String confirmPassword = editTextConfirmPassword.getText().toString();
 
-        if (password.equals("") || confirmPassword.equals("")) {
-            Toast.makeText(DefinicoesContaUser.this, "Password inválida", Toast.LENGTH_SHORT).show();
-        } else if (!password.equals(confirmPassword)) {
-            Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+        String nome = prefs.getString("username", "default");
 
-        }
+        String pass = prefs.getString("password", "default");
+        editTextPassword.setText(pass);
+
+        EditText txtUsername = findViewById(R.id.irBuscarNome);
+        txtUsername.setText(nome);
+
+
     }
 
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.btnEdiDados) {
+        if (v.getId() == R.id.btnEdiDados) {
             TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
             String password = editTextPassword.getText().toString();
+            TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
+            String confirmPassword = editTextConfirmPassword.getText().toString();
 
             SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
             String nome = prefs.getString("username", "default");
+            if (password.equals("") || confirmPassword.equals("")) {
+                Toast.makeText(DefinicoesContaUser.this, "Password inválida", Toast.LENGTH_SHORT).show();
+            } else if (!password.equals(confirmPassword)) {
+                Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
 
-            db.editarUtilizador(nome,password);
-            Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
-            Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
-            startActivity(intentEditar);
-            finish();
+            } else {
+                db.editarUtilizador(nome, password);
+                Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
+                Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
+                startActivity(intentEditar);
+                finish();
+            }
+
         }
 
         if (v.getId() == R.id.cancelarConta) {
