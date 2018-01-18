@@ -41,8 +41,8 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
 
-        TextView txtEliminarConta = findViewById(R.id.cancelarConta);
-
+        Button btnEditar = findViewById(R.id.btnEdiDados);
+        btnEditar.setOnClickListener(this);
 
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString();
@@ -52,11 +52,16 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         } else if (!password.equals(confirmPassword)) {
             Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
 
+        }
     }
 
 
     @Override
     public void onClick(View v) {
+        if(v.getId()==R.id.btnEdiDados) {
+            
+        }
+
         if (v.getId() == R.id.cancelarConta) {
 
             SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
