@@ -130,8 +130,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
     public void alterarConta() {
         Toast.makeText(this, "definicoes", Toast.LENGTH_LONG).show();
-        Intent intentLogout = new Intent(this, DefinicoesContaUser.class);
-        startActivity(intentLogout);
+        Intent intentConta = new Intent(this, DefinicoesContaUser.class);
+        startActivity(intentConta);
 
     }
 
