@@ -44,8 +44,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Button btnJogar = (Button) findViewById(R.id.btnJogar);
         btnJogar.setOnClickListener(this);
 
-        Button btnLogout = (Button) findViewById(R.id.btn_logout);
-        btnLogout.setOnClickListener(this);
+
 
         Button btnDicas = (Button) findViewById(R.id.btnDicas);
         btnDicas.setOnClickListener(this);
@@ -91,11 +90,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btn_logout) {
-            Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
-            Intent intentLogout = new Intent(this, MainActivity.class);
-            startActivity(intentLogout);
-        } else if (v.getId() == R.id.btnDicas) {
+         if (v.getId() == R.id.btnDicas) {
             Intent intentDicas = new Intent(this, DicasActivity.class);
             startActivity(intentDicas);
         } else if (v.getId() == R.id.btnJogar) {
@@ -116,7 +111,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.create_new:
+            case R.id.def_conta:
+                alterarConta();
                 return true;
             case R.id.logout:
               terminarSessao();
@@ -131,6 +127,13 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Intent intentLogout = new Intent(this, MainActivity.class);
         startActivity(intentLogout);
     }
+
+    public void alterarConta() {
+        Toast.makeText(this, "definicoes", Toast.LENGTH_LONG).show();
+
+
+    }
+
 
 }
 

@@ -18,6 +18,7 @@
         android:minHeight="?attr/actionBarSize"
         android:titleTextColor="#ffffff">
 
+
             <TextView
                 android:id="@+id/nome_usuario"
                 android:layout_width="wrap_content"
@@ -25,16 +26,9 @@
                 android:text=""
                 android:textColor="@color/colorBlack"
                 android:textSize="15dp"
+                android:layout_marginLeft="170dp"
                 android:onClick="showPopup"/>
 
-
-            <Button
-                android:id="@+id/btn_logout"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="@drawable/logout"
-                android:layout_marginTop="10dp"
-                android:onClick="onClick" />
 
     </android.support.v7.widget.Toolbar>
 
