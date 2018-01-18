@@ -114,32 +114,24 @@ public class MyDbHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean editarUtilizador(String username, String password) {
-        if (checkIFExistis(username) == false) {
-            SQLiteDatabase db = getWritableDatabase();
-            ContentValues cv = new ContentValues();
-            cv.put("username", username);
-            cv.put("password", password);
-
-            String where = "username = " + username;
-
-            long result = db.update("tblUser", cv, where, null);
-            return true;
-        } else {
-            return false;
+    public String editarUtilizador(String username, String password) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("UPDATE tblUser SET username=? AND password=? ", new String[]{username, password});
+        if (c.getCount() > 0) {
+            return "OK";
         }
+        return "ERRO";
+
     }
 
-    public void deleteUser(String username) {
-        if (checkIFExistis(username) == true) {
-
-            SQLiteDatabase db = getWritableDatabase();
-            String where = "username = " + username;
-            String[] argumentos = {username};
-
-            db.delete("tblUser", where, argumentos);
-            db.close();
+    public String deleteUser(String username) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("DELETE FROM tblUser WHERE username=? ", new String[]{username});
+        if (c.getCount() > 0) {
+            return "OK";
         }
+        return "ERRO";
+
     }
 
     public boolean checkIFExistis(String username) {
