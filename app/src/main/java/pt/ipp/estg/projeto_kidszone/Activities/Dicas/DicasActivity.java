@@ -95,9 +95,9 @@ public class DicasActivity extends AppCompatActivity {
             float delta = acelVal - acelLast;
             shake = shake * 0.9f + delta;
 
-            if (shake > 12) {
+            if (shake > 20) {
                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(250);
+                vibrator.vibrate(500);
 
                 imgIdea = (ImageView) findViewById(R.id.lampada_ideia);
                 txt_descDica =(TextView)findViewById(R.id.desc_dica);

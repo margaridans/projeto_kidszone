@@ -18,7 +18,6 @@ import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
-import pt.ipp.estg.projeto_kidszone.DefinicoesContaUser;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
@@ -126,6 +125,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
         Intent intentLogout = new Intent(this, MainActivity.class);
         startActivity(intentLogout);
+        finish();
     }
 
     public void alterarConta() {

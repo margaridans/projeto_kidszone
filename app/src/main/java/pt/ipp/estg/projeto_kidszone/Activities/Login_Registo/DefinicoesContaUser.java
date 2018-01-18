@@ -1,4 +1,4 @@
-package pt.ipp.estg.projeto_kidszone;
+package pt.ipp.estg.projeto_kidszone.Activities.Login_Registo;
 
 import android.app.Activity;
 import android.content.Intent;
