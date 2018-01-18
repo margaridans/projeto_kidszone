@@ -6,6 +6,7 @@
     <string name="msg_perder">Perdeu</string>
     <string name="msg_ganhou">Ganhou</string>
     <string name="login">Login</string>
+    <string name="mapa">Mapa</string>
     <string name="logout">Logout</string>
     <string name="loginlogout">Login</string>
     <string name="jogar">Jogar</string>
