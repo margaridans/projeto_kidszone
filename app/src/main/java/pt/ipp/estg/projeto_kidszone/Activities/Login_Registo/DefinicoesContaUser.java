@@ -53,6 +53,7 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
 
         String pass = prefs.getString("password", "default");
         editTextPassword.setText(pass);
+        editTextConfirmPassword.setText(pass);
 
         EditText txtUsername = findViewById(R.id.irBuscarNome);
         txtUsername.setText(nome);
@@ -66,18 +67,25 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         if (v.getId() == R.id.btnEdiDados) {
             TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
             String password = editTextPassword.getText().toString();
+
             TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
             String confirmPassword = editTextConfirmPassword.getText().toString();
 
             SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
             String nome = prefs.getString("username", "default");
+
+            TextView editNome= (EditText) findViewById(R.id.irBuscarNome);
+            String nomeUser = editNome.getText().toString();
+
+
             if (password.equals("") || confirmPassword.equals("")) {
                 Toast.makeText(DefinicoesContaUser.this, "Password inválida", Toast.LENGTH_SHORT).show();
             } else if (!password.equals(confirmPassword)) {
                 Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
 
             } else {
-                db.editarUtilizador(nome, password);
+                db.editarUtilizador(nomeUser, password);
+
                 Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
                 Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
                 startActivity(intentEditar);
@@ -107,14 +115,15 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
                 public void onClick(DialogInterface dialogInterface, int i) {
                     SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
                     String nome = prefs.getString("username", "default");
+
                     db.deleteUser(nome);
 
-                    Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
-                    Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
-                    startActivity(intentCancelarConta);
-                    finish();
+                        Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                        Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
+                        startActivity(intentCancelarConta);
+                        finish();
+                    }
 
-                }
             });
             AlertDialog alertDialogo = alertaSair.create();
             alertDialogo.show();
