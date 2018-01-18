@@ -44,6 +44,9 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         Button btnEditar = findViewById(R.id.btnEdiDados);
         btnEditar.setOnClickListener(this);
 
+        TextView btnCancelarConta =  findViewById(R.id.cancelarConta);
+        btnCancelarConta.setOnClickListener(this);
+
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString();
 
@@ -59,7 +62,17 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.btnEdiDados) {
-            
+            TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+            String password = editTextPassword.getText().toString();
+
+            SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+            String nome = prefs.getString("username", "default");
+
+            db.editarUtilizador(nome,password);
+            Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
+            Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
+            startActivity(intentEditar);
+            finish();
         }
 
         if (v.getId() == R.id.cancelarConta) {
