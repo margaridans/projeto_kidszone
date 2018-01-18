@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_activity"
+    xmlns="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:titleTextColor="#ffffff">
+
+        <TextView
+            android:id="@+id/nome_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="450dp"
+            android:onClick="showPopup"
+            android:text=""
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="178dp"
+            android:layout_height="163dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="47dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/logo"
+            android:cropToPadding="false"
+            android:text="@string/descImagemLogo" />
+
+        <Button
+            android:id="@+id/btnJogar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="44dp"
+            android:layout_marginStart="47dp"
+            android:background="@drawable/gamer" />
+
+        <Button
+            android:id="@+id/btnMapa"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignBaseline="@+id/btnDicas"
+            android:layout_alignBottom="@+id/btnDicas"
+            android:layout_marginStart="55dp"
+            android:layout_toEndOf="@+id/btnJogar"
+            android:background="@drawable/mapa" />
+
+        <Button
+            android:id="@+id/btnDicas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignBaseline="@+id/btnJogar"
+            android:layout_alignBottom="@+id/btnJogar"
+            android:layout_marginStart="47dp"
+            android:layout_toEndOf="@+id/btnMapa"
+            android:background="@drawable/ideias"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignEnd="@+id/btnMapa"
+            android:layout_below="@+id/btnMapa"
+            android:layout_marginTop="8dp"
+            android:text="@string/mapa"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignEnd="@+id/btnDicas"
+            android:text="@string/dicas"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignEnd="@+id/btnJogar"
+            android:text="@string/jogar"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+    </RelativeLayout>
+</LinearLayout>
