@@ -41,19 +41,9 @@ public class MenuJogo extends AppCompatActivity implements View.OnClickListener 
 
         txtComp = (TextView) findViewById(R.id.txtComp);
 
-        ProgressBar progress = (ProgressBar) findViewById(R.id.progress);
-        TextView texto = (TextView) findViewById(R.id.texto);
-
-        new MinhaTask(MenuJogo.this, progress, texto).execute();
 
     }
 
-    public static void mostrarBotoes() {
-        treino.setVisibility(View.VISIBLE);
-        competitivo.setVisibility(View.VISIBLE);
-        txtComp.setVisibility(View.VISIBLE);
-        txtTreino.setVisibility(View.VISIBLE);
-    }
 
 
     @Override

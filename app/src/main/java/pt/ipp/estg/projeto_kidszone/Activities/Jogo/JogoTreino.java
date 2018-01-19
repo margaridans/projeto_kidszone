@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Dificuldade;
 import projeto_kidszone.database_library.Model.Pergunta;
+import pt.ipp.estg.projeto_kidszone.MinhaTask;
 import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -24,12 +26,12 @@ import pt.ipp.estg.projeto_kidszone.R;
 public class JogoTreino extends AppCompatActivity implements View.OnClickListener {
 
     private Perguntas_Jogo jogo;
-    private int pontuacao = 0;
+    private static int pontuacao = 0;
     private Dificuldade dificuldade;
-    private TextView txtPergunta;
-    private TextView txtPontuacao;
-    private Button btn, btn1, btn2, btn3, btn4, btnTerminar;
-    private Pergunta pergunta;
+    private static TextView txtPergunta;
+    private static TextView txtPontuacao;
+    private static Button btn, btn1, btn2, btn3, btn4, btnTerminar;
+    private static Pergunta pergunta;
     private int id_lista = 0;
 
     @Override
@@ -52,8 +54,8 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         Pergunta.getPerguntas(db, listaPerguntas);
         pergunta = listaPerguntas.get(id_lista);
 
-        Button terminarTreino = (Button) findViewById(R.id.terminar_treino);
-        terminarTreino.setOnClickListener((View.OnClickListener) this);
+        btnTerminar = (Button) findViewById(R.id.terminar_treino);
+        btnTerminar.setOnClickListener((View.OnClickListener) this);
 
 
         setPerguntaToView();
@@ -83,7 +85,22 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             }
         });
 
+        ProgressBar progress = (ProgressBar) findViewById(R.id.progress);
+        TextView texto = (TextView) findViewById(R.id.texto);
 
+        new MinhaTask(JogoTreino.this, progress, texto).execute();
+
+    }
+
+
+    public static void mostrarInv() {
+        txtPergunta.setVisibility(View.VISIBLE);
+        txtPontuacao.setVisibility(View.VISIBLE);
+        btn1.setVisibility(View.VISIBLE);
+        btn2.setVisibility(View.VISIBLE);
+        btn3.setVisibility(View.VISIBLE);
+        btn4.setVisibility(View.VISIBLE);
+        btnTerminar.setVisibility(View.VISIBLE);
     }
 
 

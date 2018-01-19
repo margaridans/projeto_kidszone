@@ -26,8 +26,7 @@
             android:id="@+id/treino"
             android:layout_width="98dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/training"
-            android:visibility="invisible"/>
+            android:background="@drawable/training"/>
 
         <TextView
             android:id="@+id/txtTreino"
@@ -39,8 +38,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:typeface="sans"
-            android:visibility="invisible"/>
+            android:typeface="sans"/>
 
 
 
@@ -49,8 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:background="@drawable/cup"
-            android:visibility="invisible"/>
+            android:background="@drawable/cup"/>
 
 
         <TextView
@@ -63,27 +60,10 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:typeface="sans"
-            android:visibility="invisible"/>
+            android:typeface="sans"/>
 
 
     </LinearLayout>
-
-    <ProgressBar
-        android:layout_width="250dp"
-        android:layout_height="5dp"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:max="100"
-        android:id="@+id/progress"
-        android:layout_gravity="center"
-        android:layout_marginTop="75dp"/>
-
-    <TextView
-        android:id="@+id/texto"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progress"
-        android:gravity="center"/>
 
 
 </LinearLayout>

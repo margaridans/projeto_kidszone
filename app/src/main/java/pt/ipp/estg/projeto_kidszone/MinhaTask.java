@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoTreino;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 
 /**
@@ -65,7 +66,7 @@ private Button btnCom ;
     @Override
     protected void onPostExecute(String result) {
         progressBar.setVisibility(ProgressBar.INVISIBLE);
-        MenuJogo.mostrarBotoes();
+        JogoTreino.mostrarInv();
         texto.setVisibility(texto.GONE);
     }
 }

@@ -16,7 +16,9 @@
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:visibility="invisible"/>
+
 
 
     <LinearLayout
@@ -33,7 +35,8 @@
             android:layout_marginTop="80dp"
             android:background="@color/btn_normal"
             android:text=""
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/resposta2"
@@ -44,7 +47,9 @@
             android:layout_marginTop="10dp"
             android:background="@color/btn_normal"
             android:text=""
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/resposta3"
@@ -55,7 +60,9 @@
             android:layout_marginTop="10dp"
             android:background="@color/btn_normal"
             android:text=""
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/resposta4"
@@ -66,7 +73,9 @@
             android:layout_marginTop="10dp"
             android:background="@color/btn_normal"
             android:text=""
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
 
         <TextView
@@ -75,7 +84,9 @@
             android:layout_height="118dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Pontos: 0" />
+            android:text="Pontos: 0"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/terminar_treino"
@@ -83,7 +94,26 @@
             android:layout_height="50dp"
             android:layout_marginTop="-25dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/stop_treino" />
+            android:background="@drawable/stop_treino"
+            android:visibility="invisible"/>
+
 
     </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="250dp"
+        android:layout_height="5dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:max="100"
+        android:id="@+id/progress"
+        android:layout_gravity="center"
+        android:layout_marginTop="-35dp"/>
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress"
+        android:gravity="center"/>
+
 </LinearLayout>
