@@ -137,7 +137,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
     public void alterarConta() {
         Intent intentConta = new Intent(this, DefinicoesContaUser.class);
         startActivity(intentConta);
-        finish();
+
 
     }
 

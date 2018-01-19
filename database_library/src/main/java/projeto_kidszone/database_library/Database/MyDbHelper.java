@@ -114,16 +114,20 @@ public class MyDbHelper extends SQLiteOpenHelper {
     }
 
 
-    public String editarUtilizador(String username, String password) {
-        ContentValues newValues = new ContentValues();
-        newValues.put("username", username);
-        newValues.put("password", password);
-        SQLiteDatabase db = getReadableDatabase();
+    public boolean editarUtilizador(String username, String password) {
+        if (checkIFExistis(username) == false) {
+            ContentValues newValues = new ContentValues();
+            newValues.put("username", username);
+            newValues.put("password", password);
+            SQLiteDatabase db = getReadableDatabase();
 
-        String[] args = new String[]{username, password};
-        db.update("tblUser", newValues, "username=? OR password=?", args);
+            String[] args = new String[]{username, password};
+            db.update("tblUser", newValues, "username=? OR password=?", args);
 
-        return "OK";
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String deleteUser(String username) {

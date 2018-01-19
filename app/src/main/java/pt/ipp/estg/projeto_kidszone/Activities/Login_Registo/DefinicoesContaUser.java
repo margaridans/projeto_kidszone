@@ -64,6 +64,7 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+
         if (v.getId() == R.id.btnEdiDados) {
             TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
             String password = editTextPassword.getText().toString();
@@ -84,14 +85,20 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
                 Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
 
             } else {
-                db.editarUtilizador(nome_user, password);
+                Boolean res = db.editarUtilizador(nome_user, password);
 
-                Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
-                Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
-                startActivity(intentEditar);
-                finish();
+                if (res == true) {
+
+                    Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
+                    Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
+                    startActivity(intentEditar);
+                    finish();
+
+                } else {
+                    Toast.makeText(DefinicoesContaUser.this, "Não é possível registar esse usuário, pois ele já existe", Toast.LENGTH_SHORT).show();
+
+                }
             }
-
         }
 
         if (v.getId() == R.id.cancelarConta) {
@@ -118,11 +125,11 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
 
                     db.deleteUser(nome);
 
-                        Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
-                        Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
-                        startActivity(intentCancelarConta);
-                        finish();
-                    }
+                    Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                    Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
+                    startActivity(intentCancelarConta);
+                    finish();
+                }
 
             });
             AlertDialog alertDialogo = alertaSair.create();

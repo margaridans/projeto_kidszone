@@ -16,6 +16,6 @@ public class teste extends Activity {
         setContentView(R.layout.teste2);
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-nm.cancel(R.drawable.sad);
+nm.cancel(R.drawable.logo);
     }
 }
