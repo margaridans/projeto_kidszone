@@ -69,8 +69,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         builder.setContentText("Que tal pores o teu conhecimento à prova?");
         builder.setSmallIcon(R.drawable.logo);
         builder.setContentIntent(vamosJogarPI);
-        builder.setAutoCancel(true);
-        builder.addAction(vamosJogarAC);
+        builder.addAction(vamosJogarAC).setAutoCancel(true);
         builder.addAction(cancelarAC);
         Notification n = builder.build();
         n.vibrate = new long[]{150, 300, 150, 300};
