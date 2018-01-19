@@ -3,7 +3,9 @@ package pt.ipp.estg.projeto_kidszone;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,7 +19,7 @@ import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
  */
 
 public class MinhaTask extends AsyncTask<Object, Object, String> {
-
+private Button btnCom ;
     private ProgressBar progressBar;
     private TextView texto;
     private int total = 0;
@@ -63,6 +65,7 @@ public class MinhaTask extends AsyncTask<Object, Object, String> {
     @Override
     protected void onPostExecute(String result) {
         progressBar.setVisibility(ProgressBar.INVISIBLE);
-        super.onPostExecute(result);
+        MenuJogo.mostrarBotoes();
+        texto.setVisibility(texto.GONE);
     }
 }
