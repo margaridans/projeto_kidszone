@@ -26,9 +26,10 @@
             android:id="@+id/treino"
             android:layout_width="98dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/training" />
+            android:background="@drawable/training"/>
 
         <TextView
+            android:id="@+id/txtTreino"
             android:layout_width="99dp"
             android:layout_height="80dp"
             android:layout_marginLeft="-100dp"
@@ -37,16 +38,19 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:typeface="sans" />
+            android:typeface="sans"/>
+
 
         <Button
             android:id="@+id/competitivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:background="@drawable/cup" />
+            android:background="@drawable/cup"/>
+
 
         <TextView
+            android:id="@+id/txtComp"
             android:layout_width="117dp"
             android:layout_height="80dp"
             android:layout_marginLeft="-100dp"
@@ -55,9 +59,25 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:typeface="sans" />
+            android:typeface="sans"/>
+
 
     </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="250dp"
+        android:layout_height="5dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:max="100"
+        android:id="@+id/progress"
+        android:layout_gravity="center"
+        android:layout_marginTop="75dp"/>
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress"/>
 
 
 </LinearLayout>

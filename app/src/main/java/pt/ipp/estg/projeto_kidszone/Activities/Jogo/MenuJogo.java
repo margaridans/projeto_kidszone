@@ -14,12 +14,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import pt.ipp.estg.projeto_kidszone.MinhaTask;
 import pt.ipp.estg.projeto_kidszone.R;
 
 public class MenuJogo extends AppCompatActivity implements View.OnClickListener {
-    ProgressBar prgs;
-    ProgressTask task;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,10 @@ public class MenuJogo extends AppCompatActivity implements View.OnClickListener 
         Button competitivo = (Button) findViewById(R.id.competitivo);
         competitivo.setOnClickListener(this);
 
+        ProgressBar progress = (ProgressBar) findViewById(R.id.progress);
+        TextView texto = (TextView) findViewById(R.id.texto);
 
-        prgs = (ProgressBar) findViewById(R.id.progress_bar);
+        new MinhaTask(MenuJogo.this, progress, texto).execute();
 
 
     }
@@ -41,64 +44,16 @@ public class MenuJogo extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.treino) {
+
             Intent intentTreino = new Intent(this, JogoTreino.class);
             startActivity(intentTreino);
         } else if (view.getId() == R.id.competitivo) {
 
-                Intent intentCompetitivo = new Intent(this, JogoCompetitivo.class);
-                startActivity(intentCompetitivo);
+            Intent intentCompetitivo = new Intent(this, JogoCompetitivo.class);
+            startActivity(intentCompetitivo);
         }
     }
 
-    private class ProgressTask extends AsyncTask<Integer, Integer, Void> {
-
-        protected void onPreExecute() {
-            super.onPreExecute();
-            prgs.setMax(100); // set maximum progress to 100.
-        }
-
-        protected void onCancelled() {
-            prgs.setMax(0); // stop the progress
-        }
-
-        protected Void doInBackground(Integer... params) {
-            int start = params[0];
-            for (int i = start; i <= 100; i += 5) {
-                try {
-                    boolean cancelled = isCancelled();
-                    if (!cancelled) {
-                        publishProgress(i);
-                        Log.v("Progress", "increment " + i);
-                        onProgressUpdate(i);
-                        SystemClock.sleep(1000);
-                    }
-                } catch (Exception e) {
-                    Log.e("Error", e.toString());
-                }
-            }
-            return null;
-        }
-        protected void onProgressUpdate(Integer... values) {
-
-            // increment progress bar by progress value
-            //////////////////////setProgress(10);
-            //////////////////////prgs.setProgress(prgs.getProgress() + 5); // the bar does not fill 100%
-            prgs.setProgress(5);
-            Log.v("Progress","Once");
-        }
-        protected void onPostExecute(Void result) {
-            // async task finished
-            Log.v("Progress", "Finished");
-        }
-    }
-
-
-        private void showProgress() {
-            task = new ProgressTask();
-            task.execute(150);
-        }
-
-
-    }
+}
 
 
