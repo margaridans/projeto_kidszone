@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:text=""
         android:gravity="center"
-        android:textSize="20dp"/>
+        android:textSize="36sp"/>
 
     <ImageView
         android:id="@+id/lampada_ideia"
-        android:layout_width="207dp"
-        android:layout_height="194dp"
+        android:layout_width="409dp"
+        android:layout_height="456dp"
         android:layout_gravity="center"
         android:layout_toRightOf="@id/desc_dica"
         android:background="@drawable/ideia" />
@@ -34,7 +34,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/descricao_dicas"
-        android:textSize="18sp" />
+        android:textSize="36sp" />
 
     <ImageView
         android:id="@+id/fixe_ideia"
