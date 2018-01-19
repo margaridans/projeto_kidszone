@@ -70,7 +70,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         builder .addAction(cancelarAC);
         Notification n = builder.build();
         n.vibrate = new long[]{150, 300, 150, 600};
-        nm.notify(R.drawable.sad, n);
+        nm.notify(R.drawable.logo, n);
 
         try {
             Uri som = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
