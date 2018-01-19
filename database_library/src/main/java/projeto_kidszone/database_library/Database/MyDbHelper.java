@@ -115,13 +115,15 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
 
     public String editarUtilizador(String username, String password) {
+        ContentValues newValues = new ContentValues();
+        newValues.put("username", username);
+        newValues.put("password", password);
         SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery("UPDATE tblUser SET username=? AND password=? ", new String[]{username, password});
-        if (c.getCount() > 0) {
-            return "OK";
-        }
-        return "ERRO";
 
+        String[] args = new String[]{username, password};
+        db.update("tblUser", newValues, "username=? OR password=?", args);
+
+        return "OK";
     }
 
     public String deleteUser(String username) {

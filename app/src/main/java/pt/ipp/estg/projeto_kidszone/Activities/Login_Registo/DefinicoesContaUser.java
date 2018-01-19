@@ -74,6 +74,9 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
             SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
             String nome = prefs.getString("username", "default");
 
+            TextView editUsername = (EditText) findViewById(R.id.irBuscarNome);
+            String nome_user = editUsername.getText().toString();
+
 
             if (password.equals("") || confirmPassword.equals("")) {
                 Toast.makeText(DefinicoesContaUser.this, "Password inválida", Toast.LENGTH_SHORT).show();
@@ -81,7 +84,7 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
                 Toast.makeText(DefinicoesContaUser.this, "As passwords não coincidem", Toast.LENGTH_SHORT).show();
 
             } else {
-                db.editarUtilizador(nome, password);
+                db.editarUtilizador(nome_user, password);
 
                 Toast.makeText(DefinicoesContaUser.this, "Dados editados com sucesso", Toast.LENGTH_SHORT).show();
                 Intent intentEditar = new Intent(DefinicoesContaUser.this, ActivityMainUser.class);
