@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="144dp"
+        android:layout_height="134dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/def_user" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="-20dp">
+
+        <TextView
+            android:id="@+id/nomeUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_toLeftOf="@+id/irBuscarNome"
+            android:text="Nome usuário: "
+            android:textColor="@color/colorCinzaEscuro"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/irBuscarNome"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="-30dp"
+            android:text=" o"
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp" />
+
+
+        <TextView
+            android:id="@+id/txtAlterarPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/btnAlterarPass"
+            android:textColor="@color/colorCinzaEscuro"
+            android:textSize="15dp" />
+
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="15dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorCinzaEscuro"
+            android:textSize="15dp" />
+
+
+        <EditText
+            android:id="@+id/editTextConfirmPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password_conf"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorCinzaEscuro"
+            android:textSize="15dp" />
+
+
+        <Button
+            android:id="@+id/btnEdiDados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/edDados"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/cancelarConta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="@string/cancelarConta"
+            android:textColor="@color/colorCinzaEscuro"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>
