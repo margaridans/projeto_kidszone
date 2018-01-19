@@ -6,9 +6,10 @@
         android:name="android.hardware.sensor.accelerometer"
         android:required="true" />
 
+
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:name=".projeto_kidszoneApp"
         android:allowBackup="true"
@@ -38,6 +39,16 @@
         <activity android:name=".Activities.Dicas.DicasActivity" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.Login_Registo.ActivityMainUser" />
         <activity android:name=".Activities.Login_Registo.DefinicoesContaUser"/>
+
+
+        <service android:name=".NotificationService" android:exported="false"></service>
+        
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="pt.ipp.estg.projeto_kidszone"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
