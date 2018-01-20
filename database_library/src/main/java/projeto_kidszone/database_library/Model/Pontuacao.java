@@ -76,9 +76,9 @@ public class Pontuacao {
         }
     }
 
-    public static Pontuacao getPontuacaoById(SQLiteDatabase db, int id_pontuacao) {
+    public static Pontuacao getPontuacaoByUser(SQLiteDatabase db, String nome_user) {
         try {
-            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE + "WHERE " + ID_PONT + "=" + id_pontuacao + ";", null);
+            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE + "WHERE " + USER + "=" + nome_user + ";", null);
             Pontuacao pontuacao = null;
 
             //se o cursor não estiver vazio e se estiver na primeira linha

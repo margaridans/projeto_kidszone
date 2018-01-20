@@ -100,11 +100,11 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean criarUtilizador(String username, String password) {
-        if (checkIFExistis(username) == false) {
+    public boolean criarUtilizador(String nome_user, String password) {
+        if (checkIFExistis(nome_user) == false) {
             SQLiteDatabase db = getWritableDatabase();
             ContentValues cv = new ContentValues();
-            cv.put("username", username);
+            cv.put("username", nome_user);
             cv.put("password", password);
             long result = db.insert("tblUser", null, cv);
             return true;
@@ -113,6 +113,18 @@ public class MyDbHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean inserirPontuacao(String username, Integer pontuacao) {
+        if (checkIFExistis(username) == false) {
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put("username", username);
+            cv.put("pontuacao", pontuacao);
+            long result = db.insert("tblPontuacao", null, cv);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public boolean editarUtilizador(String username, String password) {
         if (checkIFExistis(username) == false) {

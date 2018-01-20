@@ -29,8 +29,6 @@
     <string name="btnFacil" type="id">Fácil</string>
     <string name="btnMedio" type="id">Médio</string>
     <string name="btnDificil" type="id">Dificil</string>
-    <string name="btnNovoTreino" type="id">Novo treino</string>
-    <string name="btnCompetitivo" type="id">Jogar Competitivo</string>
     <string name="menuPrincipal" type="id">Menu Principal</string>
     <string name="title_activity_menu_user">MenuUser</string>
     <string name="descricao_dicas">Para descobrires as dicas que temos para te mostrar o teu dispositivo tens que agitar</string>
@@ -41,6 +39,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cancelarConta">Eliminar conta </string>
     <string name="edDados">Editar Dados </string>
+    <string name="descricaoPontuacao">A sua pontuação: </string>
+    <string name="btnPontuacao">Ver as minhas pontuações </string>
 
 
     <item name="error_login" type="id">Ocorreu um erro</item>

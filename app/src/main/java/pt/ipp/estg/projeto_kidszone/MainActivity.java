@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.Jogo;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;

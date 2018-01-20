@@ -17,61 +17,20 @@
         android:layout_marginTop="15dp"
         android:text="" />
 
-    <ImageView
-        android:id="@+id/imgSad"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/sad"
-        android:layout_marginBottom="10dp"/>
-
-    <ImageView
-        android:id="@+id/imgHappy"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/happy"
-        android:layout_marginBottom="10dp"/>
-
-
-    <TextView
-        android:id="@+id/mostrarTreinoTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Ainda não estás preparado para jogar competitivo.
-        Que tal mais um jogo treino?" />
-
-    <Button
-        android:id="@+id/mostrarTreinoBtn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:text="@string/btnNovoTreino" />
-
-
-    <TextView
-        android:id="@+id/mostrarCompTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Boa! E agora que tal começares a competir?" />
-
-    <Button
-        android:id="@+id/mostrarCompBtn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:text="@string/btnCompetitivo" />
-
     <Button
         android:id="@+id/button_menuPrincipal"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="50dp"
         android:text="@string/menuPrincipal" />
+
+    <Button
+        android:id="@+id/btnPontuacao"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/btnPontuacao" />
 
 </LinearLayout>
