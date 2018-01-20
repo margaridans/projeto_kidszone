@@ -67,6 +67,5 @@ private Button btnCom ;
     protected void onPostExecute(String result) {
         progressBar.setVisibility(ProgressBar.INVISIBLE);
         JogoTreino.mostrarInv();
-        texto.setVisibility(texto.GONE);
     }
 }

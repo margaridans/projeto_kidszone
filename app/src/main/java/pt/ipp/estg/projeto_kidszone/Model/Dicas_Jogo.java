@@ -46,6 +46,10 @@ public class Dicas_Jogo {
             return null;
         }
 
+        if(dicasJogo.size()==3) {
+
+        }
+
         int randomNum = positionDica(dicasJogo.size());
         dicasMostradas.add(randomNum);
         posicaoUltimaDica = randomNum;

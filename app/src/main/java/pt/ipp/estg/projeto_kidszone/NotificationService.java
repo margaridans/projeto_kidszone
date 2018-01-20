@@ -59,8 +59,8 @@ public class NotificationService extends Service {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Intent it = new Intent ("pt.ipp.estg.projeto_kidszone");
-        it.putExtra("yourvalue","torestore");
+        Intent it = new Intent("pt.ipp.estg.projeto_kidszone");
+        it.putExtra("yourvalue", "torestore");
         sendBroadcast(it);
     }
 
@@ -89,14 +89,10 @@ public class NotificationService extends Service {
         builder.addAction(vamosJogarAC);
         builder.addAction(cancelarAC);
         Notification n = builder.build();
-        cancelNotification();
+        builder.setAutoCancel(true);
         n.vibrate = new long[]{150, 300, 150, 300};
         nm.notify(R.drawable.logo, n);
     }
 
-    public void cancelNotification() {
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.cancel(R.drawable.logo);
 
-    }
 }
