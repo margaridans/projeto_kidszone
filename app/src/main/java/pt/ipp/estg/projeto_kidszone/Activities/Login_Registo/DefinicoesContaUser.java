@@ -41,6 +41,7 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
         TextView editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
+
         Button btnEditar = findViewById(R.id.btnEdiDados);
         btnEditar.setOnClickListener(this);
 

@@ -129,38 +129,39 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             setPerguntaToView();
         }
     }
-String bigText = "A qualquer momento podem surgir novas questões na tua aplicação" ;
+
+    String bigText = "A qualquer momento podem surgir novas questões na tua aplicação";
+
     private void setPerguntaToView() {
 
-        pergunta = jogo.getNextPergunta();
-        if (pergunta != null) {
-            txtPergunta.setText(pergunta.getPergunta_name());
-            btn1.setText(pergunta.getResposta1());
-            btn2.setText(pergunta.getResposta2());
-            btn3.setText(pergunta.getResposta3());
-            btn4.setText(pergunta.getResposta4());
-        } else {
-            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            pergunta = jogo.getNextPergunta();
+            if (pergunta != null) {
+                txtPergunta.setText(pergunta.getPergunta_name());
+                btn1.setText(pergunta.getResposta1());
+                btn2.setText(pergunta.getResposta2());
+                btn3.setText(pergunta.getResposta3());
+                btn4.setText(pergunta.getResposta4());
+            } else {
+                NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
-            builder.setContentTitle("Fica atento!");
-            builder.setContentText("A qualquer momento podem surgir novas questões na tua aplicação");
-            builder.setStyle(new NotificationCompat.BigTextStyle().bigText(bigText));
+                builder.setContentTitle("Fica atento!");
+                builder.setContentText("A qualquer momento podem surgir novas questões na tua aplicação");
+                builder.setStyle(new NotificationCompat.BigTextStyle().bigText(bigText));
 
-            builder.setSmallIcon(R.drawable.logo);
-            Notification n = builder.build();
-            builder.setAutoCancel(true);
-            n.vibrate = new long[]{150, 300, 150, 300};
-            nm.notify(R.drawable.logo, n);
+                builder.setSmallIcon(R.drawable.logo);
+                Notification n = builder.build();
+                builder.setAutoCancel(true);
+                n.vibrate = new long[]{150, 300, 150, 300};
+                nm.notify(R.drawable.logo, n);
 
-            Intent intentFimJogo = new Intent(this, FimJogoTreino.class);
-            intentFimJogo.putExtra("pontuacao", pontuacao);
-            startActivity(intentFimJogo);
+                Intent intentFimJogo = new Intent(this, FimJogoTreino.class);
+                intentFimJogo.putExtra("pontuacao", pontuacao);
+                startActivity(intentFimJogo);
 
+            }
         }
-    }
-
 
     @Override
     public void onClick(View v) {

@@ -16,7 +16,7 @@ public class Perguntas_Jogo {
     private LinkedList<Integer> perguntasJogadas;
     private MyDbHelper dbHelper;
     private int posicaoUltimaPergunta;
-    private Pergunta perguntaCatg;
+    private Pergunta pergunta;
 
     public Perguntas_Jogo(Context context, int opcao) {
         this.context = context;
@@ -48,12 +48,13 @@ public class Perguntas_Jogo {
         if (perguntasJogo.size() == perguntasJogadas.size()) {
             return null;
         }
-        int randomNum = positionPergunta(perguntasJogo.size());
-        perguntasJogadas.add(randomNum);
-        posicaoUltimaPergunta = randomNum;
+
+            int randomNum = positionPergunta(perguntasJogo.size());
+            perguntasJogadas.add(randomNum);
+            posicaoUltimaPergunta = randomNum;
+            return perguntasJogo.get(randomNum);
 
 
-        return perguntasJogo.get(randomNum);
 
     }
 
@@ -66,6 +67,7 @@ public class Perguntas_Jogo {
         int randomNum = -1;
 
         do {
+
             /*randomNum vai ficar com um pseudorandom, ou seja, um valor entre 0 e o tamMax
            um valor interno distribuído uniformemente entre 0 (inclusive) extraído da sequência deste
            gerador de números aleatórios.*/

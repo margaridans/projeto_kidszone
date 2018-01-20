@@ -63,6 +63,8 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         TextView txtUsername = (TextView) findViewById(R.id.nome_usuario);
         txtUsername.setText(nome);
 
+
+
         //Login com Facebook
         Intent login = getIntent();
         String loginS = null;

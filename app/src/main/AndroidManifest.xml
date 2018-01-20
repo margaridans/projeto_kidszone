@@ -40,7 +40,6 @@
         <activity android:name=".Activities.Login_Registo.ActivityMainUser" />
         <activity android:name=".Activities.Login_Registo.DefinicoesContaUser"/>
 
-
         <service android:name=".NotificationService" android:exported="false"></service>
         
         <receiver android:name=".BootReceiver">
