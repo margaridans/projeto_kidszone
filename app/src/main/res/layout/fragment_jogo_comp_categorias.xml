@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     tools:context="pt.ipp.estg.projeto_kidszone.Fragments.JogoCompCategorias">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Para ficar registado: qual a categoria que mais gostaste?"/>
 
     <Button
         android:id="@+id/btnMat"

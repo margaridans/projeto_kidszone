@@ -49,7 +49,7 @@ public class MenuJogo extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.treino) {
-           
+
             Intent intentTreino = new Intent(this, JogoTreino.class);
             startActivity(intentTreino);
         } else if (view.getId() == R.id.competitivo) {
