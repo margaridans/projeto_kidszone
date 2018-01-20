@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -13,12 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import projeto_kidszone.database_library.Database.MyDbHelper;
-import projeto_kidszone.database_library.Model.User;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoTreino;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 

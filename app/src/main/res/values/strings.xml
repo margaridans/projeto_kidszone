@@ -13,14 +13,13 @@
     <string name="loginlogout">Login</string>
     <string name="jogar">Jogar</string>
     <string name="dicas">Dicas</string>
+    <string name="pontuacao">Pontuação</string>
     <string name="descImagemLogo">Logotipo KidsZone</string>
     <string name="username">Nome Usuário</string>
     <string name="password">Password</string>
     <string name="password_conf">Confirmar Password</string>
     <string name="btnEntrar">Entrar</string>
     <string name="btnEntrarFacebook">Entrar com o Facebook</string>
-    <string name="jogoTreino">Jogo Treino</string>
-    <string name="jogoComp">Jogo Competitivo</string>
     <string name="perguntaRegisto">Ainda não tens a tua conta?</string>
     <string name="btnRegistar">Regista-te aqui!</string>
     <string name="text_dicas">Dicas</string>

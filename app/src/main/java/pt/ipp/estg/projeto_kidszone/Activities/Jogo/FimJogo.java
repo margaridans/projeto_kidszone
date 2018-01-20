@@ -1,25 +1,17 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import projeto_kidszone.database_library.Database.MyDbHelper;
-import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
-import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
-public class FimJogoTreino extends AppCompatActivity implements View.OnClickListener {
+public class FimJogo extends AppCompatActivity implements View.OnClickListener {
     TextView txtPontuacao;
     TextView mostrarTreinoTxt, mostrarCompTxt;
     Button mostrarTreinoBtn, mostrarCompBtn, btnPrincipal;
@@ -86,11 +78,8 @@ public class FimJogoTreino extends AppCompatActivity implements View.OnClickList
             startActivity(entrar);
 
         } else if (v.getId() == R.id.mostrarTreinoBtn) {
-            Intent entrarJogoTreino = new Intent(this, JogoTreino.class);
+            Intent entrarJogoTreino = new Intent(this, Jogo.class);
             startActivity(entrarJogoTreino);
-        } else if (v.getId() == R.id.mostrarCompBtn) {
-            Intent entrarJogoComp = new Intent(this, JogoCompetitivo.class);
-            startActivity(entrarJogoComp);
         }
 
     }

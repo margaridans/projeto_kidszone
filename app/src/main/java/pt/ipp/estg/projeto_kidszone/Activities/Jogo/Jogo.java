@@ -26,7 +26,7 @@ import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 
 
-public class JogoTreino extends AppCompatActivity implements View.OnClickListener {
+public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
     private Perguntas_Jogo jogo;
     private static int pontuacao = 0;
@@ -91,7 +91,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         ProgressBar progress = (ProgressBar) findViewById(R.id.progress);
         TextView texto = (TextView) findViewById(R.id.texto);
 
-        new MinhaTask(JogoTreino.this, progress, texto).execute();
+        new MinhaTask(Jogo.this, progress, texto).execute();
 
     }
 
@@ -156,7 +156,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
                 n.vibrate = new long[]{150, 300, 150, 300};
                 nm.notify(R.drawable.logo, n);
 
-                Intent intentFimJogo = new Intent(this, FimJogoTreino.class);
+                Intent intentFimJogo = new Intent(this, FimJogo.class);
                 intentFimJogo.putExtra("pontuacao", pontuacao);
                 startActivity(intentFimJogo);
 
@@ -167,7 +167,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         if (v.getId() == R.id.terminar_treino) {
             onPause();
-            AlertDialog.Builder alertaSair = new AlertDialog.Builder(JogoTreino.this);
+            AlertDialog.Builder alertaSair = new AlertDialog.Builder(Jogo.this);
             alertaSair.setTitle("Aviso");
             alertaSair.setMessage("Tens a certeza que queres sair?");
             alertaSair.setCancelable(false);
@@ -181,7 +181,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    Intent intentTerminar = new Intent(JogoTreino.this, MenuJogo.class);
+                    Intent intentTerminar = new Intent(Jogo.this, MenuJogo.class);
                     startActivity(intentTerminar);
                     finish();
                 }

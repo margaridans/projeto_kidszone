@@ -23,41 +23,44 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/treino"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:background="@drawable/training" />
+            android:id="@+id/btnPontuacao"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/ranking"/>
 
         <TextView
+            android:id="@+id/txtPontuacao"
             android:layout_width="99dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="-110dp"
-            android:layout_marginTop="120dp"
-            android:text="@string/jogoTreino"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/pontuacao"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:typeface="sans" />
+            android:typeface="sans"/>
+
 
         <Button
-            android:id="@+id/competitivo"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:id="@+id/btnJogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:layout_marginRight="-60dp"
-            android:background="@drawable/cup"
-            android:textAlignment="center" />
+            android:background="@drawable/cup"/>
+
 
         <TextView
-            android:layout_width="173dp"
+            android:id="@+id/txtJogo"
+            android:layout_width="117dp"
             android:layout_height="80dp"
             android:layout_marginLeft="-100dp"
-            android:layout_marginTop="120dp"
-            android:text="@string/jogoComp"
+            android:layout_marginTop="80dp"
+            android:text="@string/jogar"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:typeface="sans" />
+            android:typeface="sans"/>
+
 
     </LinearLayout>
 

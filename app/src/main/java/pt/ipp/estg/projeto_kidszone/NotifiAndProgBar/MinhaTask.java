@@ -1,19 +1,12 @@
 package pt.ipp.estg.projeto_kidszone.NotifiAndProgBar;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.JogoTreino;
-import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
+import pt.ipp.estg.projeto_kidszone.Activities.Jogo.Jogo;
 
 /**
  * Created by Bernardino on 19/01/2018.
@@ -66,6 +59,6 @@ private Button btnCom ;
     @Override
     protected void onPostExecute(String result) {
         progressBar.setVisibility(ProgressBar.INVISIBLE);
-        JogoTreino.mostrarInv();
+        Jogo.mostrarInv();
     }
 }
