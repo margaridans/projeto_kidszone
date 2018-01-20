@@ -36,12 +36,13 @@ public class MenuJogo extends AppCompatActivity implements View.OnClickListener 
             startActivity(intentJogar);
 
         } else if (view.getId() == R.id.btnPontuacao) {
-            SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-            String nome = prefs.getString("username", "default");
+
+
+            SharedPreferences prefs= getSharedPreferences("login", MODE_PRIVATE);
+            String nome= prefs.getString("username", null);
 
             if (nome == null) {
                 Toast.makeText(this, "Para veres as pontuações tens que fazer login", Toast.LENGTH_SHORT).show();
-                onResume();
             } else {
                 if (nome != null) {
                     Intent intentPontuacao = new Intent(this, Pontuacoes.class);

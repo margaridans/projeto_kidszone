@@ -2,6 +2,7 @@ package pt.ipp.estg.projeto_kidszone;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.Jogo;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
+import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
 import pt.ipp.estg.projeto_kidszone.ListaLocais.LocaisActivity;
 import pt.ipp.estg.projeto_kidszone.NotifiAndProgBar.NotificationService;
@@ -40,6 +42,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnLocais.setOnClickListener(this);
 
         startService(new Intent(this, NotificationService.class));
+
+        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+        String nome = prefs.getString("username", null);
+
+        if (nome != null) {
+            Intent intentSaiuSemLogout = new Intent(this, ActivityMainUser.class);
+            intentSaiuSemLogout.putExtra("login", "normal");
+            startActivity(intentSaiuSemLogout);
+            finish();
+        }
     }
 
     @Override

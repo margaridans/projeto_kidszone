@@ -31,7 +31,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + Dicas.NAME_TABLE + "(" + Dicas.ID_DICAS + " INTEGER PRIMARY KEY, " + Dicas.NOME_DICA + " VARCHAR(20) NOT NULL );");
         db.execSQL("CREATE TABLE " + Dificuldade.NAME_TABLE + "(" + Dificuldade.ID_DIFIC + " INTEGER PRIMARY KEY, " + Dificuldade.NOME_DIFIC + " VARCHAR(20) NOT NULL, " + Dificuldade.PONTUACAO_PERG + " INTEGER NOT NULL );");
         db.execSQL("CREATE TABLE " + Pergunta.NAME_TABLE + "(" + Pergunta.ID_PERG + " INTEGER PRIMARY KEY, " + Pergunta.NOME_PERG + " VARCHAR(70) NOT NULL, " + Pergunta.ID_CAT + " INTEGER NOT NULL, " + Pergunta.ID_DIFIC + " INTEGER NOT NULL, " + Pergunta.RESP1 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP2 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP3 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP4 + " VARCHAR(25) NOT NULL, " + Pergunta.RESP_CERTA + " VARCHAR(25) NOT NULL);");
-        db.execSQL("CREATE TABLE " + Pontuacao.NAME_TABLE + "(" + Pontuacao.ID_PONT + " INTEGER PRIMARY KEY, " + Pontuacao.PONTUACAO + " INTEGER NOT NULL, " + Pontuacao.USER + " VARCHAR(25) NOT NULL );");
+        db.execSQL("CREATE TABLE " + Pontuacao.NAME_TABLE + "(" + Pontuacao.ID_PONT + " INTEGER PRIMARY KEY, " + Pontuacao.PONTUACAO + " INTEGER NOT NULL, " + Pontuacao.USER + "references " + User.USERNAME + " VARCHAR(25) NOT NULL );");
         db.execSQL("CREATE TABLE " + User.NAME_TABLE + "(" + User.ID_USER + " INTEGER PRIMARY KEY AUTOINCREMENT, " + User.USERNAME + " VARCHAR(20) NOT NULL, " + User.PASS + " VARCHAR(15) NOT NULL );");
 
         criarPergunta(db);
