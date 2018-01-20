@@ -59,7 +59,7 @@
             android:textStyle="bold"
             android:typeface="sans" />
 
-        <Button
+       <Button
             android:id="@+id/btnLocais"
             android:layout_width="60dp"
             android:layout_height="60dp"

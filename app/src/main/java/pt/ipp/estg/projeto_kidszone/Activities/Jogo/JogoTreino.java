@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Dificuldade;
 import projeto_kidszone.database_library.Model.Pergunta;
-import pt.ipp.estg.projeto_kidszone.MinhaTask;
+import pt.ipp.estg.projeto_kidszone.NotifiAndProgBar.MinhaTask;
 import pt.ipp.estg.projeto_kidszone.Model.Perguntas_Jogo;
 import pt.ipp.estg.projeto_kidszone.R;
 

@@ -1,4 +1,4 @@
-package pt.ipp.estg.projeto_kidszone;
+package pt.ipp.estg.projeto_kidszone.NotifiAndProgBar;
 
 import android.content.Context;
 import android.content.Intent;

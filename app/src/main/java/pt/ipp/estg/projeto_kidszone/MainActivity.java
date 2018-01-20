@@ -1,12 +1,8 @@
 package pt.ipp.estg.projeto_kidszone;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,7 +11,7 @@ import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
 import pt.ipp.estg.projeto_kidszone.ListaLocais.LocaisActivity;
-import pt.ipp.estg.projeto_kidszone.Map.MapsActivity;
+import pt.ipp.estg.projeto_kidszone.NotifiAndProgBar.NotificationService;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
