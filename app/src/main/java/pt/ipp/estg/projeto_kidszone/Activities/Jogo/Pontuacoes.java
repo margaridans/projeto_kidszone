@@ -32,8 +32,6 @@ public class Pontuacoes extends AppCompatActivity {
         TextView txtPontuacao = (TextView) findViewById(R.id.pontuacao_user);
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Pontuacao nr_pontuacao= Pontuacao.getPontuacaoByUser(db, nome);
-        txtPontuacao.setText((CharSequence) nr_pontuacao);
     }
 
 
