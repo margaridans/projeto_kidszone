@@ -47,6 +47,15 @@
         <activity android:name=".Map.MapsActivity"/>
         <activity android:name=".ListaLocais.ListaLocaisActivity"/>
         <activity android:name=".ListaLocais.LocaisActivity"/>
+
+        <service android:name=".NotificationService" android:exported="false"></service>
+
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="pt.ipp.estg.projeto_kidszone"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

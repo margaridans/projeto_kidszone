@@ -42,37 +42,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button btnLocais = findViewById(R.id.btnLocais);
         btnLocais.setOnClickListener(this);
 
-
-    }
-
-
-    public void gerarNotificao(View view) {
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        Intent vamosJogar = new Intent(this, MenuJogo.class);
-        vamosJogar.setAction("action-ok-vamos");
-        PendingIntent vamosJogarPI = PendingIntent.getActivity(this, 0, vamosJogar, 0);
-        NotificationCompat.Action vamosJogarAC = new NotificationCompat.Action(R.drawable.entrar_noti, "Sim, vamos", vamosJogarPI);
-
-        Intent cancelar = new Intent(this, MainActivity.class);
-        vamosJogar.setAction("action-cancelar");
-        PendingIntent cancelarPI = PendingIntent.getActivity(this, 0, cancelar, 0);
-        NotificationCompat.Action cancelarAC = new NotificationCompat.Action(R.drawable.cancel_noti, "Cancelar", cancelarPI);
-
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
-
-        builder.setContentTitle("Vamos jogar?");
-        builder.setContentText("Que tal pores o teu conhecimento à prova?");
-        builder.setSmallIcon(R.drawable.logo);
-        builder.setContentIntent(vamosJogarPI);
-        builder.addAction(vamosJogarAC).setAutoCancel(true);
-        builder.addAction(cancelarAC);
-        Notification n = builder.build();
-        n.vibrate = new long[]{150, 300, 150, 300};
-        nm.notify(R.drawable.logo, n);
-
+        startService(new Intent(this, NotificationService.class));
     }
 
     @Override
