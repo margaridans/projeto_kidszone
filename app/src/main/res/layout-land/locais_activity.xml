@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_menu_jogo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="240dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/logo"
+        android:text="@string/descImagemLogo" />
+
+    <LinearLayout
+        android:layout_width="269dp"
+        android:layout_height="185dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnLista"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="@drawable/list" />
+
+        <TextView
+            android:id="@+id/txtTreino"
+            android:layout_width="99dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/lista"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+
+        <Button
+            android:id="@+id/btnMapa"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/mapa_alt" />
+
+
+        <TextView
+            android:id="@+id/txtComp"
+            android:layout_width="117dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="-110dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/mapa"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
