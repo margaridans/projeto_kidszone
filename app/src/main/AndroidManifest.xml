@@ -8,6 +8,8 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:name=".projeto_kidszoneApp"
@@ -20,6 +22,10 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -38,6 +44,9 @@
         <activity android:name=".Activities.Dicas.DicasActivity" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.Login_Registo.ActivityMainUser" />
         <activity android:name=".Activities.Login_Registo.DefinicoesContaUser"/>
+        <activity android:name=".Map.MapsActivity"/>
+        <activity android:name=".ListaLocais.ListaLocaisActivity"/>
+        <activity android:name=".ListaLocais.LocaisActivity"/>
     </application>
 
 </manifest>

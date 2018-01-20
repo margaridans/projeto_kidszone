@@ -5,22 +5,17 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 
-import java.net.URI;
-
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
-import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.Login;
+import pt.ipp.estg.projeto_kidszone.ListaLocais.LocaisActivity;
+import pt.ipp.estg.projeto_kidszone.Map.MapsActivity;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -43,6 +38,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         Button btnDicas = findViewById(R.id.btnDicas);
         btnDicas.setOnClickListener(this);
+
+        Button btnLocais = findViewById(R.id.btnLocais);
+        btnLocais.setOnClickListener(this);
 
 
     }
@@ -88,7 +86,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else if (v.getId() == R.id.btnLogin) {
             Intent intentLogin = new Intent(this, Login.class);
             startActivity(intentLogin);
-
+        } else if (v.getId() == R.id.btnLocais) {
+            Intent intentLocais = new Intent(this, LocaisActivity.class);
+            startActivity(intentLocais);
         }
     }
 
