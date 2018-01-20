@@ -1,5 +1,7 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -127,24 +130,38 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    String bigText = "A qualquer momento podem surgir novas questões na tua aplicação";
+
     private void setPerguntaToView() {
 
-        pergunta = jogo.getNextPergunta();
-        if (pergunta != null) {
-            txtPergunta.setText(pergunta.getPergunta_name());
-            btn1.setText(pergunta.getResposta1());
-            btn2.setText(pergunta.getResposta2());
-            btn3.setText(pergunta.getResposta3());
-            btn4.setText(pergunta.getResposta4());
-        } else {
+            pergunta = jogo.getNextPergunta();
+            if (pergunta != null) {
+                txtPergunta.setText(pergunta.getPergunta_name());
+                btn1.setText(pergunta.getResposta1());
+                btn2.setText(pergunta.getResposta2());
+                btn3.setText(pergunta.getResposta3());
+                btn4.setText(pergunta.getResposta4());
+            } else {
+                NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-            Intent intentFimJogo = new Intent(this, FimJogoTreino.class);
-            intentFimJogo.putExtra("pontuacao", pontuacao);
-            startActivity(intentFimJogo);
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
+                builder.setContentTitle("Fica atento!");
+                builder.setContentText("A qualquer momento podem surgir novas questões na tua aplicação");
+                builder.setStyle(new NotificationCompat.BigTextStyle().bigText(bigText));
+
+                builder.setSmallIcon(R.drawable.logo);
+                Notification n = builder.build();
+                builder.setAutoCancel(true);
+                n.vibrate = new long[]{150, 300, 150, 300};
+                nm.notify(R.drawable.logo, n);
+
+                Intent intentFimJogo = new Intent(this, FimJogoTreino.class);
+                intentFimJogo.putExtra("pontuacao", pontuacao);
+                startActivity(intentFimJogo);
+
+            }
         }
-    }
-
 
     @Override
     public void onClick(View v) {
@@ -157,7 +174,7 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             alertaSair.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                   onResume();
+                    onResume();
                 }
             });
             alertaSair.setPositiveButton("Sair", new DialogInterface.OnClickListener() {
@@ -171,7 +188,6 @@ public class JogoTreino extends AppCompatActivity implements View.OnClickListene
             });
             AlertDialog alertDialogo = alertaSair.create();
             alertDialogo.show();
-
 
 
         }

@@ -107,7 +107,7 @@
         android:max="100"
         android:id="@+id/progress"
         android:layout_gravity="center"
-        android:layout_marginTop="-35dp"/>
+        android:layout_marginTop="-55dp"/>
 
     <TextView
         android:id="@+id/texto"
@@ -115,5 +115,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/progress"
         android:gravity="center"/>
+
 
 </LinearLayout>

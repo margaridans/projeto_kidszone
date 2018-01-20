@@ -21,7 +21,10 @@ public class JogoCompetitivo extends AppCompatActivity implements JogoCompCatego
         JogoCompCategorias fragment_name = new JogoCompCategorias();
         manager.beginTransaction().replace(R.id.fragment_container, fragment_name, fragment_name.getTag()).commit();
 
+
+
     }
+
 
     @Override
     public void fragmentsComunication(String categoria) {
