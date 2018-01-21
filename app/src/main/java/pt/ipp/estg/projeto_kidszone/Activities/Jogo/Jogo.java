@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -138,33 +139,12 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
-        onPause();
-        AlertDialog.Builder alertaSair = new AlertDialog.Builder(Jogo.this);
-        alertaSair.setTitle("Aviso");
-        alertaSair.setMessage("Tens a certeza que queres sair?");
-        alertaSair.setCancelable(false);
-        alertaSair.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                onResume();
-            }
-        });
-        alertaSair.setPositiveButton("Sair", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
 
-                Intent intentTerminar = new Intent(Jogo.this, MenuJogo.class);
-                startActivity(intentTerminar);
-                finish();
-            }
-        });
-        AlertDialog alertDialogo = alertaSair.create();
-        alertDialogo.show();
     }
 
     private void setPerguntaToView() {
-onBackPressed();
 
+        onBackPressed();
         pergunta = jogo.getNextPergunta();
         if (pergunta != null) {
             txtPergunta.setText(pergunta.getPergunta_name());
