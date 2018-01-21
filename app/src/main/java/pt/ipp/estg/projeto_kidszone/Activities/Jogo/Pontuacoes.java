@@ -32,39 +32,21 @@ public class Pontuacoes extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
         String nome = prefs.getString("username", null);
+
         MyDbHelper dbHelper = new MyDbHelper(this);
 
         TextView txtPontuacao = (TextView) findViewById(R.id.pontuacao_user);
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        Integer nm = Pontuacao.getPontuacaoByUser(db, nome).getPontuacao();
-        Toast.makeText(this, nm.toString(), Toast.LENGTH_SHORT).show();
+        SharedPreferences prefs_pont = getSharedPreferences("pontuacao", MODE_PRIVATE);
+        String nome_pont = prefs_pont.getString("username", null);
+        Integer ptuacao = prefs_pont.getInt("pontuacao", 0);
 
-        if(nm==null) {
-            onPause();
-            AlertDialog.Builder alertaSair = new AlertDialog.Builder(Pontuacoes.this);
-            alertaSair.setTitle("Aviso");
-            alertaSair.setMessage("Não tens pontuações para mostrar.");
-            alertaSair.setCancelable(false);
-            alertaSair.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                  onResume();
-                }
-            });
-            alertaSair.setPositiveButton("Jogar", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
 
-                    Intent intentJogar = new Intent(Pontuacoes.this, MenuJogo.class);
-                    startActivity(intentJogar);
-                    finish();
-                }
-            });
-            AlertDialog alertDialogo = alertaSair.create();
-            alertDialogo.show();
-        }
+
+        txtPontuacao.setText("A sua última pontuação foi de: " + ptuacao.toString());
+
 
     }
 

@@ -140,6 +140,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
         }
     }
 
+
     public String deleteUser(String username) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("DELETE FROM tblUser WHERE username=? ", new String[]{username});

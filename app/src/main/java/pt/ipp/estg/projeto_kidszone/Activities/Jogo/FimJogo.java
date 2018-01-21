@@ -42,8 +42,13 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
         myDb = new MyDbHelper(this);
         if (nome != null) {
             Boolean res = myDb.inserirPontuacao(pontuacao, nome);
+
             if (res == true) {
-                Toast.makeText(this, "A tua pontuação entrou no ranking", Toast.LENGTH_SHORT).show();
+                SharedPreferences.Editor editor = getSharedPreferences("pontuacao", MODE_PRIVATE).edit();
+                editor.putString("username", nome);
+                editor.putInt("pontuacao", pontuacao);
+
+                editor.apply();
 
             }
         }

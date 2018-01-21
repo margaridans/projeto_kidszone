@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import pt.ipp.estg.projeto_kidszone.NotifiAndProgBar.NotificationService;
 import pt.ipp.estg.projeto_kidszone.R;
 
 public class MenuJogo extends AppCompatActivity implements View.OnClickListener {
@@ -25,6 +26,7 @@ public class MenuJogo extends AppCompatActivity implements View.OnClickListener 
 
         Button btnJogo = (Button) findViewById(R.id.btnJogo);
         btnJogo.setOnClickListener(this);
+
 
     }
 
