@@ -138,12 +138,18 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Intent intentLogout = new Intent(this, MainActivity.class);
         startActivity(intentLogout);
         finish();
+        onBackPressed();
     }
 
     public void alterarConta() {
         Intent intentConta = new Intent(this, DefinicoesContaUser.class);
         startActivity(intentConta);
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 
