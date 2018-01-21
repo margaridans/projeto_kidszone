@@ -17,7 +17,7 @@ import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
-public class FimJogo extends AppCompatActivity implements View.OnClickListener {
+public class FimJogo extends AppCompatActivity  {
     TextView txtPontuacao;
     MyDbHelper myDb;
 
@@ -29,8 +29,6 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
         txtPontuacao = (TextView) findViewById(R.id.txtPontuacao);
 
 
-        Button btnMenuPrincipal = (Button) findViewById(R.id.button_menuPrincipal);
-        btnMenuPrincipal.setOnClickListener(this);
 
         SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
         String nome = prefs.getString("username", "default");
@@ -136,14 +134,5 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-        if (v.getId() == R.id.button_menuPrincipal) {
-            Intent entrarMenu = new Intent(this, MainActivity.class);
-            startActivity(entrarMenu);
-
-        }
-    }
 }
 
