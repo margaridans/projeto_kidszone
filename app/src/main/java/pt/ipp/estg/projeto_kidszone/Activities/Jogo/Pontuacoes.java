@@ -22,7 +22,7 @@ import pt.ipp.estg.projeto_kidszone.R;
  * Created by Bernardino on 20/01/2018.
  */
 
-public class Pontuacoes extends AppCompatActivity {
+public class  Pontuacoes extends AppCompatActivity {
 
 
     @Override
@@ -39,8 +39,20 @@ public class Pontuacoes extends AppCompatActivity {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-       String nr= Pontuacao.getPontuacaoByUser(db, nome).getNome_user();
-        Toast.makeText(this, nr.toString(), Toast.LENGTH_SHORT).show();
+       /* int nr= Pontuacao.getPontuacaoByUser(db, nome).getPontuacao();
+        Toast.makeText(this, nr, Toast.LENGTH_SHORT).show();*/
+
+        SharedPreferences prefs_pontu = getSharedPreferences("pontuacao", MODE_PRIVATE);
+        int pontuacao = prefs_pontu.getInt("pontuacao", 0);
+
+        txtPontuacao.setText("A tua última pontuação foi: " + pontuacao);
+
+        SharedPreferences.Editor editor = getSharedPreferences("ultima_pont", MODE_PRIVATE).edit();
+        editor.putInt("pontuacao", pontuacao);
+
+        editor.apply();
+
+
 
     }
 
