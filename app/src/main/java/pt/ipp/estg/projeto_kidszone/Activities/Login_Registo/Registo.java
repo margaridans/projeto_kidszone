@@ -61,6 +61,8 @@ public class Registo extends AppCompatActivity {
                             Intent intent = new Intent(Registo.this, Login.class);
 
                             startActivity(intent);
+                            onBackPressed();
+
 
                     } else {
                         Toast.makeText(Registo.this, "Não é possível registar esse usuário, pois ele já existe", Toast.LENGTH_SHORT).show();
@@ -72,7 +74,10 @@ public class Registo extends AppCompatActivity {
         });
     }
 
+@Override
+public void onBackPressed() {
 
+}
     @Override
     protected void onDestroy() {
         super.onDestroy();

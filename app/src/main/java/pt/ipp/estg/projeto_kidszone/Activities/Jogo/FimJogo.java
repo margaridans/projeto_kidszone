@@ -141,6 +141,9 @@ public class FimJogo extends AppCompatActivity  {
                         Intent intentMenu = new Intent(FimJogo.this, MenuJogo.class);
                         startActivity(intentMenu);
                         finish();
+                        onBackPressed();
+
+
                     }
                 });
                 alertaPont.setPositiveButton("Voltar a jogar", new DialogInterface.OnClickListener() {
@@ -149,6 +152,7 @@ public class FimJogo extends AppCompatActivity  {
 
                         Intent intentJogar = new Intent(FimJogo.this, Jogo.class);
                         startActivity(intentJogar);
+                        onBackPressed();
                     }
                 });
 
@@ -156,6 +160,11 @@ public class FimJogo extends AppCompatActivity  {
                 alertDialogo.show();
             }
         }
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }

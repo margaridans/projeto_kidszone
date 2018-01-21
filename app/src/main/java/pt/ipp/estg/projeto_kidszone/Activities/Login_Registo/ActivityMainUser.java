@@ -137,8 +137,9 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Toast.makeText(this, "Terminaste Sessão", Toast.LENGTH_LONG).show();
         Intent intentLogout = new Intent(this, MainActivity.class);
         startActivity(intentLogout);
-        finish();
         onBackPressed();
+        finish();
+
     }
 
     public void alterarConta() {
