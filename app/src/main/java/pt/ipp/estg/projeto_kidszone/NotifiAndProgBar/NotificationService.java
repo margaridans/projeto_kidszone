@@ -75,10 +75,6 @@ public class NotificationService extends Service {
         PendingIntent vamosJogarPI = PendingIntent.getActivity(this, 0, vamosJogar, 0);
         NotificationCompat.Action vamosJogarAC = new NotificationCompat.Action(R.drawable.entrar_noti, "Sim, vamos", vamosJogarPI);
 
-        Intent cancelar = new Intent(this, MainActivity.class);
-        vamosJogar.setAction("action-cancelar");
-        PendingIntent cancelarPI = PendingIntent.getActivity(this, 0, cancelar, 0);
-        NotificationCompat.Action cancelarAC = new NotificationCompat.Action(R.drawable.cancel_noti, "Cancelar", cancelarPI);
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
@@ -89,9 +85,7 @@ public class NotificationService extends Service {
         builder.setSmallIcon(R.drawable.logo);
         builder.setContentIntent(vamosJogarPI).setAutoCancel(true);
         builder.addAction(vamosJogarAC).setAutoCancel(true);
-        builder.addAction(cancelarAC).setAutoCancel(true);
         Notification n = builder.build();
-        builder.setAutoCancel(true);
         n.vibrate = new long[]{150, 300, 150, 300};
         nm.notify(R.drawable.logo, n);
     }
