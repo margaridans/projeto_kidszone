@@ -131,14 +131,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        Button btnSchool = (Button) findViewById(R.id.btnSchool);
-        btnSchool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                build_retrofit_and_get_response("school");
-            }
-        });
-
         Button btnHotel = (Button) findViewById(R.id.btnHotel);
         btnHotel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,11 +139,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        Button btnAirport = (Button) findViewById(R.id.btnAirport);
-        btnAirport.setOnClickListener(new View.OnClickListener() {
+        Button btnBus = (Button) findViewById(R.id.btnBus);
+        btnBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                build_retrofit_and_get_response("airport");
+                build_retrofit_and_get_response("bus_station");
+            }
+        });
+
+        Button btnParques = (Button) findViewById(R.id.btnParques);
+        btnParques.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                build_retrofit_and_get_response("amusement_park");
             }
         });
     }
@@ -250,7 +250,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("Current Position");
+        markerOptions.title("Estás Aqui");
 
         // Adding colour to the marker
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
@@ -328,7 +328,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 } else {
 
                     // Permission denied, Disable the functionality that depends on this permission.
-                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Localização Negada", Toast.LENGTH_LONG).show();
                 }
                 return;
             }

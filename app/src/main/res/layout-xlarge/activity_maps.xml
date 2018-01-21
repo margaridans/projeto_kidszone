@@ -18,10 +18,22 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btnParques"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parques Temáticos" />
+
+        <Button
             android:id="@+id/btnRestaurant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Restaurantes" />
+
+        <Button
+            android:id="@+id/btnBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autocarros" />
 
         <Button
             android:id="@+id/btnHospital"
@@ -30,22 +42,10 @@
             android:text="Hospitais" />
 
         <Button
-            android:id="@+id/btnSchool"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Escolas" />
-
-        <Button
             android:id="@+id/btnHotel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hoteis" />
-
-        <Button
-            android:id="@+id/btnAirport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Aeroportos" />
 
         <TextView
             android:id="@+id/tv_lat"
