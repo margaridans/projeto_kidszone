@@ -125,7 +125,6 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
                     edit.apply();
                     Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
                     startActivity(intentCancelarConta);
-                    onBackPressed();
                     finish();
 
 
@@ -138,10 +137,7 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
         }
     }
 
-    @Override
-    public void onBackPressed() {
 
-    }
 
 
 }
