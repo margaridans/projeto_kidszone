@@ -29,7 +29,6 @@ public class FimJogo extends AppCompatActivity  {
         txtPontuacao = (TextView) findViewById(R.id.txtPontuacao);
 
 
-
         SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
         String nome = prefs.getString("username", "default");
 
@@ -38,8 +37,8 @@ public class FimJogo extends AppCompatActivity  {
         Integer pontuacao_nova = prefs_pont.getInt("pontuacao", 0);
 
 
-        SharedPreferences prefs_ultimapont = getSharedPreferences("ultima_pont", MODE_PRIVATE);
-        Integer ultima_pont = prefs_ultimapont.getInt("pontuacao", 0);
+/*        SharedPreferences prefs_ultimapont = getSharedPreferences("ultima_pont", MODE_PRIVATE);
+        Integer ultima_pont = prefs_ultimapont.getInt("pontuacao", 0);*/
 
 
         myDb = new MyDbHelper(this);
@@ -49,7 +48,7 @@ public class FimJogo extends AppCompatActivity  {
 
             if (res == true) {
 
-                if (pontuacao_nova > ultima_pont) {
+               /* if (pontuacao_nova > ultima_pont) {
                     onPause();
                     AlertDialog.Builder alertaPont = new AlertDialog.Builder(FimJogo.this);
                     alertaPont.setTitle("Boaaaaa! ");
@@ -128,11 +127,38 @@ public class FimJogo extends AppCompatActivity  {
                     });
 
 
-                }
+                }*/
+
+                onPause();
+                AlertDialog.Builder alertaPont = new AlertDialog.Builder(FimJogo.this);
+                alertaPont.setTitle("Boaaaaa! ");
+                alertaPont.setIcon(R.drawable.happy);
+                alertaPont.setMessage("A tua pontuação foi de " + pontuacao_nova + ". Continua a jogar para te conseguires superar.");
+                alertaPont.setCancelable(false);
+                alertaPont.setNegativeButton("Fechar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intentMenu = new Intent(FimJogo.this, MenuJogo.class);
+                        startActivity(intentMenu);
+                        finish();
+                    }
+                });
+                alertaPont.setPositiveButton("Voltar a jogar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Intent intentJogar = new Intent(FimJogo.this, Jogo.class);
+                        startActivity(intentJogar);
+                    }
+                });
+
+                AlertDialog alertDialogo = alertaPont.create();
+                alertDialogo.show();
             }
         }
 
     }
-
 }
+
+
 
