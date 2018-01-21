@@ -53,8 +53,6 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         et_username = (EditText) findViewById(R.id.editTextUser);
         et_password = (EditText) findViewById(R.id.editTextPass);
 
-        TextView btn_Registar = (TextView) findViewById(R.id.btnRegistar);
-
 
         SharedPreferences prefs= getSharedPreferences("login", MODE_PRIVATE);
         String nome= prefs.getString("username", "default");

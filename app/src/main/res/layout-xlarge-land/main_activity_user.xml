@@ -25,8 +25,7 @@
             android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="15dp"
-            android:layout_marginLeft="800dp"
-            android:onClick="showPopup"/>
+            android:layout_marginLeft="800dp"/>
 
     </android.support.v7.widget.Toolbar>
 

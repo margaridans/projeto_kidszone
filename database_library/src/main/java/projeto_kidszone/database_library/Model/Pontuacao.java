@@ -76,14 +76,13 @@ public class Pontuacao {
         }
     }
 
-    public static Pontuacao getPontuacaoByUser(SQLiteDatabase db, String nome_user) {
+    public static Pontuacao getPontuacaoByUser(SQLiteDatabase db, String nome) {
         try {
-            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE + "WHERE " + USER + "=" + nome_user + ";", null);
+            Cursor c = db.rawQuery("SELECT * FROM tblPontuacao WHERE nome_user = " + nome, null);
             Pontuacao pontuacao = null;
-
             //se o cursor não estiver vazio e se estiver na primeira linha
             if (c != null && c.moveToFirst()) {
-                pontuacao = new Pontuacao(c.getInt(0), c.getString(1));
+                pontuacao = new Pontuacao(c.getInt(0),c.getInt(1), c.getString(2));
             }
 
             return pontuacao;

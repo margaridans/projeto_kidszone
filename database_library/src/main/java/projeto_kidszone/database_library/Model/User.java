@@ -73,6 +73,23 @@ public class User {
         }
     }
 
+    public static User getPassword(SQLiteDatabase db, String username) {
+        try {
+            Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE + "WHERE " + USERNAME + "=" + username + ";", null);
+            User user = null;
+
+            //se o cursor não estiver vazio e se estiver na primeira linha
+            if (c != null && c.moveToFirst()) {
+                user = new User(c.getInt(0), c.getString(1), c.getString(2));
+            }
+            return user;
+
+        } catch (SQLException ex) {
+            db.close();
+            return null;
+        }
+    }
+
     public static ArrayList<User> getUsers(SQLiteDatabase db, ArrayList<User> usersList) {
         try {
             Cursor c = db.rawQuery("SELECT * FROM " + NAME_TABLE, null);

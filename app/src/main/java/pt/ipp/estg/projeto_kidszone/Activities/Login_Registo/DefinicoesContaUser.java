@@ -67,9 +67,6 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
             TextView editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
             String confirmPassword = editTextConfirmPassword.getText().toString();
 
-            SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-            String nome = prefs.getString("username", "default");
-
             TextView editUsername = (EditText) findViewById(R.id.irBuscarNome);
             String nome_user = editUsername.getText().toString();
 

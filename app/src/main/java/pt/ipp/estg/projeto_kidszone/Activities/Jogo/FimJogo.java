@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
@@ -27,6 +28,11 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
         Integer pontuacao = intentFimJogo.getIntExtra("pontuacao", 0);
 
         txtPontuacao = (TextView) findViewById(R.id.txtPontuacao);
+        Button btnPontuacao = (Button) findViewById(R.id.btnPontuacao);
+        btnPontuacao.setOnClickListener(this);
+
+        Button btnMenuPrincipal = (Button) findViewById(R.id.button_menuPrincipal);
+        btnMenuPrincipal.setOnClickListener(this);
 
         txtPontuacao.setText("A sua pontuacao é de: " + pontuacao);
 
@@ -35,8 +41,11 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
 
         myDb = new MyDbHelper(this);
         if (nome != null) {
-          myDb.inserirPontuacao(nome, pontuacao);
+            Boolean res = myDb.inserirPontuacao(pontuacao, nome);
+            if (res == true) {
+                Toast.makeText(this, "A tua pontuação entrou no ranking", Toast.LENGTH_SHORT).show();
 
+            }
         }
 
     }
