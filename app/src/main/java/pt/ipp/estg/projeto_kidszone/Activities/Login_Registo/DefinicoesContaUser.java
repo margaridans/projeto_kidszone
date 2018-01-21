@@ -118,6 +118,11 @@ public class DefinicoesContaUser extends Activity implements View.OnClickListene
                     db.deleteUser(nome);
 
                     Toast.makeText(DefinicoesContaUser.this, "Conta eliminada com sucesso", Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor edit = getSharedPreferences("login", MODE_PRIVATE).edit();
+
+                    edit.remove("username");
+
+                    edit.apply();
                     Intent intentCancelarConta = new Intent(DefinicoesContaUser.this, MainActivity.class);
                     startActivity(intentCancelarConta);
                     finish();

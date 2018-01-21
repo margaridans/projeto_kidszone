@@ -3,7 +3,6 @@ package projeto_kidszone.database_library.Model;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,10 +79,9 @@ public class Pontuacao {
         }
     }
 
-    @Nullable
-    public static Pontuacao getPontuacaoByUser(SQLiteDatabase db, String nome_user) {
+    public static Pontuacao getPontuacaoByUser(SQLiteDatabase db, String nome) {
         try {
-            Cursor c = db.rawQuery("SELECT * FROM tblPontuacao WHERE nome_user = " + nome_user, null);
+            Cursor c = db.rawQuery("SELECT * FROM tblPontuacao WHERE nome_user = " + nome, null);
             Pontuacao pontuacao = null;
             //se o cursor não estiver vazio e se estiver na primeira linha
             if (c != null && c.moveToFirst()) {

@@ -39,14 +39,8 @@ public class Pontuacoes extends AppCompatActivity {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        SharedPreferences prefs_pont = getSharedPreferences("pontuacao", MODE_PRIVATE);
-        String nome_pont = prefs_pont.getString("username", null);
-        Integer ptuacao = prefs_pont.getInt("pontuacao", 0);
-
-
-
-        txtPontuacao.setText("A sua última pontuação foi de: " + ptuacao.toString());
-
+       String nr= Pontuacao.getPontuacaoByUser(db, nome).getNome_user();
+        Toast.makeText(this, nr.toString(), Toast.LENGTH_SHORT).show();
 
     }
 
