@@ -26,6 +26,7 @@ public class NotificationService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
+    private Timer mTimer;
 
     @Override
     public void onCreate() {
@@ -44,7 +45,7 @@ public class NotificationService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    private Timer mTimer;
+
     TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
@@ -86,9 +87,9 @@ public class NotificationService extends Service {
         builder.setContentTitle("Vamos jogar?");
         builder.setContentText("Que tal pores o teu conhecimento à prova?");
         builder.setSmallIcon(R.drawable.logo);
-        builder.setContentIntent(vamosJogarPI);
-        builder.addAction(vamosJogarAC);
-        builder.addAction(cancelarAC);
+        builder.setContentIntent(vamosJogarPI).setAutoCancel(true);
+        builder.addAction(vamosJogarAC).setAutoCancel(true);
+        builder.addAction(cancelarAC).setAutoCancel(true);
         Notification n = builder.build();
         builder.setAutoCancel(true);
         n.vibrate = new long[]{150, 300, 150, 300};
