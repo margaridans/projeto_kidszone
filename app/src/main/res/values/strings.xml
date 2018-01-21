@@ -39,7 +39,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cancelarConta">Eliminar conta </string>
     <string name="edDados">Editar Dados </string>
-    <string name="descricaoPontuacao">A sua pontuação: </string>
     <string name="btnPontuacao">Ver as minhas pontuações </string>
     <string name="listaExplicacao">Seleciona um local e uma categoria.Vamos apresentar-te uma lista de locais do teu interesse</string>
     <string name="listar">Listar</string>

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import projeto_kidszone.database_library.Model.Pontuacao;
+import pt.ipp.estg.projeto_kidszone.Activities.Login_Registo.ActivityMainUser;
 import pt.ipp.estg.projeto_kidszone.R;
 
 /**
@@ -55,6 +56,5 @@ public class  Pontuacoes extends AppCompatActivity {
 
 
     }
-
 
 }
