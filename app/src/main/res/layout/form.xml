@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/listaExplicacao"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<Spinner-->
+    <!--android:id="@+id/categorySpinner"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:entries="@array/category_arrays"-->
+    <!--android:prompt="@string/category_prompt"/>-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="16sp"
+                android:text="@string/local" />
+
+            <Spinner
+                android:id="@+id/locationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/location_arrays"
+                android:prompt="@string/location_prompt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gridLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="16sp"
+                android:text="@string/categoria" />
+
+            <RadioGroup
+                android:id="@+id/categoryGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:checkedButton="@id/accomodationRadio"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/accomodationRadio"
+                    android:layout_width="99dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accomodation"
+                    android:textAlignment="textStart" />
+
+                <RadioButton
+                    android:id="@+id/attractionRadio"
+                    android:layout_width="66dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attraction" />
+
+                <RadioButton
+                    android:id="@+id/poiRadio"
+                    android:layout_width="101dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/poi" />
+
+                <RadioButton
+                    android:id="@+id/restaurantRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/restaurant" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/locationText"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignEnd="@+id/categoryText"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_marginTop="22dp"-->
+    <!--android:text="@string/location" />-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/gridLayout1"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="50dp">-->
+
+    <!--<RadioGroup-->
+    <!--android:id="@+id/locationGroup"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/amsterdamRadio"-->
+    <!--android:layout_width="99dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:checked="true"-->
+    <!--android:text="@string/amsterdam" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/barcelonaRadio"-->
+    <!--android:layout_width="66dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/barcelona" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/berlinRadio"-->
+    <!--android:layout_width="101dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/berlin" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/dubayRadio"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/dubay" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/londonRadio"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/london" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/parisRadio"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/paris" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/romeRadio"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/rome" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/tuscanyRadio"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/tuscany" />-->
+
+    <!--</RadioGroup>-->
+    <!--</LinearLayout>-->
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/nameText"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_below="@+id/gridLayout2"-->
+    <!--android:layout_marginTop="31dp"-->
+    <!--android:text="Name" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/name"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignBaseline="@+id/nameText"-->
+    <!--android:layout_alignBottom="@+id/nameText"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:ems="10"-->
+    <!--android:inputType="text" />-->
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:hint="Ex.: Hotel"
+        android:text="@string/listar" />
+
+
+</RelativeLayout>

@@ -19,46 +19,47 @@
         android:layout_width="407dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
         android:gravity="center">
 
         <Button
             android:id="@+id/btnPontuacao"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/ranking"/>
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:background="@drawable/ranking" />
 
         <TextView
             android:id="@+id/txtPontuacao"
-            android:layout_width="99dp"
+            android:layout_width="124dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="-100dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginLeft="-130dp"
+            android:layout_marginTop="110dp"
             android:text="@string/pontuacao"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:typeface="sans"/>
+            android:typeface="sans" />
 
 
         <Button
             android:id="@+id/btnJogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginLeft="80dp"
-            android:background="@drawable/cup"/>
+            android:background="@drawable/cup" />
 
 
         <TextView
             android:id="@+id/txtJogo"
             android:layout_width="117dp"
             android:layout_height="80dp"
-            android:layout_marginLeft="-100dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginLeft="-130dp"
+            android:layout_marginTop="110dp"
             android:text="@string/jogar"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:typeface="sans"/>
+            android:typeface="sans" />
 
 
     </LinearLayout>

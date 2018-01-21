@@ -46,6 +46,8 @@
         <activity android:name=".Map.MapsActivity"/>
         <activity android:name=".ListaLocais.ListaLocaisActivity"/>
         <activity android:name=".ListaLocais.LocaisActivity"/>
+        <activity android:name=".Retrofit.RetrofitFormActivity"/>
+        <activity android:name=".Retrofit.RetrofitActivity"/>
 
         <service android:name=".NotifiAndProgBar.NotificationService" android:exported="false"></service>
 

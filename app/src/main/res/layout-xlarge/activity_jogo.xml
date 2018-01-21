@@ -15,7 +15,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
         android:layout_marginLeft="20dp"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:visibility="invisible"/>
+
 
 
     <LinearLayout
@@ -33,7 +35,9 @@
             android:background="@color/btn_normal"
             android:text=""
             android:textSize="25dp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/resposta2"
@@ -45,7 +49,9 @@
             android:background="@color/btn_normal"
             android:text=""
             android:textSize="25dp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/resposta3"
@@ -57,7 +63,9 @@
             android:background="@color/btn_normal"
             android:text=""
             android:textSize="25dp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/resposta4"
@@ -69,7 +77,9 @@
             android:background="@color/btn_normal"
             android:text=""
             android:textSize="25dp"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:visibility="invisible"/>
+
 
 
         <TextView
@@ -79,7 +89,9 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Pontos: 0"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="invisible"/>
+
 
         <Button
             android:id="@+id/terminar_treino"
@@ -87,7 +99,29 @@
             android:layout_height="80dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="-25dp"
-            android:background="@drawable/stop_treino" />
+            android:background="@drawable/stop_treino"
+            android:visibility="invisible"/>
+
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-55dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:max="100"/>
+
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress"
+        android:gravity="center"/>
+
 </LinearLayout>

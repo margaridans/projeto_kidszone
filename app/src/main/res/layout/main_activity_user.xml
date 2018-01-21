@@ -81,7 +81,7 @@
             android:typeface="sans" />
 
         <Button
-            android:id="@+id/btnMapa"
+            android:id="@+id/btnLocais"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="75dp"
@@ -92,7 +92,7 @@
             android:layout_height="80dp"
             android:layout_marginLeft="-60dp"
             android:layout_marginTop="80dp"
-            android:text="@string/mapa"
+            android:text="@string/locais"
             android:textSize="20sp"
             android:textStyle="bold"
             android:typeface="sans" />

@@ -22,6 +22,7 @@ import com.facebook.share.Share;
 import projeto_kidszone.database_library.Database.MyDbHelper;
 import pt.ipp.estg.projeto_kidszone.Activities.Dicas.DicasActivity;
 import pt.ipp.estg.projeto_kidszone.Activities.Jogo.MenuJogo;
+import pt.ipp.estg.projeto_kidszone.ListaLocais.LocaisActivity;
 import pt.ipp.estg.projeto_kidszone.MainActivity;
 import pt.ipp.estg.projeto_kidszone.R;
 
@@ -48,19 +49,21 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
         Button btnDicas = (Button) findViewById(R.id.btnDicas);
         btnDicas.setOnClickListener(this);
 
+        Button btnLocais = (Button) findViewById(R.id.btnLocais);
+        btnLocais.setOnClickListener(this);
+
         db = new MyDbHelper(this);
 
         et_username = (EditText) findViewById(R.id.editTextUser);
         et_password = (EditText) findViewById(R.id.editTextPass);
 
 
-        SharedPreferences prefs= getSharedPreferences("login", MODE_PRIVATE);
-        String nome= prefs.getString("username", "default");
+        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+        String nome = prefs.getString("username", "default");
 
 
         TextView txtUsername = (TextView) findViewById(R.id.nome_usuario);
         txtUsername.setText(nome);
-
 
 
         //Login com Facebook
@@ -89,12 +92,15 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-         if (v.getId() == R.id.btnDicas) {
+        if (v.getId() == R.id.btnDicas) {
             Intent intentDicas = new Intent(this, DicasActivity.class);
             startActivity(intentDicas);
         } else if (v.getId() == R.id.btnJogar) {
             Intent intentJogar = new Intent(this, MenuJogo.class);
             startActivity(intentJogar);
+        } else if (v.getId() == R.id.btnLocais) {
+            Intent intentLocais = new Intent(this, LocaisActivity.class);
+            startActivity(intentLocais);
         }
     }
 
@@ -114,7 +120,7 @@ public class ActivityMainUser extends AppCompatActivity implements View.OnClickL
                 alterarConta();
                 return true;
             case R.id.logout:
-              terminarSessao();
+                terminarSessao();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

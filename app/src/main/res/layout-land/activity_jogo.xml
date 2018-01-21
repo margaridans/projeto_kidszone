@@ -13,10 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textSize="25dp"/>
+        android:layout_marginTop="25dp"
+        android:textSize="25dp" />
 
 
     <LinearLayout
@@ -45,8 +45,8 @@
                 android:id="@+id/resposta2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/btn_normal"
                 android:layout_marginTop="10dp"
+                android:background="@color/btn_normal"
                 android:text=""
                 android:textAllCaps="false" />
         </LinearLayout>
@@ -72,20 +72,20 @@
                 android:id="@+id/resposta4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/btn_normal"
                 android:layout_marginTop="10dp"
+                android:background="@color/btn_normal"
                 android:text=""
                 android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>
 
-        <TextView
-            android:id="@+id/pontuacao"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Pontos: 0" />
+    <TextView
+        android:id="@+id/pontuacao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Pontos: 0" />
 
     <Button
         android:id="@+id/terminar_treino"
@@ -94,5 +94,25 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="-70dp"
         android:background="@drawable/stop_treino" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="250dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-55dp"
+        android:max="100"
+        android:visibility="invisible"/>
+
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress"
+        android:gravity="center"
+        android:visibility="invisible"/>
+
 
 </LinearLayout>

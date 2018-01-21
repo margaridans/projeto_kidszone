@@ -78,7 +78,7 @@
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/btnMapa"
+            android:id="@+id/btnLocais"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="75dp"

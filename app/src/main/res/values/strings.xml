@@ -41,9 +41,49 @@
     <string name="edDados">Editar Dados </string>
     <string name="descricaoPontuacao">A sua pontuação: </string>
     <string name="btnPontuacao">Ver as minhas pontuações </string>
+    <string name="listaExplicacao">Seleciona um local e uma categoria.Vamos apresentar-te uma lista de locais do teu interesse</string>
+    <string name="listar">Listar</string>
+    <string name="categoria">Categoria</string>
+    <string name="local">Local</string>
 
 
     <item name="error_login" type="id">Ocorreu um erro</item>
     <item name="cancel_login" type="id">Login cancelado</item>
+
+    <string name="location">Location</string>
+    <string name="amsterdam">Amsterdam</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="berlin">Berlin</string>
+    <string name="dubay">Dubai</string>
+    <string name="london">London</string>
+    <string name="paris">Paris</string>
+    <string name="rome">Rome</string>
+    <string name="tuscany">Tuscany</string>
+
+    <string name="category">Category</string>
+    <string name="accomodation">Acomodação</string>
+    <string name="attraction">Atrações</string>
+    <string name="restaurant">Restaurantes</string>
+    <string name="poi">POI (pontos de interesse)</string>
+
+    <string name="category_prompt">Choose a category</string>
+    <string-array name="category_arrays">
+        <item>accommodation</item>
+        <item>poi</item>
+        <item>attraction</item>
+        <item>restaurant</item>
+    </string-array>
+
+    <string name="location_prompt">Choose a location</string>
+    <string-array name="location_arrays">
+        <item>Amsterdam</item>
+        <item>Barcelona</item>
+        <item>Berlin</item>
+        <item>Dubai</item>
+        <item>London</item>
+        <item>Paris</item>
+        <item>Rome</item>
+        <item>Tuscany</item>
+    </string-array>
 
 </resources>
