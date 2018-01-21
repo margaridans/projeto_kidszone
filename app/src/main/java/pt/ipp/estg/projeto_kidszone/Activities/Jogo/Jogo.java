@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,9 +29,8 @@ import pt.ipp.estg.projeto_kidszone.R;
 
 
 public class Jogo extends AppCompatActivity implements View.OnClickListener {
-
+    private int pontuacao = 0;
     private Perguntas_Jogo jogo;
-    private static int pontuacao = 0;
     private Dificuldade dificuldade;
     private static TextView txtPergunta;
     private static TextView txtPontuacao;
@@ -59,6 +60,10 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
         btnTerminar = (Button) findViewById(R.id.terminar_treino);
         btnTerminar.setOnClickListener((View.OnClickListener) this);
+
+        SharedPreferences.Editor edit = getSharedPreferences("pontuacao", MODE_PRIVATE).edit();
+        edit.remove("pontuacao");
+        edit.apply();
 
 
         setPerguntaToView();
@@ -132,8 +137,14 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
 
     String bigText = "A qualquer momento podem surgir novas questões na tua aplicação";
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     private void setPerguntaToView() {
 
+        onBackPressed();
         pergunta = jogo.getNextPergunta();
         if (pergunta != null) {
             txtPergunta.setText(pergunta.getPergunta_name());
@@ -157,8 +168,12 @@ public class Jogo extends AppCompatActivity implements View.OnClickListener {
             n.vibrate = new long[]{150, 300, 150, 300};
             nm.notify(R.drawable.logo, n);
             finish();
+            SharedPreferences.Editor editor = getSharedPreferences("pontuacao", MODE_PRIVATE).edit();
+            editor.putInt("pontuacao", pontuacao);
+
+            editor.apply();
+
             Intent intentFimJogo = new Intent(this, FimJogo.class);
-            intentFimJogo.putExtra("pontuacao", pontuacao);
             startActivity(intentFimJogo);
 
         }

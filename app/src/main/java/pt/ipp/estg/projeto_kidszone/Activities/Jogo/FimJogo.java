@@ -1,8 +1,10 @@
 package pt.ipp.estg.projeto_kidszone.Activities.Jogo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -24,29 +26,113 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fim_jogo);
 
-        Intent intentFimJogo = getIntent();
-        Integer pontuacao = intentFimJogo.getIntExtra("pontuacao", 0);
-
         txtPontuacao = (TextView) findViewById(R.id.txtPontuacao);
-        Button btnPontuacao = (Button) findViewById(R.id.btnPontuacao);
-        btnPontuacao.setOnClickListener(this);
+
 
         Button btnMenuPrincipal = (Button) findViewById(R.id.button_menuPrincipal);
         btnMenuPrincipal.setOnClickListener(this);
 
-        txtPontuacao.setText("A sua pontuacao é de: " + pontuacao);
-
         SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-        String nome = prefs.getString("username", null);
+        String nome = prefs.getString("username", "default");
+
+
+        SharedPreferences prefs_pont = getSharedPreferences("pontuacao", MODE_PRIVATE);
+        Integer pontuacao_nova = prefs_pont.getInt("pontuacao", 0);
+
+
+        SharedPreferences prefs_ultimapont = getSharedPreferences("ultima_pont", MODE_PRIVATE);
+        Integer ultima_pont = prefs_ultimapont.getInt("pontuacao", 0);
+
+
+        txtPontuacao.setText("A sua pontuacao é de: " + pontuacao_nova);
+
 
         myDb = new MyDbHelper(this);
         if (nome != null) {
-            Boolean res = myDb.inserirPontuacao(pontuacao, nome);
+            Boolean res = myDb.inserirPontuacao(pontuacao_nova, nome);
 
 
             if (res == true) {
-                Toast.makeText(this, "entrou com sucesso", Toast.LENGTH_SHORT).show();
 
+                if (pontuacao_nova > ultima_pont) {
+                    onPause();
+                    AlertDialog.Builder alertaPont = new AlertDialog.Builder(FimJogo.this);
+                    alertaPont.setTitle("Boaaaaa! ");
+                    alertaPont.setIcon(R.drawable.happy);
+                    alertaPont.setMessage("Conseguiste superar a tua última pontuação!");
+                    alertaPont.setCancelable(false);
+                    alertaPont.setNegativeButton("Fechar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            onResume();
+
+                        }
+                    });
+                    alertaPont.setPositiveButton("Voltar a jogar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            Intent intentJogar = new Intent(FimJogo.this, Jogo.class);
+                            startActivity(intentJogar);
+                        }
+                    });
+
+                    AlertDialog alertDialogo = alertaPont.create();
+                    alertDialogo.show();
+                } else if (pontuacao_nova < ultima_pont) {
+                    onPause();
+                    AlertDialog.Builder alertaPont = new AlertDialog.Builder(FimJogo.this);
+                    alertaPont.setTitle("Oh nãooooo! ");
+                    alertaPont.setIcon(R.drawable.sad);
+                    alertaPont.setMessage("não conseguiste superar a tua última pontuação!");
+                    alertaPont.setCancelable(false);
+
+                    alertaPont.setNegativeButton("Fechar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            onResume();
+
+                        }
+                    });
+
+                    alertaPont.setPositiveButton("Voltar a jogar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            Intent intentJogar = new Intent(FimJogo.this, Jogo.class);
+                            startActivity(intentJogar);
+                        }
+                    });
+
+                    AlertDialog alertDialogo = alertaPont.create();
+                    alertDialogo.show();
+                } else if (pontuacao_nova == ultima_pont) {
+                    onPause();
+                    AlertDialog.Builder alertaPont = new AlertDialog.Builder(FimJogo.this);
+                    alertaPont.setTitle("Que pontaria! ");
+                    alertaPont.setIcon(R.drawable.sad);
+                    alertaPont.setMessage("conseguiste fazer a mesma pontuação da última vez!");
+                    alertaPont.setCancelable(false);
+                    alertaPont.setNegativeButton("Fechar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            onResume();
+                        }
+                    });
+                    AlertDialog alertDialogo = alertaPont.create();
+                    alertDialogo.show();
+                    alertaPont.setPositiveButton("Voltar a jogar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            Intent intentJogar = new Intent(FimJogo.this, Jogo.class);
+                            startActivity(intentJogar);
+                        }
+                    });
+
+
+                }
             }
         }
 
@@ -59,11 +145,7 @@ public class FimJogo extends AppCompatActivity implements View.OnClickListener {
             Intent entrarMenu = new Intent(this, MainActivity.class);
             startActivity(entrarMenu);
 
-        } else if (v.getId() == R.id.btnPontuacao) {
-            Intent entrarPontuacao = new Intent(this, Pontuacoes.class);
-            startActivity(entrarPontuacao);
         }
-
     }
 }
 
