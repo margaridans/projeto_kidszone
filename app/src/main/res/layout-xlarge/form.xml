@@ -5,6 +5,8 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,39 +14,40 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="73dp"
+            android:layout_height="145dp"
             android:background="@color/colorPrimary">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="center"
                 android:text="@string/listaExplicacao"
-                android:textSize="14sp" />
+                android:textSize="30sp" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="115dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="90dp"
                 android:text="@string/local"
-                android:textSize="18sp" />
+                android:textSize="25sp" />
 
             <Spinner
                 android:id="@+id/locationSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:entries="@array/location_arrays"
                 android:prompt="@string/location_prompt" />
         </LinearLayout>
@@ -58,18 +61,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:layout_marginTop="60dp"
                 android:text="@string/categoria"
-                android:textSize="18sp" />
+                android:textSize="25sp" />
 
             <RadioGroup
                 android:id="@+id/categoryGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:checkedButton="@id/accomodationRadio"
                 android:orientation="vertical">
 
@@ -79,28 +82,28 @@
                     android:layout_height="wrap_content"
                     android:text="@string/accomodation"
                     android:textAlignment="textStart"
-                    android:textSize="18sp" />
+                    android:textSize="25sp" />
 
                 <RadioButton
                     android:id="@+id/attractionRadio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/attraction"
-                    android:textSize="18sp" />
+                    android:textSize="25sp" />
 
                 <RadioButton
                     android:id="@+id/poiRadio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/poi"
-                    android:textSize="18sp" />
+                    android:textSize="25sp" />
 
                 <RadioButton
                     android:id="@+id/restaurantRadio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/restaurant"
-                    android:textSize="18sp" />
+                    android:textSize="25sp" />
 
             </RadioGroup>
         </LinearLayout>
@@ -114,8 +117,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:text="@string/listar" />
 
 
